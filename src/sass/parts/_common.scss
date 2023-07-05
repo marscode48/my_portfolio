@@ -1,0 +1,75 @@
+@use "../globals" as *;
+/*--------------------------------
+ 全体
+---------------------------------*/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/*--------------------------------
+ 見出し
+---------------------------------*/
+.heading-primary {
+  position: relative;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--main-color);
+  margin-bottom: 70px;
+}
+
+/*--------------------------------
+ボタン
+---------------------------------*/
+.btn {
+  display: inline-block;
+  position: relative;
+  width: 230px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #000;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0;
+  transition: box-shadow 0.3s;
+  background-color: #000;
+}
+
+.btn:hover {
+  box-shadow: 0 0 18px 5px rgba(0, 255, 174, 0.6);
+}
+
+.btn--sm {
+  width: 164px;
+  font-size: 15px;
+  padding: 15px 0;
+}
+
+/*--------------------------------
+ レイアウト
+---------------------------------*/
+.container {
+  max-width: $contentMaxWidth;
+  margin: 0 auto;
+  padding: 0 50px;
+}
