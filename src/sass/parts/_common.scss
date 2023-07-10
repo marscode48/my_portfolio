@@ -7,7 +7,19 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+  @include f_around(14, false, false, false);
+  color: $cWhite;
+  background-color: $cBlack;
+
+  @include mq(lg) {
+    @include f_around(15, false, false, false);
+  }
 }
 
 img {
@@ -16,24 +28,41 @@ img {
 }
 
 a {
+  transition: opacity .3s;
   text-decoration: none;
+  color: $cWhite;
 }
 
 li {
   list-style: none;
 }
 
+.sp-only {
+  display: block;
+  
+  @include mq() {
+    display: none;
+  }
+}
+
+.pc-only {
+  display: none;
+  
+  @include mq() {
+    display: block;
+  }
+}
+
 /*--------------------------------
  見出し
 ---------------------------------*/
 .heading-primary {
-  position: relative;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.05em;
-  color: var(--main-color);
-  margin-bottom: 70px;
+  @include f_around(26, 700, 50, 26);
+  text-align: center;
+
+  @include mq() {
+    @include f_around(34, false, false, false);
+  }
 }
 
 /*--------------------------------
@@ -68,8 +97,40 @@ li {
 /*--------------------------------
  レイアウト
 ---------------------------------*/
+.wrapper {
+  padding-top: 60px;
+
+  @include mq() {
+    padding-top: 80px;
+  }
+}
+
+.section {
+  padding: 60px 0;
+
+  @include mq() {
+    padding: 90px 0;
+  }
+
+  &:nth-of-type(odd) {
+    background-color: $cBgGray;
+  }
+  
+  &__body {
+    margin-top: 20px;
+
+    @include mq() {
+      margin-top: 40px;
+    }
+  }
+}
+
 .container {
   max-width: $contentMaxWidth;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 0 20px;
+
+  @include mq() {
+    padding: 0 40px;
+  }
 }
