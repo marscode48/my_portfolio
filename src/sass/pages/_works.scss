@@ -1,0 +1,84 @@
+@use "../globals" as *;
+@use "../parts/common" as *;
+
+
+/*--------------------------------
+下層：Worksページ
+---------------------------------*/
+.article {
+  padding: 50px 0;
+
+  @include mq() {
+    padding: 80px 0;
+  }
+
+  &__heading {
+    // margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__body {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &__img {
+    margin-top: 30px;
+  }
+
+  &__desc {    
+    @include f_around(14, false, false, 23.8);
+    margin-top: 20px;
+    
+    @include mq() {
+      @include f_around(15, false, false, 27);
+      margin-top: 30px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    @include f_around(16, false, false, false);
+    padding-left: 0.8em;
+    margin-top: 30px;
+
+    @include mq() {
+      @include f_around(18, false, false, false);
+      padding-left: 1em;
+      margin-top: 50px;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      content: "";
+      border-radius: 3px;
+      background-color: $cWhite;
+    }
+  }
+
+  &__text {
+    @include f_around(14, false, false, 23.8);
+    margin-top: 5px;
+
+    @include mq() {
+      @include f_around(15, false, false, 27);
+    }
+  }
+
+  &__text + &__text {
+    margin-top: 20px;
+
+    @include mq() {
+      margin-top: 30px;
+    }
+  }
+
+  &__home-link {
+    margin-top: 80px;
+    text-align: center;
+  }
+}

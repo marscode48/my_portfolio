@@ -7,16 +7,7 @@ html {
 }
 
 body {
-  font-family: 
-    "Poppins",
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    Meiryo,
-    sans-serif;
-
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   font-size: 1.4rem;
   color: #fff;
   background-color: #000;
@@ -478,5 +469,85 @@ Contact
   font-size: 10px;
   text-align: center;
   color: #fff;
+}
+
+/*--------------------------------
+下層：Worksページ
+---------------------------------*/
+.article {
+  padding: 50px 0;
+}
+@media screen and (min-width: 960px) {
+  .article {
+    padding: 80px 0;
+  }
+}
+.article__heading {
+  text-align: center;
+}
+.article__body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.article__img {
+  margin-top: 30px;
+}
+.article__desc {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+@media screen and (min-width: 960px) {
+  .article__desc {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-top: 30px;
+  }
+}
+.article__title {
+  position: relative;
+  font-size: 1.6rem;
+  padding-left: 0.8em;
+  margin-top: 30px;
+}
+@media screen and (min-width: 960px) {
+  .article__title {
+    font-size: 1.8rem;
+    padding-left: 1em;
+    margin-top: 50px;
+  }
+}
+.article__title::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  content: "";
+  border-radius: 3px;
+  background-color: #fff;
+}
+.article__text {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  margin-top: 5px;
+}
+@media screen and (min-width: 960px) {
+  .article__text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+  }
+}
+.article__text + .article__text {
+  margin-top: 20px;
+}
+@media screen and (min-width: 960px) {
+  .article__text + .article__text {
+    margin-top: 30px;
+  }
+}
+.article__home-link {
+  margin-top: 80px;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
