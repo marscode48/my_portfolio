@@ -1,9 +1,10 @@
 class MenuOpen {
   constructor() {
     this.DOM = {};
+    this.DOM.header = document.querySelector('.header');
+    this.DOM.navi = document.querySelector('#js-mobile-menu');
     this.DOM.btn = document.querySelector('#js-btn-menu');
     this.DOM.mask = document.querySelector('#js-mask');
-    this.DOM.wrapper = document.querySelector('.wrapper');
     this.eventType = this._getEventType();
     this._addEvent();
   }
@@ -18,11 +19,12 @@ class MenuOpen {
   }
 
   _toggle() {
-    this.DOM.wrapper.classList.toggle('menu-open');
+    this.DOM.header.classList.toggle('menu-open');
   }
 
   _addEvent() {
     this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
     this.DOM.mask.addEventListener(this.eventType, this._toggle.bind(this));
+    this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this));
   }
 }

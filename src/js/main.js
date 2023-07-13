@@ -10,7 +10,7 @@ class Main {
 
   _init() {
     new MenuOpen();
-    this._scrollInit();
+    // this._scrollInit();
   }
 
   _navAnimation(el, inview) {

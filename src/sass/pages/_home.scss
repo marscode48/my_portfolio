@@ -1,7 +1,6 @@
 @use "../globals" as *;
 @use "../parts/common" as *;
 
-
 /*--------------------------------
 ヘッダー
 ---------------------------------*/
@@ -33,6 +32,11 @@
 }
 
 .gnav {
+  display: none;
+
+  @include mq() {
+    display: block;
+  }
 
   &__list {
     display: flex;
@@ -42,33 +46,25 @@
 
   &__link {
     position: relative;
-    @include f_around(10, 700, 50, 13);
+    @include f_around(13, 700, 50, 13);
     display: inline-block;
     padding: 5px 0;
     transition: all 0.3s;
 
-    @include mq() {
-      @include f_around(13, 700, 50, 13);
-    }
-
     &::after {
-      @include mq() {
-        position: absolute;
-        content: "";
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 3px;
-        transform: translateX(-50%);
-        transition: all 0.3s;
-        background-color: $cWhite;  
-      }
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      transform: translateX(-50%);
+      transition: all 0.3s;
+      background-color: $cWhite;  
     }
 
     &:hover::after {
-      @include mq() {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 }

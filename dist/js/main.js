@@ -19,7 +19,7 @@ var Main = /*#__PURE__*/function () {
     key: "_init",
     value: function _init() {
       new MenuOpen();
-      this._scrollInit();
+      // this._scrollInit();
     }
   }, {
     key: "_navAnimation",

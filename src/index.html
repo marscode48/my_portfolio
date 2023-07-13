@@ -33,12 +33,33 @@
         <div class="header__nav">
           <nav class="gnav">
             <ul class="gnav__list">
-              <li class="gnav__item"><a class="gnav__link" href="#">WORKS</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="works.html">WORKS</a></li>
               <li class="gnav__item"><a class="gnav__link" href="#">SKILL</a></li>
               <li class="gnav__item"><a class="gnav__link" href="#">ABOUT</a></li>
               <li class="gnav__item"><a class="gnav__link" href="#">CONTACT</a></li>
             </ul>
           </nav>
+
+          <!-- mobile -->
+          <nav class="mobile-menu" id="js-mobile-menu">
+            <div class="logo">
+              <a href="index.html"><img src="images/logo.svg" alt=""></a>
+            </div>
+          
+            <ul class="mobile-menu__list">
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="works.html">WORKS</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">SKILL</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">ABOUT</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">CONTACT</a></li>
+            </ul>
+          </nav>
+
+          <button type="button" id="js-btn-menu" class="mobile-menu__btn">
+            <span class="mobile-menu__line"></span>
+          </button>
+          
+          <div id="js-mask" class="mobile-menu__mask"></div>
+          <!-- /mobile -->
         </div>
       </header>
       <!-- /header -->
@@ -223,9 +244,9 @@
       <!-- /footer -->
 
     </div>
-    <!-- <script src="js/vendors/scroll-polyfill.js"></script>
+    <!-- <script src="js/vendors/scroll-polyfill.js"></script> -->
     <script src="js/libs/menu-open.js"></script>
-    <script src="js/libs/scroll-observer.js"></script>
-    <script src="js/main.js"></script> -->
+    <!-- <script src="js/libs/scroll-observer.js"></script> -->
+    <script src="js/main.js"></script>
   </body>
 </html>

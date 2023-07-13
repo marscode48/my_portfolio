@@ -173,6 +173,14 @@ li {
   }
 }
 
+.gnav {
+  display: none;
+}
+@media screen and (min-width: 960px) {
+  .gnav {
+    display: block;
+  }
+}
 .gnav__list {
   display: flex;
   justify-content: space-between;
@@ -181,39 +189,27 @@ li {
 }
 .gnav__link {
   position: relative;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  line-height: 1.3;
+  line-height: 1;
   display: inline-block;
   padding: 5px 0;
   transition: all 0.3s;
 }
-@media screen and (min-width: 960px) {
-  .gnav__link {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    line-height: 1;
-  }
+.gnav__link::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  background-color: #fff;
 }
-@media screen and (min-width: 960px) {
-  .gnav__link::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    transform: translateX(-50%);
-    transition: all 0.3s;
-    background-color: #fff;
-  }
-}
-@media screen and (min-width: 960px) {
-  .gnav__link:hover::after {
-    width: 100%;
-  }
+.gnav__link:hover::after {
+  width: 100%;
 }
 
 /*--------------------------------
@@ -549,5 +545,149 @@ Contact
 .article__home-link {
   margin-top: 80px;
   text-align: center;
+}
+
+/*--------------------------------
+モバイルメニュー
+---------------------------------*/
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -180px;
+  z-index: 20;
+  width: 180px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -10px 0 35px -20px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+@media screen and (min-width: 960px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+.mobile-menu .logo {
+  width: 130px;
+}
+.mobile-menu__btn {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 21px 16px;
+  border: none;
+  outline: none;
+  background: none;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+@media screen and (min-width: 960px) {
+  .mobile-menu__btn {
+    display: none;
+  }
+}
+.mobile-menu__line {
+  display: block;
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: all 0.4s;
+  border-radius: 4px;
+  background-color: #000;
+}
+.mobile-menu__line::before, .mobile-menu__line::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: inherit;
+  border-radius: 4px;
+  background-color: #000;
+}
+.mobile-menu__line::before {
+  top: -8px;
+}
+.mobile-menu__line::after {
+  top: 8px;
+}
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 180px;
+  padding: 90px 20px 20px 50px;
+  row-gap: 25px;
+}
+.mobile-menu__item {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.mobile-menu__link {
+  text-decoration: none;
+  color: #000;
+}
+.mobile-menu__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s;
+}
+@media screen and (min-width: 960px) {
+  .mobile-menu__mask {
+    display: none;
+  }
+}
+
+.menu-open .mobile-menu {
+  transform: translateX(-180px);
+  opacity: 1;
+  visibility: visible;
+}
+.menu-open .mobile-menu__line {
+  background-color: transparent;
+}
+.menu-open .mobile-menu__line::before, .menu-open .mobile-menu__line::after {
+  top: 0;
+  background-color: #000;
+}
+.menu-open .mobile-menu__line::before {
+  transform: rotate(45deg);
+}
+.menu-open .mobile-menu__line::after {
+  transform: rotate(-45deg);
+}
+.menu-open .mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 180px;
+  padding: 90px 20px 20px 50px;
+  row-gap: 25px;
+}
+.menu-open .mobile-menu__mask {
+  width: calc(100% - 180px);
+  height: 100vh;
+  background: #000;
+  opacity: 0.3;
+  z-index: 10;
+  cursor: pointer;
+  visibility: visible;
 }
 /*# sourceMappingURL=style.css.map */
