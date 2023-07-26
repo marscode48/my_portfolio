@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/vendors/ress.min.css" />
+    <link rel="stylesheet" href="css/vendors/swiper.min.css" />
     <link rel="stylesheet" href="css/style.css " />
     <link rel="icon" href="favicon.ico" />
     <link rel=”canonical” href=”URLが入る” />
@@ -31,38 +32,35 @@
           <a href=".">Masakazu Adachi</a>
         </h1>
         <div class="header__nav">
-          <div class="header__nav">
-            <nav class="gnav">
-              <ul class="gnav__list">
-                <li class="gnav__item"><a class="gnav__link" href="works.html">WORKS</a></li>
-                <li class="gnav__item"><a class="gnav__link" href="#">SKILL</a></li>
-                <li class="gnav__item"><a class="gnav__link" href="#">ABOUT</a></li>
-                <li class="gnav__item"><a class="gnav__link" href="#">CONTACT</a></li>
-              </ul>
-            </nav>
-  
+          <nav class="gnav">
+            <ul class="gnav__list">
+              <li class="gnav__item"><a class="gnav__link" href="works.html">WORKS</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#">SKILL</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#">ABOUT</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#">CONTACT</a></li>
+            </ul>
+          </nav>
 
-            <!-- mobile -->
-            <nav class="mobile-menu" id="js-mobile-menu">
-              <div class="logo">
-                <a href="index.html"><img src="images/logo.svg" alt=""></a>
-              </div>
-            
-              <ul class="mobile-menu__list">
-                <li class="mobile-menu__item"><a class="mobile-menu__link" href="works.html">WORKS</a></li>
-                <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">SKILL</a></li>
-                <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">ABOUT</a></li>
-                <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">CONTACT</a></li>
-              </ul>
-            </nav>
+          <!-- mobile -->
+          <nav class="mobile-menu" id="js-mobile-menu">
+            <div class="logo">
+              <a href="index.html"><img src="images/logo.svg" alt=""></a>
+            </div>
+          
+            <ul class="mobile-menu__list">
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="works.html">WORKS</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">SKILL</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">ABOUT</a></li>
+              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">CONTACT</a></li>
+            </ul>
+          </nav>
 
-            <button type="button" id="js-btn-menu" class="mobile-menu__btn">
-              <span class="mobile-menu__line"></span>
-            </button>
-            
-            <div id="js-mask" class="mobile-menu__mask"></div>
-            <!-- /mobile -->
-          </div>  
+          <button type="button" id="js-btn-menu" class="mobile-menu__btn">
+            <span class="mobile-menu__line"></span>
+          </button>
+          
+          <div id="js-mask" class="mobile-menu__mask"></div>
+          <!-- /mobile -->
         </div>
       </header>
       <!-- /header -->
@@ -70,45 +68,49 @@
       <!-- content -->
       <main class="content">
 
-        <!-- article -->
-        <article class="article">
+        <!-- works -->
+        <section id="works" class="works-page section">
           <div class="container">
-            <h2 class="article__heading">DesignXYZ様</h2>
-            <div class="article__body">
-              <div class="article__img-wrapper">
-                <img class="article__img" src="images/works-sample.jpg" alt="ワークス画像">
-              </div>
-              <p class="article__desc">
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります（作品について一言）
-              </p>
-              <h3 class="article__title">URL</h3>
-              <p class="article__text">
-                <a class="article__link" href="https://yahoo.co.jp" target="_blank" rel="noopener">https://yahoo.co.jp</a>
-              </p>
-              <h3 class="article__title">担当</h3>
-              <p class="article__text">デザイン・コーディング</p>
-              <h3 class="article__title">サイトの目的</h3>
-              <p class="article__text">サービスの認知と新規クライアントの獲得</p>
-              <h3 class="article__title">ターゲット</h3>
-              <p class="article__text">テキストが入りますテキストが入ります</p>
-              <h3 class="article__title">デザインについて</h3>
-              <p class="article__text">
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。<br>テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-              </p>
-              <p class="article__text">
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります
-              </p>
-              <h3 class="article__title">コーディングについて</h3>
-              <p class="article__text">
-                テキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入りますテキストが入ります。
-              </p>
+            <div class="section__heading">
+              <h2 class="heading-primary">WORKS</h2>
             </div>
-            <div class="article__home-link">
-              <a href="./#works">Works一覧へ</a>
+            <div class="section__body">
+              <div class="works-page__list">
+                <a class="works-page__item" href="article-01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+                <a class="works-page__item" href="article-01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+                <a class="works-page__item" href="article-01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+                <a class="works-page__item" href="article-01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+                <a class="works-page__item" href="article-01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+                <a class="works-page__item" href="article01.html">
+                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
+                  <p class="works-page__name">作品名が入る</p>
+                  <p class="works-page__info">Design / Coding(Responsive)</p>
+                </a>    
+              </div>
             </div>
           </div>
-        </article>
-        <!-- /article -->
+        </section>
+        <!-- /works -->
         
         <div class="page-top" id="js-page-top">
           <span class="material-icons-outlined">expand_less</span>
@@ -122,9 +124,14 @@
       <!-- /footer -->
 
     </div>
-    <!-- <script src="js/vendors/scroll-polyfill.js"></script> -->
+    
+    <script src="js/vendors/swiper-bundle.min.js"></script>
+    <script src="js/vendors/scroll-polyfill.js"></script>
     <script src="js/libs/menu-open.js"></script>
-    <!-- <script src="js/libs/scroll-observer.js"></script> -->
+    <script src="js/libs/slider-swiper.js"></script>
+    <script src="js/libs/smooth-scroll.js"></script>
+    <script src="js/libs/scroll-observer.js"></script>
     <script src="js/main.js"></script>
+
   </body>
 </html>

@@ -14,8 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/vendors/ress.min.css" />
+    <link rel="stylesheet" href="css/vendors/swiper.min.css" />
     <link rel="stylesheet" href="css/style.css " />
     <link rel="icon" href="favicon.ico" />
     <link rel=”canonical” href=”URLが入る” />
@@ -75,6 +76,9 @@
             </p>
           </div>
         </div>
+        <div class="mv__footer">
+          <span class="mv__scrolltext">scroll</span>
+        </div>
       </div>
       <!-- /mv -->
 
@@ -84,41 +88,81 @@
         <!-- works -->
         <section id="works" class="works section">
           <div class="container">
-            <div class="section__heading">
-              <h2 class="heading-primary">WORKS</h2>
-            </div>
-            <div class="section__body">
-              <div class="works__list">
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works__item" href="works.html">
-                  <div class="works__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works__name">作品名が入る</p>
-                  <p class="works__info">Design / Coding(Responsive)</p>
-                </a>    
+            <div class="works__inner">
+              <div class="works__img-wrapper">
+                <!-- swiper -->
+                <div class="js-works-hero swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__media slide__img-wrapper"><img class="slide__img" src="images/works-image1.jpg" alt="worksスライド一覧"></div>
+                        <h2 class="slide__title">WordPress</h2>
+                        <p class="slide__text">コードの保守性を保ったコーディング<br class="sp-only">カスタム機能</p>
+                        <p class="slide__link"><a href="works.html" class="slide__button">VIEW MORE</a></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__media slide__img-wrapper"><img class="slide__img" src="images/works-image2.jpg" alt="worksスライド一覧"></div>
+                        <h2 class="slide__title">JavaScript</h2>
+                        <p class="slide__text">コードの保守性を保ったコーディング<br class="sp-only">カスタム機能</p>
+                        <p class="slide__link"><a href="works.html" class="slide__button">VIEW MORE</a></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__media slide__img-wrapper"><img class="slide__img" src="images/works-image3.jpg" alt="worksスライド一覧"></div>
+                        <h2 class="slide__title">React.js</h2>
+                        <p class="slide__text">コードの保守性を保ったコーディング<br class="sp-only">カスタム機能</p>
+                        <p class="slide__link"><a href="works.html" class="slide__button">VIEW MORE</a></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__media slide__img-wrapper"><img class="slide__img" src="images/works-image4.jpg" alt="worksスライド一覧"></div>
+                        <h2 class="slide__title">three.js</h2>
+                        <p class="slide__text">コードの保守性を保ったコーディング<br class="sp-only">カスタム機能</p>
+                        <p class="slide__link"><a href="works.html" class="slide__button">VIEW MORE</a></p>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__media slide__img-wrapper"><img class="slide__img" src="images/works-image5.jpg" alt="worksスライド一覧"></div>
+                        <h2 class="slide__title">CSSアニメーション</h2>
+                        <p class="slide__text">コードの保守性を保ったコーディング<br class="sp-only">カスタム機能</p>
+                        <p class="slide__link"><a href="works.html" class="slide__button">VIEW MORE</a></p>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="fraction">
+                    <span class="fraction__current">
+                      <span class="fraction__num"></span>
+                    </span>
+                    <span class="fraction__total"></span>
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+                                
+                </div>      
+                <!-- /swiper -->                
+              </div>
+  
+              <div class="works__desc">
+                <div class="section__heading">
+                  <h2 class="heading-primary">WORKS</h2>
+                </div>
+                <div class="section__body">
+                  <div class="works__text">
+                    <p>あらゆるジャンルのホームページの制作が可能です。</p>
+                    <p>Web制作・WordPressはお任せください！</p>
+                  </div>
+                </div>
+                <div class="works__link">
+                  <a href="works.html" class="works__btn btn">more
+                    <span class="material-icons">arrow_right</span>
+                  </a>
+                  </div>
               </div>
             </div>
           </div>
@@ -233,7 +277,7 @@
         <!-- /contact -->
         
         <div class="page-top" id="js-page-top">
-          <span class="material-icons-outlined">expand_less</span>
+          <span class="material-icons">expand_less</span>
         </div>
       </main>
 
@@ -244,9 +288,14 @@
       <!-- /footer -->
 
     </div>
-    <!-- <script src="js/vendors/scroll-polyfill.js"></script> -->
+    
+    <script src="js/vendors/swiper-bundle.min.js"></script>
+    <script src="js/vendors/scroll-polyfill.js"></script>
     <script src="js/libs/menu-open.js"></script>
-    <!-- <script src="js/libs/scroll-observer.js"></script> -->
+    <script src="js/libs/slider-swiper.js"></script>
+    <script src="js/libs/smooth-scroll.js"></script>
+    <script src="js/libs/scroll-observer.js"></script>
     <script src="js/main.js"></script>
+
   </body>
 </html>

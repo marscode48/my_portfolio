@@ -68,30 +68,57 @@ li {
 /*--------------------------------
 ボタン
 ---------------------------------*/
+
 .btn {
-  display: inline-block;
   position: relative;
-  width: 230px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: 0.05em;
-  color: #000;
+  display: inline-block;
+  width: 160px;
+  @include f_around(14, 700, 10, 14);
+  padding: 18px 0;
+  transition: all 0.4s ease-in-out;
   text-align: center;
-  margin: 0 auto;
-  padding: 20px 0;
-  transition: box-shadow 0.3s;
-  background-color: #000;
-}
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $cWhite;
+  border-radius: 50px;
+  background-size: 300% 100%;
+  background-image: linear-gradient(
+    to right,
+    #6253e1,
+    #852d91,
+    #a3a1ff,
+    #f24645
+    );
+  box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 
-.btn:hover {
-  box-shadow: 0 0 18px 5px rgba(0, 255, 174, 0.6);
-}
+  @include mq() {
+    width: 220px;
+  }
+    
+  & .material-icons {
+    position: absolute;
+    font-size: 2.4rem;
+    top: 50%;
+    right: 3.5rem;
+    transition: 0.3s;
+    transform: translateY(-50%);
 
-.btn--sm {
-  width: 164px;
-  font-size: 15px;
-  padding: 15px 0;
+    @include mq() {
+      right: 6rem;
+    }
+  }
+
+  &:hover {
+    @include mq() {
+      text-decoration: none;
+      transition: all 0.4s ease-in-out;
+      background-position: 100% 0;
+
+      & .material-icons {
+        right: 5rem;
+      }
+    }
+  }
 }
 
 /*--------------------------------
@@ -112,9 +139,9 @@ li {
     padding: 90px 0;
   }
 
-  &:nth-of-type(odd) {
-    background-color: $cBgGray;
-  }
+  // &:nth-of-type(odd) {
+  //   background-color: $cBgGray;
+  // }
   
   &__body {
     margin-top: 20px;

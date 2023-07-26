@@ -1,0 +1,247 @@
+@use "../globals" as *;
+
+/*--------------------------------
+ワークスヒーロー
+---------------------------------*/
+.works {
+
+  /* フェードモード時の共通調整 */  
+  & .swiper-fade .swiper-slide {
+    transition-property: opacity, transform !important;
+    pointer-events: none;
+  }
+
+  & .swiper-fade .swiper-slide-active {
+    pointer-events: auto;
+  }
+  /* /フェードモード時の共通調整 */
+
+  & .slide {
+    display: grid;
+    place-content: center;
+    row-gap: 20px;
+    height: 40vh;
+    text-align: center;
+
+    @include mq() {
+      height: 500px;
+      padding: 0 8rem;
+      row-gap: 40px;
+    }
+
+    &__img-wrapper {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.35);
+      }
+    }
+  
+    &__img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      transition: 5s linear;
+      transform: translateX(-0.5%) scale(1.1);
+    }
+
+    &__title, &__text, &__link {
+      opacity: 0;
+    }
+
+    &__title {
+      @include f_around(28, false, 50, 28);
+
+      @include mq() {
+        @include f_around(60, false, false, false);
+      }
+    }
+
+    &__text {
+      @include f_around(12, false, false, 15.6);
+
+      @include mq() {
+        @include f_around(18, false, false, false);
+      }
+    }
+
+    &__button {
+      @include f_around(12, 700, false, false);
+      display: block;
+      color: $cWorksBtn;
+
+      &::before {
+        display: inline-block;
+        width: 6rem;
+        height: 1px;
+        margin: -2px 1.6rem 0 0;
+        content: "";
+        vertical-align: middle;
+        background-color: currentColor;
+      }
+    }  
+  }
+
+  & .fraction {
+    position: absolute;
+    z-index: 2;
+    bottom: 5%;
+    right: 5%;
+    height: max-content;
+    font-weight: bold;
+    color: $cWhite;
+    display: flex;
+    align-items: flex-end;
+
+    &__current {
+      @include f_around(18, false, false,18);
+      display: inline-block;
+      overflow: hidden;
+      width: 2.5rem;
+    }
+
+    &__num {
+      display: block;
+    }
+
+    &__total {
+      @include f_around(12, false, false, 12);
+      vertical-align: baseline;
+
+      &::before {
+        content: " / ";
+      }
+    }
+  }
+
+  & .swiper-slide[class*=-active] {
+
+    & .slide__img {
+      transition-delay: 0s;
+      transform: translateX(1.5%) scale(1);
+    }
+  }
+
+  /* .anm-startedクラス付与 */
+  & .swiper-slide.anm-started .slide__title,
+  & .swiper-slide.anm-started .slide__text,
+  & .swiper-slide.anm-started .slide__link {
+    animation: works-hero-fadeIn 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  & .swiper-slide.anm-started .slide__text {
+    animation-delay: 0.2s;
+  }
+
+  & .swiper-slide.anm-started .slide__link {
+    animation-delay: 0.4s;
+  }
+
+  & .swiper-slide.anm-finished .slide__title,
+  & .swiper-slide.anm-finished .slide__text,
+  & .swiper-slide.anm-finished .slide__link {
+    animation: works-hero-fadeOut 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
+  & .swiper-slide.anm-finished .slide__text {
+    animation-delay: 0.2s;
+  }
+
+  & .swiper-slide.anm-finished .slide__link {
+    animation-delay: 0.4s;
+  }
+
+  & .fraction__num.anm-started {
+    animation: works-hero-fraction 1s cubic-bezier(.2, 1, .2, 1);
+  }
+  /* /.anm-startedクラス付与 */
+
+  & .swiper-pagination {
+    position: absolute;
+    z-index: 2;
+    bottom: 5%;
+    left: 5%;
+    height: max-content;
+  
+    &-bullet {
+      display: block;
+      width: 1.6rem;
+      height: 2px;
+      cursor: pointer;
+      transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+      background-color: rgb(255 255 255 / 0.3);
+  
+      &:not(:first-child) {
+        margin-top: 0.8rem;
+      }
+      
+      &-active {
+        width: 2.8rem;
+        background-color: rgb(255 255 255);
+
+        @include mq() {
+          width: 5rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes works-hero-fadeIn {
+  0% {
+    letter-spacing: -0.5em;
+    transform: translateZ(-700px) translateY(500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes works-hero-fadeOut {
+  0% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    transform: translateZ(-500px) translateY(-300px);
+    opacity: 0;
+  }
+}
+
+@keyframes works-hero-fraction {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-110%);
+    opacity: 1;
+  }
+  50.1% {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+}
+

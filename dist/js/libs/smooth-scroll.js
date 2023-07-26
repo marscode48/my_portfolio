@@ -6,42 +6,34 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-var MenuOpen = /*#__PURE__*/function () {
-  function MenuOpen() {
-    _classCallCheck(this, MenuOpen);
+var SmoothScroll = /*#__PURE__*/function () {
+  function SmoothScroll(gap) {
+    _classCallCheck(this, SmoothScroll);
     this.DOM = {};
-    this.DOM.header = document.querySelector('.header');
-    this.DOM.navi = document.querySelector('#js-mobile-menu');
-    this.DOM.btn = document.querySelector('#js-btn-menu');
-    this.DOM.mask = document.querySelector('#js-mask');
-    this.eventType = this._getEventType();
-    this._addEvent();
+    this.gap = gap;
+    this.DOM.links = document.querySelectorAll('a[href^="#"]');
+    this._smoothScroll();
   }
-  _createClass(MenuOpen, [{
-    key: "_getEventType",
-    value: function _getEventType() {
-      var isTouchCapable = 'ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch || navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0;
-      return isTouchCapable ? 'touchstart' : 'click';
-    }
-  }, {
-    key: "_toggle",
-    value: function _toggle() {
-      this.DOM.header.classList.toggle('menu-open');
-    }
-  }, {
-    key: "_addEvent",
-    value: function _addEvent() {
-      this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this), {
-        passive: true
-      });
-      this.DOM.mask.addEventListener(this.eventType, this._toggle.bind(this), {
-        passive: true
-      });
-      this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this), {
-        passive: true
+  _createClass(SmoothScroll, [{
+    key: "_smoothScroll",
+    value: function _smoothScroll() {
+      var _this = this;
+      this.DOM.links.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          var hrefLink = link.getAttribute('href');
+          var targetContent = document.getElementById(hrefLink.replace('#', ''));
+          var rectTop = targetContent.getBoundingClientRect().top;
+          var positionY = window.pageYOffset;
+          var target = rectTop + positionY + _this.gap;
+          window.scrollTo({
+            top: target,
+            behavior: 'smooth'
+          });
+        });
       });
     }
   }]);
-  return MenuOpen;
+  return SmoothScroll;
 }();
-//# sourceMappingURL=menu-open.js.map
+//# sourceMappingURL=smooth-scroll.js.map

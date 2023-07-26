@@ -23,8 +23,8 @@ class MenuOpen {
   }
 
   _addEvent() {
-    this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this));
-    this.DOM.mask.addEventListener(this.eventType, this._toggle.bind(this));
-    this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this));
+    this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
+    this.DOM.mask.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
+    this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
   }
 }

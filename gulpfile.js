@@ -90,7 +90,7 @@ function styles() {
 }
 
 function scripts() {
-  return src('./src/js/**/*.js')
+  return src(['./src/js/**/*.js', '!./src/js/vendors/*.js'])
     .pipe($.if(!isProd, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('./')))
@@ -108,13 +108,14 @@ function lint() {
 
 function extras() {
   return src([
-      './src/*.html',
-      './src/*.php',
-      './src/*.ico',
-      './src/*.png',
-      './src/css/**',
-      './src/video/**',
-      './src/audio/**',
+    './src/js/vendors/**',
+    './src/*.html',
+    './src/*.php',
+    './src/*.ico',
+    './src/*.png',
+    './src/css/**',
+    './src/video/**',
+    './src/audio/**',
   ], {
     base: 'src'
   }).pipe(dest('./dist'));
