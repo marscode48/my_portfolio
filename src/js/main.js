@@ -14,17 +14,18 @@ class Main {
     this.#scrollInit();
   }
 
-  #navAnimation(el, inview) {
-    if (inview) {
-      this.header.classList.remove('triggered');
-    } else {
-      this.header.classList.add('triggered');
-    }
-  }
-
   #scrollInit() {
     new ScrollObserver('#js-nav-trigger', this.#navAnimation.bind(this), { rootMargin: '100px', once: false });
     new ScrollObserver('.js-works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
+    new ScrollObserver('.appear', this.#inviewAnimation);
+    new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-100px 0px' });
+  }
+
+  #textAnimation(el, inview) {
+    if (inview) {
+      const ta = new TweenTextAnimation(el);
+      ta.animate();
+    }
   }
 
   #toggleHeroAnimation(el, inview) {
@@ -34,6 +35,20 @@ class Main {
     } else {
       this.hero.stop();
       console.log('hero stop is called');
+    }
+  }
+
+  #navAnimation(el, inview) {
+    if (inview) {
+      this.header.classList.remove('triggered');
+    } else {
+      this.header.classList.add('triggered');
+    }
+  }
+
+  #inviewAnimation(el, inview) {
+    if (inview) {
+      el.classList.add('inview');
     }
   }
 }

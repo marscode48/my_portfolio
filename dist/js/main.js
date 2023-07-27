@@ -13,14 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
   var main = new Main();
 });
 var _init = /*#__PURE__*/new WeakSet();
-var _navAnimation = /*#__PURE__*/new WeakSet();
 var _scrollInit = /*#__PURE__*/new WeakSet();
+var _textAnimation = /*#__PURE__*/new WeakSet();
 var _toggleHeroAnimation = /*#__PURE__*/new WeakSet();
+var _navAnimation = /*#__PURE__*/new WeakSet();
+var _inviewAnimation = /*#__PURE__*/new WeakSet();
 var Main = /*#__PURE__*/_createClass(function Main() {
   _classCallCheck(this, Main);
-  _classPrivateMethodInitSpec(this, _toggleHeroAnimation);
-  _classPrivateMethodInitSpec(this, _scrollInit);
+  _classPrivateMethodInitSpec(this, _inviewAnimation);
   _classPrivateMethodInitSpec(this, _navAnimation);
+  _classPrivateMethodInitSpec(this, _toggleHeroAnimation);
+  _classPrivateMethodInitSpec(this, _textAnimation);
+  _classPrivateMethodInitSpec(this, _scrollInit);
   _classPrivateMethodInitSpec(this, _init);
   this.header = document.querySelector('.header');
   this.hero = new HeroSlider('.js-works-hero.swiper', '4000');
@@ -30,13 +34,6 @@ function _init2() {
   new MenuOpen();
   _classPrivateMethodGet(this, _scrollInit, _scrollInit2).call(this);
 }
-function _navAnimation2(el, inview) {
-  if (inview) {
-    this.header.classList.remove('triggered');
-  } else {
-    this.header.classList.add('triggered');
-  }
-}
 function _scrollInit2() {
   new ScrollObserver('#js-nav-trigger', _classPrivateMethodGet(this, _navAnimation, _navAnimation2).bind(this), {
     rootMargin: '100px',
@@ -45,6 +42,16 @@ function _scrollInit2() {
   new ScrollObserver('.js-works-hero', _classPrivateMethodGet(this, _toggleHeroAnimation, _toggleHeroAnimation2).bind(this), {
     once: false
   });
+  new ScrollObserver('.appear', _classPrivateMethodGet(this, _inviewAnimation, _inviewAnimation2));
+  new ScrollObserver('.tween-animate-title', _classPrivateMethodGet(this, _textAnimation, _textAnimation2), {
+    rootMargin: '-100px 0px'
+  });
+}
+function _textAnimation2(el, inview) {
+  if (inview) {
+    var ta = new TweenTextAnimation(el);
+    ta.animate();
+  }
 }
 function _toggleHeroAnimation2(el, inview) {
   if (inview) {
@@ -53,6 +60,18 @@ function _toggleHeroAnimation2(el, inview) {
   } else {
     this.hero.stop();
     console.log('hero stop is called');
+  }
+}
+function _navAnimation2(el, inview) {
+  if (inview) {
+    this.header.classList.remove('triggered');
+  } else {
+    this.header.classList.add('triggered');
+  }
+}
+function _inviewAnimation2(el, inview) {
+  if (inview) {
+    el.classList.add('inview');
   }
 }
 //# sourceMappingURL=main.js.map
