@@ -10,18 +10,21 @@ function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclarati
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 document.addEventListener('DOMContentLoaded', function () {
+  gsap.registerPlugin(ScrollTrigger);
   var main = new Main();
 });
 var _init = /*#__PURE__*/new WeakSet();
 var _scrollInit = /*#__PURE__*/new WeakSet();
 var _textAnimation = /*#__PURE__*/new WeakSet();
 var _toggleHeroAnimation = /*#__PURE__*/new WeakSet();
+var _skillAnimation = /*#__PURE__*/new WeakSet();
 var _navAnimation = /*#__PURE__*/new WeakSet();
 var _inviewAnimation = /*#__PURE__*/new WeakSet();
 var Main = /*#__PURE__*/_createClass(function Main() {
   _classCallCheck(this, Main);
   _classPrivateMethodInitSpec(this, _inviewAnimation);
   _classPrivateMethodInitSpec(this, _navAnimation);
+  _classPrivateMethodInitSpec(this, _skillAnimation);
   _classPrivateMethodInitSpec(this, _toggleHeroAnimation);
   _classPrivateMethodInitSpec(this, _textAnimation);
   _classPrivateMethodInitSpec(this, _scrollInit);
@@ -46,6 +49,7 @@ function _scrollInit2() {
   new ScrollObserver('.tween-animate-title', _classPrivateMethodGet(this, _textAnimation, _textAnimation2), {
     rootMargin: '-100px 0px'
   });
+  new ScrollObserver('.skill', _classPrivateMethodGet(this, _skillAnimation, _skillAnimation2));
 }
 function _textAnimation2(el, inview) {
   if (inview) {
@@ -60,6 +64,12 @@ function _toggleHeroAnimation2(el, inview) {
   } else {
     this.hero.stop();
     console.log('hero stop is called');
+  }
+}
+function _skillAnimation2(el, inview) {
+  if (inview) {
+    var sa = new SkillAnimation();
+    sa.animate();
   }
 }
 function _navAnimation2(el, inview) {

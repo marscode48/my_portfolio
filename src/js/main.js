@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
   const main = new Main();
 });
 
@@ -19,6 +20,7 @@ class Main {
     new ScrollObserver('.js-works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-100px 0px' });
+    new ScrollObserver('.skill', this.#skillAnimation);
   }
 
   #textAnimation(el, inview) {
@@ -35,6 +37,13 @@ class Main {
     } else {
       this.hero.stop();
       console.log('hero stop is called');
+    }
+  }
+
+  #skillAnimation(el, inview) {
+    if (inview) {
+      const sa = new SkillAnimation();
+      sa.animate();
     }
   }
 

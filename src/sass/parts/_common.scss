@@ -144,10 +144,10 @@ li {
   // }
   
   &__body {
-    margin-top: 20px;
+    margin-top: 40px;
 
     @include mq() {
-      margin-top: 40px;
+      margin-top: 80px;
     }
   }
 }
