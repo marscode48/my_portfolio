@@ -21,6 +21,7 @@ class Main {
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-100px 0px' });
     new ScrollObserver('.skill', this.#skillAnimation);
+    new ScrollObserver('.about', this.#aboutAnimation);
   }
 
   #textAnimation(el, inview) {
@@ -44,6 +45,13 @@ class Main {
     if (inview) {
       const sa = new SkillAnimation();
       sa.animate();
+    }
+  }
+
+  #aboutAnimation(el, inview) {
+    if (inview) {
+      const aa = new AboutAnimation(el);
+      aa.animate();
     }
   }
 
