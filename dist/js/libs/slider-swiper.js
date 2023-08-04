@@ -31,7 +31,6 @@ var HeroSlider = /*#__PURE__*/function () {
       // スライド番号の切り替え
       var updateFraction = function updateFraction(index) {
         var current = "00".concat(index + 1).slice(-2);
-        console.log(fractionNum);
         fractionNum.classList.add('anm-started');
         setTimeout(function () {
           fractionNum.textContent = current;

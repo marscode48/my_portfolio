@@ -43,15 +43,13 @@ class Main {
 
   #skillAnimation(el, inview) {
     if (inview) {
-      const sa = new SkillAnimation();
-      sa.animate();
+      new SkillAnimation();
     }
   }
 
   #aboutAnimation(el, inview) {
     if (inview) {
-      const aa = new AboutAnimation(el);
-      aa.animate();
+      new AboutAnimation(el);
     }
   }
 

@@ -11,7 +11,6 @@ var AboutAnimation = /*#__PURE__*/function () {
     _classCallCheck(this, AboutAnimation);
     this.DOM = {};
     this.DOM.el = el;
-    console.log(this.DOM.el);
     this.animate();
   }
   _createClass(AboutAnimation, [{

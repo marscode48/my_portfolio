@@ -71,14 +71,12 @@ function _toggleHeroAnimation2(el, inview) {
 }
 function _skillAnimation2(el, inview) {
   if (inview) {
-    var sa = new SkillAnimation();
-    sa.animate();
+    new SkillAnimation();
   }
 }
 function _aboutAnimation2(el, inview) {
   if (inview) {
-    var aa = new AboutAnimation(el);
-    aa.animate();
+    new AboutAnimation(el);
   }
 }
 function _navAnimation2(el, inview) {
