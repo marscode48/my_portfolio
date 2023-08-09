@@ -19,12 +19,14 @@ var _textAnimation = /*#__PURE__*/new WeakSet();
 var _toggleHeroAnimation = /*#__PURE__*/new WeakSet();
 var _skillAnimation = /*#__PURE__*/new WeakSet();
 var _aboutAnimation = /*#__PURE__*/new WeakSet();
+var _contactAnimation = /*#__PURE__*/new WeakSet();
 var _navAnimation = /*#__PURE__*/new WeakSet();
 var _inviewAnimation = /*#__PURE__*/new WeakSet();
 var Main = /*#__PURE__*/_createClass(function Main() {
   _classCallCheck(this, Main);
   _classPrivateMethodInitSpec(this, _inviewAnimation);
   _classPrivateMethodInitSpec(this, _navAnimation);
+  _classPrivateMethodInitSpec(this, _contactAnimation);
   _classPrivateMethodInitSpec(this, _aboutAnimation);
   _classPrivateMethodInitSpec(this, _skillAnimation);
   _classPrivateMethodInitSpec(this, _toggleHeroAnimation);
@@ -53,6 +55,7 @@ function _scrollInit2() {
   });
   new ScrollObserver('.skill', _classPrivateMethodGet(this, _skillAnimation, _skillAnimation2));
   new ScrollObserver('.about', _classPrivateMethodGet(this, _aboutAnimation, _aboutAnimation2));
+  new ScrollObserver('.contact', _classPrivateMethodGet(this, _contactAnimation, _contactAnimation2));
 }
 function _textAnimation2(el, inview) {
   if (inview) {
@@ -77,6 +80,11 @@ function _skillAnimation2(el, inview) {
 function _aboutAnimation2(el, inview) {
   if (inview) {
     new AboutAnimation(el);
+  }
+}
+function _contactAnimation2(el, inview) {
+  if (inview) {
+    new ContactAnimation(el);
   }
 }
 function _navAnimation2(el, inview) {

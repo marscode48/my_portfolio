@@ -19,7 +19,7 @@ class AboutAnimation {
     });
 
     tl.fromTo(
-      img ,
+      img,
       {
         autoAlpha: 0,
         y: 100,

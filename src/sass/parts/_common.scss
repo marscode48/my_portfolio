@@ -73,7 +73,7 @@ li {
   position: relative;
   display: inline-block;
   width: 160px;
-  @include f_around(14, 700, 10, 14);
+  @include f_around(12, 700, 10, 12);
   padding: 18px 0;
   transition: all 0.4s ease-in-out;
   text-align: center;
@@ -93,6 +93,7 @@ li {
 
   @include mq() {
     width: 220px;
+    @include f_around(14, false, false, 14);
   }
     
   & .material-icons {
