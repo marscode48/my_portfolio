@@ -73,7 +73,7 @@ li {
   position: relative;
   display: inline-block;
   width: 160px;
-  @include f_around(12, 700, 10, 12);
+  @include f_around(12, 700, 100, 12);
   padding: 18px 0;
   transition: all 0.4s ease-in-out;
   text-align: center;
@@ -96,16 +96,16 @@ li {
     @include f_around(14, false, false, 14);
   }
     
-  & .material-icons {
+  &-icon {
     position: absolute;
-    font-size: 2.4rem;
+    font-size: 1em;
     top: 50%;
-    right: 3.5rem;
-    transition: 0.3s;
+    right: 3em;
+    transition: all 0.3s ease;
     transform: translateY(-50%);
 
     @include mq() {
-      right: 6rem;
+      right: 4em;
     }
   }
 
@@ -115,8 +115,8 @@ li {
       transition: all 0.4s ease-in-out;
       background-position: 100% 0;
 
-      & .material-icons {
-        right: 5rem;
+      &-icon {
+        right: 3em;
       }
     }
   }

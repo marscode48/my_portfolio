@@ -19,7 +19,7 @@ class Main {
     new ScrollObserver('#js-nav-trigger', this.#navAnimation.bind(this), { rootMargin: '100px', once: false });
     new ScrollObserver('.js-works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
-    new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-100px 0px' });
+    new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
     new ScrollObserver('.skill', this.#skillAnimation);
     new ScrollObserver('.about', this.#aboutAnimation);
     new ScrollObserver('.contact', this.#contactAnimation);

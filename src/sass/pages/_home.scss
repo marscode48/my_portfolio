@@ -497,22 +497,6 @@ Contact
       );
     } 
   }
-
-  &__list {
-    margin-top: 20px;
-
-    @include mq() {
-      margin-top: 30px;
-    }
-  }
-
-  &__item + &__item {
-    margin-left: 10px;
-  }
-
-  &__item:last-child {
-    margin-left: 0;
-  }
 }
 
 @keyframes btnGradietion { 
@@ -545,17 +529,76 @@ Contact
 フッター
 ---------------------------------*/
 .footer {
-  padding: 20px 0;
+  padding: 30px 0;
 
   @include mq() {
-    padding: 30px 0;
+    padding: 40px 0;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+
+    @include mq() {
+      column-gap: 40px;
+    }
+  }
+
+  &__item {
+    @include f_around(12, false, 100, 12);
+    color: $cWhite;
+    transition: .4s all cubic-bezier(0.37, 0, 0.63, 1);
+
+    @include mq() {
+      @include f_around(14, false, 150, 14);
+    }
+
+    &:hover {
+      letter-spacing: 0.3em;
+      opacity: 0.8;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    overflow-wrap: break-word;
+
+    &-icon {
+      position: absolute;
+      font-size: 1em;
+      top: 50%;
+      left: -1.25em;
+      transition: all 0.6s ease;
+      opacity: 0;
+      transform: translateX(-8px) translateY(-50%);
+
+      &.appear.inview {
+        opacity: 1;    
+        transform: translateX(0) translateY(-50%);
+      }
+    }
+
+    & .tween-animate-title {
+      display: inline-block;
+    }
   }
 
   &__copyright {
-    font-size: 10px;
+    margin-top: 40px;
+    @include f_around(10, false, 100, 10);
     text-align: center;
-
     color: $cWhite;
+
+    @include mq() {
+      margin-top: 50px;
+    }
+
+    & .item {
+      display: inline-block;
+    }
   }
 }
 

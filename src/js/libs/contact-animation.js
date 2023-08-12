@@ -6,13 +6,12 @@ class ContactAnimation {
   }
 
   animate() {
-
     const inner = this.DOM.el.querySelector('.contact__inner');
     const left = this.DOM.el.querySelector('.contact__left');
     const right = this.DOM.el.querySelector('.contact__right');
     const link = this.DOM.el.querySelector('.contact__link');
     const btn = this.DOM.el.querySelector('.contact__btn');
-    
+
     ScrollTrigger.create({
       trigger: inner,
       start: 'top 50%',
@@ -31,21 +30,21 @@ class ContactAnimation {
     });
 
     tl.fromTo(
-      left, 
+      left,
       {
         scale: 3,
         autoAlpha: 0,
         xPercent: -100,
         rotation: 2,
-        skewX: "10deg",
+        skewX: '10deg',
       },
       {
         scale: 1,
         autoAlpha: 1,
         xPercent: 0,
         rotation: 0,
-        skewX: "-10deg",
-      }
+        skewX: '-10deg',
+      },
     );
     tl.fromTo(
       right,
@@ -54,22 +53,21 @@ class ContactAnimation {
         autoAlpha: 0,
         xPercent: 100,
         rotation: -2,
-        skewX: "10deg",
+        skewX: '10deg',
       },
       {
         autoAlpha: 1,
         xPercent: 0,
         scale: 1,
         rotation: 0,
-        skewX: "-10deg",
+        skewX: '-10deg',
       },
       '<',
     );
     tl.add(() => {
       btn.classList.toggle('gradietion-active');
-      },
-      '>',
-    );
+    },
+    '>');
     tl.fromTo(
       link,
       {

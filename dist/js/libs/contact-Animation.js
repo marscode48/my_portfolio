@@ -43,26 +43,26 @@ var ContactAnimation = /*#__PURE__*/function () {
         autoAlpha: 0,
         xPercent: -100,
         rotation: 2,
-        skewX: "10deg"
+        skewX: '10deg'
       }, {
         scale: 1,
         autoAlpha: 1,
         xPercent: 0,
         rotation: 0,
-        skewX: "-10deg"
+        skewX: '-10deg'
       });
       tl.fromTo(right, {
         scale: 3,
         autoAlpha: 0,
         xPercent: 100,
         rotation: -2,
-        skewX: "10deg"
+        skewX: '10deg'
       }, {
         autoAlpha: 1,
         xPercent: 0,
         scale: 1,
         rotation: 0,
-        skewX: "-10deg"
+        skewX: '-10deg'
       }, '<');
       tl.add(function () {
         btn.classList.toggle('gradietion-active');

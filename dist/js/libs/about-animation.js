@@ -43,9 +43,9 @@ var AboutAnimation = /*#__PURE__*/function () {
       }, {
         autoAlpha: 1,
         y: 0,
-        ease: "none",
+        ease: 'none',
         duration: 2
-      }, "-=0.5");
+      }, '-=0.5');
     }
   }]);
   return AboutAnimation;

@@ -37,15 +37,15 @@ class AboutAnimation {
       text,
       {
         autoAlpha: 0,
-        y: 100
+        y: 100,
       },
       {
         autoAlpha: 1,
         y: 0,
-        ease: "none",
+        ease: 'none',
         duration: 2,
       },
-      "-=0.5",
+      '-=0.5',
     );
   }
 }

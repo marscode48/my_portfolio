@@ -51,7 +51,7 @@ function _scrollInit2() {
   });
   new ScrollObserver('.appear', _classPrivateMethodGet(this, _inviewAnimation, _inviewAnimation2));
   new ScrollObserver('.tween-animate-title', _classPrivateMethodGet(this, _textAnimation, _textAnimation2), {
-    rootMargin: '-100px 0px'
+    rootMargin: '-50px 0px'
   });
   new ScrollObserver('.skill', _classPrivateMethodGet(this, _skillAnimation, _skillAnimation2));
   new ScrollObserver('.about', _classPrivateMethodGet(this, _aboutAnimation, _aboutAnimation2));

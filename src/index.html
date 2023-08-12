@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/52e705be32.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/vendors/ress.min.css" />
     <link rel="stylesheet" href="css/vendors/swiper.min.css" />
     <link rel="stylesheet" href="css/style.css " />
@@ -160,7 +160,7 @@
                 </div>
                 <div class="works__link">
                   <a href="works.html" class="works__btn btn">more
-                    <span class="material-icons">arrow_right</span>
+                    <i class="btn-icon fa-solid fa-arrow-right"></i>
                   </a>
                 </div>
               </div>
@@ -282,14 +282,9 @@
                 </div>
                 <div class="contact__link">
                   <a href="contact.html" class="contact__btn btn">more
-                    <span class="material-icons">arrow_right</span>
+                    <i class="btn-icon fa-solid fa-arrow-right"></i>
                   </a>
                 </div>
-              </div>
-              <div class="contact__list">
-                <a href="#" target="_blank" rel="noopener" class="contact__item">Twitter</a>
-                <a href="#" target="_blank" rel="noopener" class="contact__item">Instagram</a>
-                <span class="contact__item"><br class="sp-only">xxxxxx@gmail.com</span>
               </div>
             </div>
           </div>
@@ -297,13 +292,26 @@
         <!-- /contact -->
         
         <div class="page-top" id="js-page-top">
-          <span class="material-icons">expand_less</span>
+          <i class="page-top-icon fa-solid fa-chevron-up"></i>
         </div>
       </main>
 
       <!-- footer -->
       <footer class="footer">
-        <div class="footer__copyright">&copy;MASAKAZU ADACHI</div>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="#" target="_blank" rel="noopener" class="footer__link"><i class="footer__link-icon appear icon fa-solid fa-envelope"></i><span class="footer__link-span tween-animate-title">Email</span></a>
+          </li>
+          <li class="footer__item">
+            <a href="#" target="_blank" rel="noopener" class="footer__link"><i class="footer__link-icon appear icon fa-brands fa-twitter"></i><span class="tween-animate-title">Twitter</span></a>
+          </li>
+          <li class="footer__item">
+            <a href="#" target="_blank" rel="noopener" class="footer__link"><i class="footer__link-icon appear icon fa-brands fa-square-facebook"></i><span class="tween-animate-title">Facebook</span></a>
+          </li>
+        </ul>
+        <div class="footer__copyright appear up">
+          <span class="item">&copy;MASAKAZU ADACHI</span>
+        </div>
       </footer>
       <!-- /footer -->
 
