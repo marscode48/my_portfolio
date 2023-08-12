@@ -14,7 +14,7 @@ class ContactAnimation {
 
     ScrollTrigger.create({
       trigger: inner,
-      start: 'top 50%',
+      start: 'center 80%',
       toggleClass: 'bg-active',
       // markers: true,
     });
@@ -22,8 +22,8 @@ class ContactAnimation {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: this.DOM.el,
-        start: 'top center-=50',
-        end: 'top 10%',
+        start: 'center 90%',
+        end: 'center 70%',
         scrub: 1,
         // markers: true,
       },
