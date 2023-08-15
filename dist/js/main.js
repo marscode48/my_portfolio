@@ -17,6 +17,7 @@ var _init = /*#__PURE__*/new WeakSet();
 var _scrollInit = /*#__PURE__*/new WeakSet();
 var _textAnimation = /*#__PURE__*/new WeakSet();
 var _toggleHeroAnimation = /*#__PURE__*/new WeakSet();
+var _worksAnimation = /*#__PURE__*/new WeakSet();
 var _skillAnimation = /*#__PURE__*/new WeakSet();
 var _aboutAnimation = /*#__PURE__*/new WeakSet();
 var _contactAnimation = /*#__PURE__*/new WeakSet();
@@ -29,6 +30,7 @@ var Main = /*#__PURE__*/_createClass(function Main() {
   _classPrivateMethodInitSpec(this, _contactAnimation);
   _classPrivateMethodInitSpec(this, _aboutAnimation);
   _classPrivateMethodInitSpec(this, _skillAnimation);
+  _classPrivateMethodInitSpec(this, _worksAnimation);
   _classPrivateMethodInitSpec(this, _toggleHeroAnimation);
   _classPrivateMethodInitSpec(this, _textAnimation);
   _classPrivateMethodInitSpec(this, _scrollInit);
@@ -53,6 +55,7 @@ function _scrollInit2() {
   new ScrollObserver('.tween-animate-title', _classPrivateMethodGet(this, _textAnimation, _textAnimation2), {
     rootMargin: '-50px 0px'
   });
+  new ScrollObserver('.works', _classPrivateMethodGet(this, _worksAnimation, _worksAnimation2));
   new ScrollObserver('.skill', _classPrivateMethodGet(this, _skillAnimation, _skillAnimation2));
   new ScrollObserver('.about', _classPrivateMethodGet(this, _aboutAnimation, _aboutAnimation2));
   new ScrollObserver('.contact', _classPrivateMethodGet(this, _contactAnimation, _contactAnimation2));
@@ -70,6 +73,11 @@ function _toggleHeroAnimation2(el, inview) {
   } else {
     this.hero.stop();
     console.log('hero stop is called');
+  }
+}
+function _worksAnimation2(el, inview) {
+  if (inview) {
+    new WorksAnimation(el);
   }
 }
 function _skillAnimation2(el, inview) {

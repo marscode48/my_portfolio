@@ -20,6 +20,7 @@ class Main {
     new ScrollObserver('.js-works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
+    new ScrollObserver('.works', this.#worksAnimation);
     new ScrollObserver('.skill', this.#skillAnimation);
     new ScrollObserver('.about', this.#aboutAnimation);
     new ScrollObserver('.contact', this.#contactAnimation);
@@ -39,6 +40,12 @@ class Main {
     } else {
       this.hero.stop();
       console.log('hero stop is called');
+    }
+  }
+
+  #worksAnimation(el, inview) {
+    if (inview) {
+      new WorksAnimation(el);
     }
   }
 

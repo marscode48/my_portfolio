@@ -182,7 +182,7 @@ Works
     flex-direction: column;
     align-items: center;
     z-index: 1;
-    row-gap: 20px;
+    row-gap: 40px;
     
     @include mq() {
       padding: 60px 0;
@@ -200,6 +200,8 @@ Works
       display: block;
       content: "";
       background-color: $cBgGray;
+      transition: 4s all;
+      opacity: 0;
       
       @include mq() {
         top: 50%;
@@ -211,10 +213,15 @@ Works
         transform: translateY(-50%);
       }
     }
+
+    &.bg-active::after {
+      opacity: 1;
+    }
   }
   
   &__img-wrapper {
     width: 100%;
+    overflow: hidden;
     /* 背景の透過を消す */
     background-color: $cBlack;
     
@@ -226,10 +233,9 @@ Works
   &__desc {
     flex: 1;
     text-align: center;
+    overflow: hidden;
 
     .section__body {
-      margin-top: 20px;
-
       @include mq() {
         margin-top: 40px;
       }
@@ -239,8 +245,6 @@ Works
   &__link {
     margin-top: 30px;
   }
-  
-
 }
 
 /*--------------------------------
@@ -481,30 +485,6 @@ Contact
     display: block;
     position: relative;
     z-index: 2;
-  }
-
-  &__btn{
-
-    &.gradietion-active {
-      @include animation(
-        $name: btnGradietion,
-        $duration: 1s,
-        $timing-function: ease,
-        $delay: 0s,
-        $iteration-count: 1,
-        $direction: normal,
-        $fill-mode: none
-      );
-    } 
-  }
-}
-
-@keyframes btnGradietion { 
-  0% {
-    background-position:100% 0
-  }
-  100% {
-    background-position:0% 0
   }
 }
 

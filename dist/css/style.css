@@ -119,7 +119,24 @@ li {
     right: 3em;
   }
 }
+.btn.gradietion-active {
+  animation-name: btnGradietion;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
 
+@keyframes btnGradietion {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
 /*--------------------------------
  レイアウト
 ---------------------------------*/
@@ -347,7 +364,7 @@ Works
   flex-direction: column;
   align-items: center;
   z-index: 1;
-  row-gap: 20px;
+  row-gap: 40px;
 }
 @media screen and (min-width: 960px) {
   .works__inner {
@@ -366,6 +383,8 @@ Works
   display: block;
   content: "";
   background-color: #4e4e4e;
+  transition: 4s all;
+  opacity: 0;
 }
 @media screen and (min-width: 960px) {
   .works__inner::after {
@@ -378,8 +397,12 @@ Works
     transform: translateY(-50%);
   }
 }
+.works__inner.bg-active::after {
+  opacity: 1;
+}
 .works__img-wrapper {
   width: 100%;
+  overflow: hidden;
   /* 背景の透過を消す */
   background-color: #000;
 }
@@ -391,9 +414,7 @@ Works
 .works__desc {
   flex: 1;
   text-align: center;
-}
-.works__desc .section__body {
-  margin-top: 20px;
+  overflow: hidden;
 }
 @media screen and (min-width: 960px) {
   .works__desc .section__body {
@@ -645,24 +666,7 @@ Contact
   position: relative;
   z-index: 2;
 }
-.contact__btn.gradietion-active {
-  animation-name: btnGradietion;
-  animation-duration: 1s;
-  animation-timing-function: ease;
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: none;
-}
 
-@keyframes btnGradietion {
-  0% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 0% 0;
-  }
-}
 /*--------------------------------
 ページトップ
 ---------------------------------*/
@@ -1048,6 +1052,11 @@ Contact
   row-gap: 20px;
   height: 40vh;
   text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .works .slide {
+    height: 50vh;
+  }
 }
 @media screen and (min-width: 960px) {
   .works .slide {

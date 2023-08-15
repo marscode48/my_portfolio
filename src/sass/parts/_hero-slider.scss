@@ -23,7 +23,11 @@
     height: 40vh;
     text-align: center;
 
-    @include mq() {
+    @include mq(md) {
+      height: 50vh;
+    }
+
+    @include mq(lg) {
       height: 500px;
       padding: 0 8rem;
       row-gap: 40px;
