@@ -160,6 +160,11 @@ li {
 .section__body {
   margin-top: 40px;
 }
+@media screen and (min-width: 600px) {
+  .section__body {
+    margin-top: 60px;
+  }
+}
 @media screen and (min-width: 960px) {
   .section__body {
     margin-top: 80px;
@@ -416,7 +421,7 @@ Works
   text-align: center;
   overflow: hidden;
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .works__desc .section__body {
     margin-top: 40px;
   }
@@ -432,11 +437,15 @@ Skill
   display: grid;
   row-gap: 35px;
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .skill__list {
     grid-template-columns: repeat(2, 1fr);
     -moz-column-gap: 4%;
          column-gap: 4%;
+  }
+}
+@media screen and (min-width: 960px) {
+  .skill__list {
     row-gap: 75px;
   }
 }

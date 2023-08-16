@@ -236,7 +236,7 @@ Works
     overflow: hidden;
 
     .section__body {
-      @include mq() {
+      @include mq(md) {
         margin-top: 40px;
       }
     }
@@ -256,9 +256,12 @@ Skill
     display: grid;
     row-gap: 35px;
     
-    @include mq() {
+    @include mq(md) {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 4%;
+    }
+
+    @include mq(lg) {
       row-gap: 75px;
     }
   }
