@@ -373,57 +373,287 @@ Skill
 /*--------------------------------
 About
 ---------------------------------*/
+$about-width-lg: 700px;
+$about-width-xl: 850px;
+
 .about {
+  position: relative;
+  min-height: 100vh;
 
   &__inner {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
     margin: 0 auto;
-    gap: 25px 0;
+    gap: 3vh 0;
+    grid-template-rows: minmax(150px, 1fr) 2fr;
+    opacity: 0;
+    transition: opacity 1s;  
 
-    @include mq() {
-      flex-direction: row;
+    @include mq(md) {
+      gap: 5vh 0;
+      grid-template-rows: minmax(150px, 1fr) 3fr;
+    }
+
+    @include mq(lg) {
+      grid-template-columns: 1fr $about-width-lg;
+      grid-template-rows: 1fr;
       gap: 0 30px;
-      max-width: 800px;
+      max-width: 900px;
+    }
+
+    @include mq(xl) {
+      grid-template-columns: 1fr $about-width-xl;
+      max-width: 1150px;
+    }
+
+    &.about-inner-active {
+      opacity: 1;
+
+      & .about__img-wrapper {
+        @include animation(
+          $name: about-img-wrapper-animation,
+          $duration: 1s,
+          $timing-function: ease,
+          $delay: 0s,
+          $iteration-count: 1,
+          $direction: normal,
+          $fill-mode: forwards
+        );
+      }
     }
   }
 
   &__img {
     border-radius: 50%;
-    
+
     &-wrapper {
       width: 150px;
       margin: 0 auto;
       border-radius: 50%;
 
-      @include mq() {
+      @include mq(md) {
         width: auto;
-        flex-basis: 20%;
+        max-width: 180px;
+      }
+      
+      @include mq(lg) {
+        max-width: 300px;
       }
     }
   }
 
-  &__text {
-    flex: 1;
+  &__list-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%; // 高さは親のgrid-rowsで指定
 
-    & > p {
-      @include f_around(14, false, false, 23.8);
+    &.about-inview {
+      opacity: 0;
+      transition: opacity 1s;  
+    }
 
-      @include mq() {
-        @include f_around(15, false, false, 27);
+    &.about-inview-active {
+      opacity: 1;
+    }
+
+    @include mq(lg) {
+      height: 60vh;
+    }
+  }
+
+  &__list {
+    position: absolute; // 横スクロール
+    top: 0;
+    left: 0;
+    display: flex;
+    column-gap: 60px;
+    height: 100%;
+  }
+
+  &__item {
+    height: 100%;
+    color: $cWhite;
+    background-color: rgba(125, 125, 125, 0.3);
+    width: calc(100vw - 40px);
+    position: relative;
+    padding: 1.5vh 8vw 0;
+
+    @include mq(md) {
+      padding: 6vh 8vw 0;
+    }
+
+    @include mq(lg) {
+      width: $about-width-lg; // about__innerと合わせる
+      padding: 6vh 6vw 0;
+    }
+
+    @include mq(xl) {
+      width: $about-width-xl; // about__innerと合わせる
+    }
+
+    &.box-shadow-active {
+      animation: about-box-shadow 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    &-content-number {
+      font-size: 6.5rem;
+      color: $cWhite;
+
+      @include mq(md) {
+        font-size: clamp(100px, 13vw, 150px); // 最小値,中間値,最大値    
+      }
+
+      &-wrapper {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        z-index: -1;
+
+        @include mq(lg) {
+          top: 35%;
+          left: 15%;
+        }
+  
+        &.content-number-wrapper-active {
+          @include animation(
+            $name: about-number-animation,
+            $duration: 1s,
+            $timing-function: ease,
+            $delay: 0s,
+            $iteration-count: 1,
+            $direction: normal,
+            $fill-mode: forwards
+          );
+        }
       }
     }
 
-    & > p + p {
-      margin-top: 20px;
+    &-content-title {
+      @include f_around(20, 700, 100, 30);
+      display: inline-block;
+      position: relative;
 
-      @include mq() {
-        margin-top: 30px;
+      @include mq(md) {
+        @include f_around(24, false, false, false);
       }
+
+      @include mq(lg) {
+        font-size: clamp(24px, 2.4vw, 34px); // 最小値,中間値,最大値
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        transform: translateX(-50%);
+        transition: all 0.3s;
+        background-color: $cWhite;  
+      }
+  
+      &.underline-active::after {
+        width: 100%;
+      }
+    }
+
+    &-content-text {
+      margin-top: 20px;
+      @include f_around(12, false, false, 22.1);
+
+      @include mq(md) {
+        margin-top: 30px;
+        @include f_around(18, false, false, 27);
+      }
+
+      @include mq(lg) {
+        margin-top: 60px;
+      }
+    }
+
+    &-content-text + &-content-text {
+      margin-top: 10px;
+
+      @include mq(md) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__line {
+    height: 2vh;
+    width: 100%;
+    background-color: rgba(125, 125, 125, 0.5);
+    position: absolute;
+    bottom: 5%;
+    opacity: 0;
+    transition: opacity 1s;
+
+    &.line-active {
+      opacity: 1;
+    }
+  
+    &-inner {
+      content: "";
+      top: 0;
+      left: 0;
+      height: 2vh;
+      background-size: 300% 100%;
+      background-image: linear-gradient(
+        to right,
+        #6253e1,
+        #852d91,
+        #a3a1ff,
+        #f24645
+      );
     }
   }
 }
+
+ @keyframes about-img-wrapper-animation {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes about-number-animation {
+  0% {
+    text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555;
+    transform: translateX(0);
+  }
+  100% {
+    text-shadow: -1px 0 #555555, -2px 0 #555555, -3px 0 #555555, -4px 0 #555555, -5px 0 #555555, -6px 0 #555555, -7px 0 #555555, -8px 0 #555555;
+    transform: translateX(8px);
+  }
+}
+
+@keyframes about-box-shadow {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
+  }
+}
+
 
 /*--------------------------------
 Contact

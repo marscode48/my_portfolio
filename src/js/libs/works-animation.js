@@ -12,19 +12,18 @@ class WorksAnimation {
     const link = this.DOM.el.querySelector('.works__link');
     const btn = this.DOM.el.querySelector('.works__btn');
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // for Desctop
-    mm.add("(min-width: 960px)", () => {
-
+    mm.add('(min-width: 960px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: this.DOM.el,
           start: 'top 55%',
-          markers: true
+          // markers: true
         },
       });
-  
+
       tl.add(() => {
         bg.classList.add('bg-active');
       });
@@ -53,7 +52,7 @@ class WorksAnimation {
           ease: 'power4.out',
           duration: 1,
         },
-        "-=1"
+        '-=1',
       );
       tl.fromTo(
         link,
@@ -67,17 +66,16 @@ class WorksAnimation {
           ease: 'power4.out',
           duration: 1,
         },
-        "-=0.75"
+        '-=0.75',
       );
       tl.add(() => {
         btn.classList.add('gradietion-active');
       },
-      "<");
-    })
+      '<');
+    });
 
     // for Mobile
-    mm.add("(max-width: 959px)", () => {
-  
+    mm.add('(max-width: 959px)', () => {
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: img,
@@ -85,7 +83,7 @@ class WorksAnimation {
           // markers: true
         },
       });
-  
+
       tl1.add(() => {
         bg.classList.add('bg-active');
       });
@@ -107,7 +105,7 @@ class WorksAnimation {
         scrollTrigger: {
           trigger: text,
           start: 'top 95%',
-          markers: true
+          // markers: true,
         },
       });
 
@@ -136,12 +134,12 @@ class WorksAnimation {
           ease: 'power4.out',
           duration: 1,
         },
-        "-=0.75"
+        '-=0.75',
       );
       tl2.add(() => {
         btn.classList.add('gradietion-active');
       },
-      "<");
-    })
+      '<');
+    });
   }
 }

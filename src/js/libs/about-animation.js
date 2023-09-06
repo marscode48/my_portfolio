@@ -6,46 +6,161 @@ class AboutAnimation {
   }
 
   animate() {
+    // Horizontal
+    const inner = this.DOM.el.querySelector('.about__inner');
+    const wrapper = this.DOM.el.querySelector('.about__list-wrapper');
+    const list = this.DOM.el.querySelector('.about__list');
     const img = this.DOM.el.querySelector('.about__img');
-    const text = this.DOM.el.querySelector('.about__text');
+    const line = this.DOM.el.querySelector('.about__line');
+    const lineIner = this.DOM.el.querySelector('.about__line-inner');
+    const sections = Array.from(list.children);
 
-    const tl = gsap.timeline({
+    const scrollTween = gsap.to(list, {
+      // リスト最後尾をラッパー右端に合わせる（リスト – ラッパー）
+      x: () => -(list.clientWidth - wrapper.clientWidth),
+      ease: 'none',
       scrollTrigger: {
         trigger: this.DOM.el,
-        start: 'top center+=100',
-        end: 'top 20%',
-        scrub: 1,
+        start: 'top 5%',
+        end: () => `+=${list.clientWidth - wrapper.clientWidth}`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1, // ページのガタつきを防ぐ
+        invalidateOnRefresh: true, // リサイズ時に再計算
+        // markers: true,
       },
     });
 
-    tl.fromTo(
+    // inner-active
+    ScrollTrigger.create({
+      trigger: sections,
+      start: 'top 75%',
+      toggleClass: { targets: inner, className: 'about-inner-active' },
+      once: true,
+      // markers: true,
+    });
+
+    // img-scrub
+    gsap.fromTo(
       img,
       {
-        autoAlpha: 0,
-        y: 100,
+        y: 15,
         scale: 0.75,
       },
       {
-        autoAlpha: 1,
         scale: 1,
         y: 0,
         ease: 'none',
-        duration: 2,
+        duration: 1,
+        scrollTrigger: {
+          trigger: this.DOM.el,
+          start: 'top 5%',
+          end: () => `+=${list.clientWidth - wrapper.clientWidth}`,
+          scrub: 2,
+          // markers: true,
+        },
       },
     );
-    tl.fromTo(
-      text,
-      {
-        autoAlpha: 0,
-        y: 100,
+
+    // scroll-line
+    const lineTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: this.DOM.el,
+        start: 'top 5%',
+        end: () => `+=${list.clientWidth - wrapper.clientWidth}`,
+        scrub: true,
+        // markers: true,
+        onEnter: () => {
+          // console.log('onEnter is called');
+          line.classList.add('line-active');
+        },
+        onEnterBack: () => {
+          // console.log('onEnterBack is called');
+          line.classList.add('line-active');
+        },
+        onLeaveBack: () => {
+          // console.log('onLeaveBack is called');
+          line.classList.remove('line-active');
+        },
+        onLeave: () => {
+          // console.log('onLeave is called');
+          line.classList.remove('line-active');
+        },
       },
-      {
-        autoAlpha: 1,
-        y: 0,
-        ease: 'none',
-        duration: 2,
+    });
+
+    lineTl.fromTo(lineIner,
+      { width: 0 },
+      { width: '100%' });
+
+    // text-section
+    sections.forEach((section) => {
+      const numberWrapper = section.querySelector('.about__item-content-number-wrapper');
+      const number = section.querySelector('.about__item-content-number');
+      const title = section.querySelector('.about__item-content-title');
+      const texts = section.querySelectorAll('.about__item-content-text');
+
+      // タイムライン
+      const aboutTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          containerAnimation: scrollTween,
+          start: 'left 60%',
+          // markers: true,
+        },
+      });
+
+      aboutTl.fromTo(
+        number,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          yPercent: -100,
+          duration: 0.2,
+          ease: 'power4.easeOut',
+        },
+      );
+      aboutTl.to(
+        number,
+        {
+          xPercent: 150,
+          skewX: -20,
+          duration: 0.8,
+          ease: 'power4.easeOut',
+        },
+        '>',
+      );
+      aboutTl.add(() => {
+        numberWrapper.classList.toggle('content-number-wrapper-active');
+      }, '<');
+      aboutTl.from(
+        title,
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.4,
+          ease: 'power4.easeOut',
+        },
+        '<',
+      );
+      aboutTl.from(
+        texts,
+        {
+          x: 128,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'Back.easeOut',
+          stagger: 0.3,
+        },
+        '>',
+      );
+      aboutTl.add(() => {
+        title.classList.toggle('underline-active');
+        section.classList.toggle('box-shadow-active');
       },
-      '-=0.5',
-    );
+      '>');
+    });
   }
 }

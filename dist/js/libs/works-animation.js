@@ -25,14 +25,15 @@ var WorksAnimation = /*#__PURE__*/function () {
       var mm = gsap.matchMedia();
 
       // for Desctop
-      mm.add("(min-width: 960px)", function () {
+      mm.add('(min-width: 960px)', function () {
         var tl = gsap.timeline({
           scrollTrigger: {
             trigger: _this.DOM.el,
-            start: 'top 55%',
-            markers: true
+            start: 'top 55%'
+            // markers: true
           }
         });
+
         tl.add(function () {
           bg.classList.add('bg-active');
         });
@@ -53,7 +54,7 @@ var WorksAnimation = /*#__PURE__*/function () {
           x: 0,
           ease: 'power4.out',
           duration: 1
-        }, "-=1");
+        }, '-=1');
         tl.fromTo(link, {
           autoAlpha: 0,
           x: 100
@@ -62,14 +63,14 @@ var WorksAnimation = /*#__PURE__*/function () {
           x: 0,
           ease: 'power4.out',
           duration: 1
-        }, "-=0.75");
+        }, '-=0.75');
         tl.add(function () {
           btn.classList.add('gradietion-active');
-        }, "<");
+        }, '<');
       });
 
       // for Mobile
-      mm.add("(max-width: 959px)", function () {
+      mm.add('(max-width: 959px)', function () {
         var tl1 = gsap.timeline({
           scrollTrigger: {
             trigger: img,
@@ -93,10 +94,11 @@ var WorksAnimation = /*#__PURE__*/function () {
         var tl2 = gsap.timeline({
           scrollTrigger: {
             trigger: text,
-            start: 'top 95%',
-            markers: true
+            start: 'top 95%'
+            // markers: true,
           }
         });
+
         tl2.fromTo(text, {
           autoAlpha: 0,
           y: 100
@@ -114,10 +116,10 @@ var WorksAnimation = /*#__PURE__*/function () {
           y: 0,
           ease: 'power4.out',
           duration: 1
-        }, "-=0.75");
+        }, '-=0.75');
         tl2.add(function () {
           btn.classList.add('gradietion-active');
-        }, "<");
+        }, '<');
       });
     }
   }]);
