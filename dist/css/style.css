@@ -36,7 +36,7 @@ li {
 .sp-only {
   display: block;
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .sp-only {
     display: none;
   }
@@ -45,7 +45,7 @@ li {
 .pc-only {
   display: none;
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 600px) {
   .pc-only {
     display: block;
   }
@@ -433,6 +433,45 @@ Works
 /*--------------------------------
 Skill
 ---------------------------------*/
+.skill {
+  position: relative;
+}
+.skill__motion-path {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  width: 90vw;
+}
+@media screen and (min-width: 480px) {
+  .skill__motion-path {
+    width: 55vw;
+  }
+}
+@media screen and (min-width: 600px) {
+  .skill__motion-path {
+    top: 15%;
+    width: 740px;
+  }
+}
+@media screen and (min-width: 960px) {
+  .skill__motion-path {
+    width: 950px;
+  }
+}
+.skill__motion-path svg {
+  overflow: visible;
+}
+.skill__motion-path #sp-path, .skill__motion-path #pc-path {
+  width: 100%;
+  height: 100%;
+  stroke-width: 10;
+  stroke: #333;
+}
+.skill__motion-path #polygon {
+  fill: #fff;
+}
 .skill__list {
   display: grid;
   row-gap: 35px;

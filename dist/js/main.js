@@ -11,6 +11,7 @@ function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollect
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 document.addEventListener('DOMContentLoaded', function () {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(MotionPathPlugin);
   var main = new Main();
 });
 var _init = /*#__PURE__*/new WeakSet();
@@ -82,7 +83,7 @@ function _worksAnimation2(el, inview) {
 }
 function _skillAnimation2(el, inview) {
   if (inview) {
-    new SkillAnimation();
+    new SkillAnimation(el);
   }
 }
 function _aboutAnimation2(el, inview) {

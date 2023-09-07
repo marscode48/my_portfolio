@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(MotionPathPlugin);
   const main = new Main();
 });
 
@@ -51,7 +52,7 @@ class Main {
 
   #skillAnimation(el, inview) {
     if (inview) {
-      new SkillAnimation();
+      new SkillAnimation(el);
     }
   }
 
@@ -60,7 +61,7 @@ class Main {
       new AboutAnimation(el);
     }
   }
-  
+
   #contactAnimation(el, inview) {
     if (inview) {
       new ContactAnimation(el);

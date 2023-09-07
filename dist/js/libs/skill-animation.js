@@ -7,24 +7,78 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var SkillAnimation = /*#__PURE__*/function () {
-  function SkillAnimation() {
+  function SkillAnimation(el) {
     _classCallCheck(this, SkillAnimation);
     this.DOM = {};
-    this.DOM.items = document.querySelectorAll('.skill__item');
+    this.DOM.el = el;
+    this.DOM.items = this.DOM.el.querySelectorAll('.skill__item');
     this.animate();
   }
   _createClass(SkillAnimation, [{
     key: "animate",
     value: function animate() {
-      // 要素取得
+      var _this = this;
+      var mm = gsap.matchMedia();
+
+      // motion-path (for Desctop)
+      mm.add('(min-width: 600px)', function () {
+        var pathTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: _this.DOM.el,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+            markers: true
+          }
+        });
+        pathTl.fromTo('#polygon', {
+          x: 0,
+          y: 0
+        }, {
+          ease: 'none',
+          motionPath: {
+            // SVGのパスに沿って移動
+            path: '#pc-path',
+            align: '#pc-path',
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5]
+          }
+        });
+      });
+
+      // motion-path (for Mobile)
+      mm.add('(max-width: 599px)', function () {
+        var pathTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: _this.DOM.el,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+            markers: true
+          }
+        });
+        pathTl.fromTo('#polygon', {
+          x: 0,
+          y: 0
+        }, {
+          ease: 'none',
+          motionPath: {
+            // SVGのパスに沿って移動
+            path: '#sp-path',
+            align: '#sp-path',
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5]
+          }
+        });
+      });
+
+      // text-animation
       var stagger = 0.05;
       this.DOM.items.forEach(function (item) {
         var img = item.querySelector('.skill__img');
         var rect = item.querySelector('.skill__name .rect');
         var label = item.querySelector('.skill__name .label');
         var slideX = item.querySelector('.skill__text.slideX');
-
-        // タイムライン
         var skillTl = gsap.timeline({
           scrollTrigger: {
             trigger: item,
@@ -32,8 +86,6 @@ var SkillAnimation = /*#__PURE__*/function () {
             toggleActions: 'play none none none'
           }
         });
-
-        // アニメーション
         skillTl.to(img, {
           keyframes: {
             '0%': {

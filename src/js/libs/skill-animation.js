@@ -1,12 +1,67 @@
 class SkillAnimation {
-  constructor() {
+  constructor(el) {
     this.DOM = {};
-    this.DOM.items = document.querySelectorAll('.skill__item');
+    this.DOM.el = el;
+    this.DOM.items = this.DOM.el.querySelectorAll('.skill__item');
     this.animate();
   }
 
   animate() {
-    // 要素取得
+    const mm = gsap.matchMedia();
+
+    // motion-path (for Desctop)
+    mm.add('(min-width: 600px)', () => {
+      const pathTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: this.DOM.el,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      pathTl.fromTo('#polygon',
+        { x: 0, y: 0 },
+        {
+          ease: 'none',
+          motionPath: {
+          // SVGのパスに沿って移動
+            path: '#pc-path',
+            align: '#pc-path',
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5],
+          },
+        });
+    });
+
+    // motion-path (for Mobile)
+    mm.add('(max-width: 599px)', () => {
+      const pathTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: this.DOM.el,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      pathTl.fromTo('#polygon',
+        { x: 0, y: 0 },
+        {
+          ease: 'none',
+          motionPath: {
+          // SVGのパスに沿って移動
+            path: '#sp-path',
+            align: '#sp-path',
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5],
+          },
+        });
+    });
+
+    // text-animation
     const stagger = 0.05;
 
     this.DOM.items.forEach((item) => {
@@ -15,7 +70,6 @@ class SkillAnimation {
       const label = item.querySelector('.skill__name .label');
       const slideX = item.querySelector('.skill__text.slideX');
 
-      // タイムライン
       const skillTl = gsap.timeline({
         scrollTrigger: {
           trigger: item,
@@ -24,7 +78,6 @@ class SkillAnimation {
         },
       });
 
-      // アニメーション
       skillTl.to(
         img,
         {
