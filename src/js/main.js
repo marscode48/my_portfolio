@@ -1,3 +1,15 @@
+import { MenuOpen } from 'menu-open';
+import { MainViasual } from 'main-visual';
+import { ThreeAnimation } from 'three-animation';
+import { HeroSlider } from 'slider-swiper';
+import { SmoothScroll } from 'smooth-scroll';
+import { ScrollObserver } from 'scroll-observer';
+import { WorksAnimation } from 'works-animation';
+import { TextAnimation, TweenTextAnimation } from 'text-animation';
+import { SkillAnimation } from 'skill-animation';
+import { AboutAnimation } from 'about-animation';
+import { ContactAnimation } from 'contact-animation';
+
 document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(MotionPathPlugin);
@@ -12,6 +24,8 @@ class Main {
   }
 
   #init() {
+    new MainViasual();
+    new ThreeAnimation();
     new MenuOpen();
     this.#scrollInit();
   }

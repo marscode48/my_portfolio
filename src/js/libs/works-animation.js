@@ -1,4 +1,4 @@
-class WorksAnimation {
+export class WorksAnimation {
   constructor(el) {
     this.DOM = {};
     this.DOM.el = el;

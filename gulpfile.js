@@ -92,7 +92,7 @@ function styles() {
 function scripts() {
   return src(['./src/js/**/*.js', '!./src/js/vendors/*.js'])
     .pipe($.if(!isProd, $.sourcemaps.init()))
-    .pipe($.babel())
+    // .pipe($.babel())
     .pipe($.if(!isProd, $.sourcemaps.write('./')))
     .pipe($.if(isProd, $.uglify()))
     .pipe(dest('./dist/js'));

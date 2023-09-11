@@ -1,4 +1,4 @@
-class SmoothScroll {
+export class SmoothScroll {
   constructor(gap) {
     this.DOM = {};
     this.gap = gap;

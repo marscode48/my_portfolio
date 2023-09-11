@@ -1,4 +1,4 @@
-class MenuOpen {
+export class MenuOpen {
   constructor() {
     this.DOM = {};
     this.DOM.header = document.querySelector('.header');

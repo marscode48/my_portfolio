@@ -20,6 +20,36 @@
     <link rel="stylesheet" href="css/style.css " />
     <link rel="icon" href="favicon.ico" />
     <link rel=”canonical” href=”URLが入る” />
+
+    <!-- Chrome系以外のブラウザでimportmapをサポート -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.142.0/build/three.module.js",
+          "menu-open": "./js/libs/menu-open.js",
+          "main-visual": "./js/libs/main-visual.js",
+          "three-animation": "./js/libs/three-animation.js",
+          "slider-swiper": "./js/libs/slider-swiper.js",
+          "smooth-scroll": "./js/libs/smooth-scroll.js",
+          "scroll-observer": "./js/libs/scroll-observer.js",
+          "works-animation": "./js/libs/works-animation.js",
+          "text-animation": "./js/libs/text-animation.js",
+          "skill-animation": "./js/libs/skill-animation.js",
+          "about-animation": "./js/libs/about-animation.js",
+          "contact-animation": "./js/libs/contact-animation.js"
+        }
+      }
+    </script>
+    
+    <script src="js/vendors/gsap.min.js" defer></script>
+    <script src="js/vendors/scroll-trigger.min.js" defer></script>
+    <script src="js/vendors/motion-path-plugin.min.js" defer></script>
+    <script src="js/vendors/swiper-bundle.min.js" defer></script>
+    <script src="js/vendors/scroll-polyfill.js" defer></script>
+    <script src="js/libs/three-animation.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </head>
   
 
@@ -68,6 +98,7 @@
       <!-- mv -->
       <div class="mv">
         <div class="mv__inner">
+          <canvas id="mvCanvas"></canvas>
           <div class="mv__titleArea">
             <p class="mv__title">MASAKAZU ADACHI</p>
             <p class="mv__subtitle">PORTFOLIO</p>
@@ -412,23 +443,6 @@
         </div>
       </footer>
       <!-- /footer -->
-
     </div>
-    
-    <script src="js/vendors/gsap.min.js"></script>
-    <script src="js/vendors/scroll-trigger.min.js"></script>
-    <script src="js/vendors/motion-path-plugin.min.js"></script>
-    <script src="js/vendors/swiper-bundle.min.js"></script>
-    <script src="js/vendors/scroll-polyfill.js"></script>
-    <script src="js/libs/menu-open.js"></script>
-    <script src="js/libs/slider-swiper.js"></script>
-    <script src="js/libs/smooth-scroll.js"></script>
-    <script src="js/libs/scroll-observer.js"></script>
-    <script src="js/libs/works-animation.js"></script>
-    <script src="js/libs/text-animation.js"></script>
-    <script src="js/libs/skill-animation.js"></script>
-    <script src="js/libs/about-animation.js"></script>
-    <script src="js/libs/contact-animation.js"></script>
-    <script src="js/main.js"></script>
   </body>
 </html>

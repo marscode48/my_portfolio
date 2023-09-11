@@ -9,6 +9,8 @@
     "no-console": 0,
     "no-underscore-dangle": 0,
     "no-dupe-class-members": 0,
+    "import/prefer-default-export": 0,
+    "import/no-unresolved": 0,
     "no-new": 1,
     "no-param-reassign": 1,
     "max-classes-per-file": 1,

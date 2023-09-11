@@ -1,4 +1,4 @@
-class TextAnimation {
+export class TextAnimation {
   constructor(el) {
     this.DOM = {};
     this.DOM.el = el instanceof HTMLElement ? el : document.querySelector(el);
@@ -17,7 +17,8 @@ class TextAnimation {
     this.DOM.el.classList.toggle('inview');
   }
 }
-class TweenTextAnimation extends TextAnimation {
+
+export class TweenTextAnimation extends TextAnimation {
   constructor(el) {
     super(el);
     this.DOM.chars = this.DOM.el.querySelectorAll('.char');

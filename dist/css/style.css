@@ -265,7 +265,14 @@ li {
   text-align: center;
   height: 100vh;
   position: relative;
-  background-color: darkblue;
+}
+.mv #mvCanvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
 }
 .mv__inner {
   padding: 0 20px;

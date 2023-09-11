@@ -1,0 +1,8 @@
+@use "pages/home";
+@use "pages/works";
+@use "pages/article";
+@use "parts/mobile-menu";
+@use "parts/hero-slider";
+@use 'parts/text-animation';
+@use 'parts/appear';
+/*# sourceMappingURL=style.css.map */

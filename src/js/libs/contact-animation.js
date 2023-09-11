@@ -1,4 +1,4 @@
-class ContactAnimation {
+export class ContactAnimation {
   constructor(el) {
     this.DOM = {};
     this.DOM.el = el;

@@ -1,4 +1,4 @@
-class HeroSlider {
+export class HeroSlider {
   constructor(el, delay) {
     this.el = el;
     this.delay = delay;
