@@ -9,6 +9,11 @@ export class SkillAnimation {
   animate() {
     const mm = gsap.matchMedia();
 
+    const motionPath = this.DOM.el.querySelector('.skill__motion-path');
+    const polygon = this.DOM.el.querySelector('#skill-polygon');
+    const desctopPath = this.DOM.el.querySelector('#skill-pc-path');
+    const mobilePath = this.DOM.el.querySelector('#skill-sp-path');
+
     // motion-path (for Desctop)
     mm.add('(min-width: 600px)', () => {
       const pathTl = gsap.timeline({
@@ -16,19 +21,20 @@ export class SkillAnimation {
           trigger: this.DOM.el,
           start: 'top center',
           end: 'bottom center',
+          toggleClass: { targets: motionPath, className: 'motion-path-active' },
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
 
-      pathTl.fromTo('#polygon',
+      pathTl.fromTo(polygon,
         { x: 0, y: 0 },
         {
           ease: 'none',
           motionPath: {
           // SVGのパスに沿って移動
-            path: '#pc-path',
-            align: '#pc-path',
+            path: desctopPath,
+            align: desctopPath,
             autoRotate: true,
             alignOrigin: [0.5, 0.5],
           },
@@ -42,19 +48,20 @@ export class SkillAnimation {
           trigger: this.DOM.el,
           start: 'top center',
           end: 'bottom center',
+          toggleClass: { targets: motionPath, className: 'motion-path-active' },
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
 
-      pathTl.fromTo('#polygon',
+      pathTl.fromTo(polygon,
         { x: 0, y: 0 },
         {
           ease: 'none',
           motionPath: {
           // SVGのパスに沿って移動
-            path: '#sp-path',
-            align: '#sp-path',
+            path: mobilePath,
+            align: mobilePath,
             autoRotate: true,
             alignOrigin: [0.5, 0.5],
           },

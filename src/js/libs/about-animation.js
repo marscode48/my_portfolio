@@ -160,7 +160,7 @@ export class AboutAnimation {
         title.classList.toggle('underline-active');
         section.classList.toggle('box-shadow-active');
       },
-      '>');
+      '-=0.5');
     });
   }
 }

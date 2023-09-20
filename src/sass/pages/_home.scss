@@ -7,64 +7,212 @@
 .header {
   position: fixed;
   top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
   height: 60px;
   z-index: 10;
   width: 100%;
-  background-color: $cBlack;
-  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.8);
+  background-color: transparent;
 
-  @include mq() {
+  &.triggered {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.5);
+  }
+
+  @include mq(lg) {
     height: 80px;
-    padding: 0 40px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    @include mq(lg) {
+      padding: 0 40px;
+    }
   }
 
   &__logo {
     @include f_around(15, 700, 50, 15);
 
-    @include mq() {
+    @include mq(lg) {
       @include f_around(20, false, false, false);
+    }
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 40;
+    width: 20px;
+    height: 60px;
+    border: none;
+    outline: none;
+    background: none;
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+
+    @include mq(lg) {
+      width: 30px;
+      height: 80px;
+    }
+  }
+
+  &__line {
+    display: block;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transition: all 0.4s;
+    border-radius: 4px;
+    background-color: $cWhite;
+
+    &::before, &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: inherit;
+      border-radius: 4px;
+      background-color: $cWhite;
+    }
+    
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
     }
   }
 }
 
 .gnav {
-  display: none;
-
-  @include mq() {
-    display: block;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100vh;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
 
   &__list {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 20px;
+    display: grid;
+    place-items: center;
+    row-gap: 5vh;
+    position: absolute;
+    z-index: 40;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 2000px;
+    transform-style: preserve-3d;
   }
 
-  &__link {
-    position: relative;
-    @include f_around(13, 700, 50, 13);
-    display: inline-block;
-    padding: 5px 0;
-    transition: all 0.3s;
+  &__item {
+    transform: translate3d(0, -100px, -1000px);
+    opacity: 0;
+    transition: transform 1s, opacity 1s;
+    @include f_around(15, 700, 300, 15);
 
-    &::after {
-      position: absolute;
-      content: "";
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 3px;
-      transform: translateX(-50%);
-      transition: all 0.3s;
-      background-color: $cWhite;  
+    @include mq(lg) {
+      font-size: 1.2vw;
+    }
+  }
+  
+  &__link {
+    text-decoration: none;
+    color: $cBlack;
+    display: inline-block;
+    padding-bottom: 5px;
+
+    @include mq(lg) {
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        transform: translateX(-50%);
+        transition: all 0.3s;
+        background-color: $cBlack;  
+      }
+  
+      &:hover::after {
+        width: 100%;
+      }  
+    }
+  }
+
+  &__circle-bg {
+    position: fixed;
+    z-index: 20;
+    width: 100px; // 円形の始点
+    height: 100px; // 円形の始点
+    border-radius: 50%;
+    background-color: $cGnavBgGray;
+    opacity: 0.9;
+    transform: scale(0); // scaleで全体に拡大
+    right: -50px;
+    top: -50px;
+    transition: transform 1s linear;
+  }
+}
+
+.menu-open {
+
+  & .header__line {
+    background-color: transparent;
+  }
+
+  & .header__line::before,
+  & .header__line::after {
+    top: 0;
+    background-color: $cBlack;    
+  }
+
+  & .header__line::before {
+    transform: rotate(45deg);
+  }
+
+  & .header__line::after {
+    transform: rotate(-45deg);
+  }
+
+  & .gnav {
+    opacity: 1;
+    visibility: visible;
+
+    &__item {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+            transition-delay: $i * 0.07s;
+        }
+      }
     }
 
-    &:hover::after {
-      width: 100%;
+    &__circle-bg {
+      transform: scale(25);
+
+      @include mq(md) {
+        transform: scale(50);
+      }
+
+      @include mq(md) {
+        transform: scale(75);
+      }
+
+      @include mq(xl) {
+        transform: scale(100);
+      }
     }
   }
 }
@@ -77,9 +225,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
+  height: calc(100vh - 60px);
   position: relative;
-  
+
+  @include mq(lg) {
+    height: calc(100vh - 80px);
+  }
 
   #mvCanvas {
     width: 100%;
@@ -93,33 +244,34 @@
   &__inner {
     padding: 0 20px;
 
-    @include mq() {
+    @include mq(lg) {
       padding: 0 40px;
     }
   }
 
   &__title {
-    @include f_around(30, 700, 100, 36);
-
-    @include mq() {
-      @include f_around(40, false, false, false);      
+    
+    & svg {
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      height: auto;
     }
-  }
 
-  &__subtitle {
-    @include f_around(16, 700, 80, 16);
-    margin-top: 5px;
-
-    @include mq() {
-      @include f_around(20, false, false, false);
+    & path {
+      fill-opacity: 0; // Snap.svgで透明度1
+      fill: $cWhite;
+      stroke: $cWhite;
+      stroke-width: 1;
+      stroke-miterlimit: 10;
     }
   }
 
   &__text {
-    @include f_around(14, false, false, 23.8);
+    @include f_around(12, false, false, 20.4);
     margin-top: 40px;
 
-    @include mq() {
+    @include mq(lg) {
       @include f_around(16, false, false, 28.8);
     }
   }
@@ -208,7 +360,7 @@ Works
       display: block;
       content: "";
       background-color: $cBgGray;
-      transition: 4s all;
+      transition: opacity 1.3s;
       opacity: 0;
       
       @include mq() {
@@ -224,13 +376,36 @@ Works
 
     &.bg-active::after {
       opacity: 1;
+
+      @include animation(
+        $name: box-shadow,
+        $duration: 0.4s,
+        $timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940),
+        $delay: 1.3s,
+        $iteration-count: 1,
+        $direction: normal,
+        $fill-mode: forwards
+      );
+    }
+
+    @include mq(lg) {
+      &.bg-active .works__desc .heading-primary::before {
+        @include animation(
+          $name: scaleX,
+          $duration: 0.4s,
+          $timing-function: ease,
+          $delay: 1.3s,
+          $iteration-count: 1,
+          $direction: normal,
+          $fill-mode: forwards
+        );
+      }
     }
   }
   
   &__img-wrapper {
     width: 100%;
-    overflow: hidden;
-    /* 背景の透過を消す */
+    overflow: hidden; // 背景の透過を消す
     background-color: $cBlack;
     
     @include mq() {
@@ -243,7 +418,27 @@ Works
     text-align: center;
     overflow: hidden;
 
-    .section__body {
+    @include mq(lg) {
+      & .heading-primary {
+        display: inline-block;
+        position: relative;
+  
+        &::before {
+          display: block;
+          position: absolute;
+          content: "";
+          height: 2px;
+          width: 150px;
+          top: 50%;
+          left: -170px;
+          background: $cWhite;
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
+    }
+
+    & .section__body {
       @include mq(md) {
         margin-top: 40px;
       }
@@ -252,6 +447,24 @@ Works
 
   &__link {
     margin-top: 30px;
+  }
+}
+
+@keyframes box-shadow {
+  0% {
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
+  }
+}
+
+@keyframes scaleX {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
 
@@ -282,22 +495,79 @@ Skill
       width: 950px;
     }
 
-    svg {
+    &.motion-path-active {
+      & #skill-pc-path, & #skill-sp-path {
+        stroke-opacity: 1;
+      }
+      
+      & #skill-polygon {
+        fill-opacity: 1;
+      }
+    }
+
+    #skill-svg-pc, #skill-svg-sp {
       overflow: visible;
     }
     
-    #sp-path, #pc-path {
+    #skill-pc-path, #skill-sp-path {
       width: 100%;
       height: 100%;
-      stroke-width: 10;
-      stroke: #333;
+      fill: none;
+      stroke-opacity: 0;
+      transition: all 2s;
     }
 
-    #polygon {
+    #skill-pc-path {
+      stroke: url(#skill-gradient-pc);
+      stroke-width: 5;
+    }
+
+    #skill-sp-path {
+      stroke: url(#skill-gradient-sp);
+      stroke-width: 3;
+    }
+
+    #skill-polygon {
       fill: $cWhite;
+      width: 7vw;
+      height: 7vw;
+      fill-opacity: 0;
+
+      @include mq(md) {
+        width: 3vw;
+        height: 3vw;
+      }
+
+      @include mq(lg) {
+        width: clamp(32px, 3vw, 64px); // 最小値,中間値,最大値
+        height: clamp(32px, 3vw, 64px); // 最小値,中間値,最大値
+      }
     }
   }
+
+  #skill-gradient-stop1 {
+    @include animation(
+      $name: skill-animation-stop,
+      $duration: 1.5s,
+      $timing-function: ease-in-out,
+      $delay: 0s,
+      $iteration-count: infinite,
+      $direction: alternate,
+      $fill-mode: forwards
+    );
+  }
   
+  #skill-gradient-stop2 {
+    @include animation(
+      $name: skill-animation-stop,
+      $duration: 1.5s,
+      $timing-function: ease-in-out,
+      $delay: 0s,
+      $iteration-count: infinite,
+      $direction: alternate-reverse,
+      $fill-mode: forwards
+    );
+  }
 
   &__list {
     display: grid;
@@ -396,7 +666,16 @@ Skill
   }
 }
 
- @keyframes skill-img-hover-vibrate {
+@keyframes skill-animation-stop {
+  0% {
+    stop-color: #6253e1;
+  }
+  100% {
+    stop-color: #f24645;
+  }
+}
+
+@keyframes skill-img-hover-vibrate {
   0% {
     transform: translate(0);
   }
@@ -519,7 +798,7 @@ $about-width-xl: 850px;
   &__item {
     height: 100%;
     color: $cWhite;
-    background-color: rgba(125, 125, 125, 0.3);
+    background-color: $cBgGray;
     width: calc(100vw - 40px);
     position: relative;
     padding: 1.5vh 8vw 0;
@@ -538,7 +817,15 @@ $about-width-xl: 850px;
     }
 
     &.box-shadow-active {
-      animation: about-box-shadow 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      @include animation(
+        $name: box-shadow,
+        $duration: 0.4s,
+        $timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940),
+        $delay: 0s,
+        $iteration-count: 1,
+        $direction: normal,
+        $fill-mode: forwards
+      );
     }
 
     &-content-number {
@@ -546,7 +833,7 @@ $about-width-xl: 850px;
       color: $cWhite;
 
       @include mq(md) {
-        font-size: clamp(100px, 13vw, 150px); // 最小値,中間値,最大値    
+        font-size: clamp(100px, 13vw, 150px); // 最小値,中間値,最大値
       }
 
       &-wrapper {
@@ -593,7 +880,7 @@ $about-width-xl: 850px;
         bottom: 0;
         left: 50%;
         width: 0;
-        height: 3px;
+        height: 2px;
         transform: translateX(-50%);
         transition: all 0.3s;
         background-color: $cWhite;  
@@ -645,7 +932,7 @@ $about-width-xl: 850px;
       top: 0;
       left: 0;
       height: 2vh;
-      background-size: 300% 100%;
+      // background-size: 300% 100%;
       background-image: linear-gradient(
         to right,
         #6253e1,
@@ -691,16 +978,6 @@ $about-width-xl: 850px;
     transform: translateX(8px);
   }
 }
-
-@keyframes about-box-shadow {
-  0% {
-    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
-  }
-  100% {
-    box-shadow: inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
-  }
-}
-
 
 /*--------------------------------
 Contact

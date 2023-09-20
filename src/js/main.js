@@ -19,22 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
 class Main {
   constructor() {
     this.header = document.querySelector('.header');
-    this.hero = new HeroSlider('.js-works-hero.swiper', '4000');
+    this.hero = new HeroSlider('.works-hero.swiper', '4000');
     this.#init();
   }
 
   #init() {
-    new MainViasual();
     new ThreeAnimation();
     new MenuOpen();
     this.#scrollInit();
   }
 
   #scrollInit() {
-    new ScrollObserver('#js-nav-trigger', this.#navAnimation.bind(this), { rootMargin: '100px', once: false });
-    new ScrollObserver('.js-works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
+    new ScrollObserver('.nav-trigger', this.#navAnimation.bind(this), { once: false });
+    new ScrollObserver('.works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
+    new ScrollObserver('.mv', this.#mvAnimation);
     new ScrollObserver('.works', this.#worksAnimation);
     new ScrollObserver('.skill', this.#skillAnimation);
     new ScrollObserver('.about', this.#aboutAnimation);
@@ -55,6 +55,12 @@ class Main {
     } else {
       this.hero.stop();
       console.log('hero stop is called');
+    }
+  }
+
+  #mvAnimation(el, inview) {
+    if (inview) {
+      new MainViasual(el);
     }
   }
 

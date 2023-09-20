@@ -2,7 +2,6 @@
 @use "pages/works"; // ワークス画面スタイル（ページ毎に作成）
 @use "pages/article"; // 個別投稿画面スタイル（ページ毎に作成）
 
-@use "parts/mobile-menu"; // モバイルメニュー
 @use "parts/hero-slider"; // ヒーロースライダー
 @use 'parts/text-animation'; // テキストアニメーション
 @use 'parts/appear'; // appearアニメーション

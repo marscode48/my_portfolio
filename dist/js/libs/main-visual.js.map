@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["libs/main-visual.js"],"sourcesContent":["export class MainViasual {\n  constructor() {\n    this.DOM = {};\n    this.animation();\n  }\n\n  animation() {\n    console.log('hello world');\n  }\n}\n"],"file":"main-visual.js"}

@@ -8,10 +8,10 @@ export class HeroSlider {
 
   _initSwiper() {
     // スライド要素取得
-    const slideLength = document.querySelectorAll('.js-works-hero .swiper-slide').length;
+    const slideLength = document.querySelectorAll('.works-hero .swiper-slide').length;
     const total = (`00${slideLength}`).slice(-2);
-    const fractionNum = document.querySelector('.js-works-hero .fraction__num');
-    const fractionTotal = document.querySelector('.js-works-hero .fraction__total');
+    const fractionNum = document.querySelector('.works-hero .fraction__num');
+    const fractionTotal = document.querySelector('.works-hero .fraction__total');
     fractionTotal.textContent = total;
 
     // スライド番号の切り替え
@@ -32,7 +32,7 @@ export class HeroSlider {
     // アニメーション切り替え
     const switchAnimation = () => {
       clearTimeout(this.timer);
-      const activeSlide = document.querySelectorAll('.js-works-hero .swiper-slide[class*=-active]');
+      const activeSlide = document.querySelectorAll('.works-hero .swiper-slide[class*=-active]');
       for (let i = 0; i < activeSlide.length; i += 1) {
         activeSlide[i].classList.remove('anm-finished');
         activeSlide[i].classList.add('anm-started');
@@ -48,7 +48,7 @@ export class HeroSlider {
 
     // アニメーション終了（手動でスライド切替された時）
     const finishAnimation = () => {
-      const activeSlide = document.querySelectorAll('.js-works-hero .swiper-slide.anm-started');
+      const activeSlide = document.querySelectorAll('.works-hero .swiper-slide.anm-started');
       for (let i = 0; i < activeSlide.length; i += 1) {
         activeSlide[i].classList.remove('anm-started');
         activeSlide[i].classList.add('anm-finished');
@@ -66,7 +66,7 @@ export class HeroSlider {
       followFinger: false,
       grabCursor: true,
       pagination: {
-        el: '.js-works-hero .swiper-pagination',
+        el: '.works-hero .swiper-pagination',
         clickable: true,
       },
       on: {
