@@ -12,13 +12,6 @@ export class ContactAnimation {
     const link = this.DOM.el.querySelector('.contact__link');
     const btn = this.DOM.el.querySelector('.contact__btn');
 
-    ScrollTrigger.create({
-      trigger: inner,
-      start: 'center 80%',
-      toggleClass: 'bg-active',
-      // markers: true,
-    });
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: this.DOM.el,
@@ -65,6 +58,7 @@ export class ContactAnimation {
       '<',
     );
     tl.add(() => {
+      inner.classList.toggle('bg-active');
       btn.classList.toggle('gradietion-active');
     },
     '>');

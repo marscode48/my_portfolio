@@ -12,6 +12,7 @@
     "import/prefer-default-export": 0,
     "import/no-unresolved": 0,
     "no-new": 1,
+    "new-cap": 1,
     "no-param-reassign": 1,
     "max-classes-per-file": 1,
     "class-methods-use-this": 1,

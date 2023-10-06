@@ -8,6 +8,7 @@ import { WorksAnimation } from 'works-animation';
 import { TextAnimation, TweenTextAnimation } from 'text-animation';
 import { SkillAnimation } from 'skill-animation';
 import { AboutAnimation } from 'about-animation';
+import { ContactCanvas } from 'contact-canvas';
 import { ContactAnimation } from 'contact-animation';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,6 +21,7 @@ class Main {
   constructor() {
     this.header = document.querySelector('.header');
     this.hero = new HeroSlider('.works-hero.swiper', '4000');
+    this.contactCanvas = new ContactCanvas('.contact__canvas');
     this.#init();
   }
 
@@ -38,6 +40,7 @@ class Main {
     new ScrollObserver('.works', this.#worksAnimation);
     new ScrollObserver('.skill', this.#skillAnimation);
     new ScrollObserver('.about', this.#aboutAnimation);
+    new ScrollObserver('.contact', this.#toggleContactCanvas.bind(this), { once: false });
     new ScrollObserver('.contact', this.#contactAnimation);
   }
 
@@ -79,6 +82,16 @@ class Main {
   #aboutAnimation(el, inview) {
     if (inview) {
       new AboutAnimation(el);
+    }
+  }
+
+  #toggleContactCanvas(el, inview) {
+    if (inview) {
+      this.contactCanvas.start();
+      console.log('contact start is called');
+    } else {
+      this.contactCanvas.stop();
+      console.log('contact stop is called');
     }
   }
 
