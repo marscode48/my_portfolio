@@ -278,10 +278,26 @@
       height: auto;
     }
 
+    & .stop1 {
+      stop-color: $cMainPurple1;
+    }
+    
+    & .stop2 {
+      stop-color: $cMainPurple2;
+    }
+
+    & .stop3 {
+      stop-color: $cMainPurple3;
+    }
+    
+    & .stop4 {
+      stop-color: $cMainPurple4;
+    }
+
     & path {
       fill-opacity: 0; // Snap.svgで透明度1
-      fill: $cWhite;
-      stroke: $cWhite;
+      fill: url(#mv-gradient);
+      stroke: url(#mv-gradient);
       stroke-width: 1;
       stroke-miterlimit: 10;
     }

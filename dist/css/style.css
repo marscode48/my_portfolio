@@ -455,10 +455,22 @@ li {
   max-width: 100%;
   height: auto;
 }
+.mv__title .stop1 {
+  stop-color: #6253e1;
+}
+.mv__title .stop2 {
+  stop-color: #852d91;
+}
+.mv__title .stop3 {
+  stop-color: #a3a1ff;
+}
+.mv__title .stop4 {
+  stop-color: #f24645;
+}
 .mv__title path {
   fill-opacity: 0;
-  fill: #fff;
-  stroke: #fff;
+  fill: url(#mv-gradient);
+  stroke: url(#mv-gradient);
   stroke-width: 1;
   stroke-miterlimit: 10;
 }
