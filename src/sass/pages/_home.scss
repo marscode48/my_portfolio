@@ -96,16 +96,27 @@
   z-index: 30;
   width: 100%;
   height: 100vh;
-  transition: all 0.5s;
+  transition: all 2s;
   opacity: 0;
   visibility: hidden;
+
+  &__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+    transition: all 1s ease-out;
+    opacity: 0;
+  }
 
   &__list {
     display: grid;
     place-items: center;
     row-gap: 5vh;
     position: absolute;
-    z-index: 40;
+    z-index: 20;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -126,7 +137,7 @@
   
   &__link {
     text-decoration: none;
-    color: $cBlack;
+    color: $cWhite;
     display: inline-block;
     padding-bottom: 5px;
 
@@ -140,7 +151,7 @@
         height: 3px;
         transform: translateX(-50%);
         transition: all 0.3s;
-        background-color: $cBlack;  
+        background-color: $cWhite;  
       }
   
       &:hover::after {
@@ -155,8 +166,14 @@
     width: 100px; // 円形の始点
     height: 100px; // 円形の始点
     border-radius: 50%;
-    background-color: $cGnavBgGray;
-    opacity: 0.9;
+    background: linear-gradient(
+      to top right, 
+    $cMainPurple1,
+    $cMainPurple2,
+    $cMainPurple3,
+    $cMainPurple4,
+    );
+    opacity: 0.8;
     transform: scale(0); // scaleで全体に拡大
     right: -50px;
     top: -50px;
@@ -173,7 +190,6 @@
   & .header__line::before,
   & .header__line::after {
     top: 0;
-    background-color: $cBlack;    
   }
 
   & .header__line::before {
@@ -187,6 +203,10 @@
   & .gnav {
     opacity: 1;
     visibility: visible;
+
+    &__canvas {
+      opacity: 0.8;
+    }
 
     &__item {
       transform: translate3d(0, 0, 0);
@@ -668,10 +688,10 @@ Skill
 
 @keyframes skill-animation-stop {
   0% {
-    stop-color: #6253e1;
+    stop-color: $cMainPurple1;
   }
   100% {
-    stop-color: #f24645;
+    stop-color: $cMainPurple4;
   }
 }
 
@@ -935,10 +955,10 @@ $about-width-xl: 850px;
       // background-size: 300% 100%;
       background-image: linear-gradient(
         to right,
-        #6253e1,
-        #852d91,
-        #a3a1ff,
-        #f24645
+        $cMainPurple1,
+        $cMainPurple2,
+        $cMainPurple3,
+        $cMainPurple4
       );
     }
   }

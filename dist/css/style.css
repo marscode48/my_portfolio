@@ -278,16 +278,26 @@ li {
   z-index: 30;
   width: 100%;
   height: 100vh;
-  transition: all 0.5s;
+  transition: all 2s;
   opacity: 0;
   visibility: hidden;
+}
+.gnav__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 10;
+  transition: all 1s ease-out;
+  opacity: 0;
 }
 .gnav__list {
   display: grid;
   place-items: center;
   row-gap: 5vh;
   position: absolute;
-  z-index: 40;
+  z-index: 20;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -310,7 +320,7 @@ li {
 }
 .gnav__link {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -324,7 +334,7 @@ li {
     height: 3px;
     transform: translateX(-50%);
     transition: all 0.3s;
-    background-color: #000;
+    background-color: #fff;
   }
   .gnav__link:hover::after {
     width: 100%;
@@ -336,8 +346,8 @@ li {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #c8c8c8;
-  opacity: 0.9;
+  background: linear-gradient(to top right, #6253e1, #852d91, #a3a1ff, #f24645);
+  opacity: 0.8;
   transform: scale(0);
   right: -50px;
   top: -50px;
@@ -349,7 +359,6 @@ li {
 }
 .menu-open .header__line::before, .menu-open .header__line::after {
   top: 0;
-  background-color: #000;
 }
 .menu-open .header__line::before {
   transform: rotate(45deg);
@@ -360,6 +369,9 @@ li {
 .menu-open .gnav {
   opacity: 1;
   visibility: visible;
+}
+.menu-open .gnav__canvas {
+  opacity: 0.8;
 }
 .menu-open .gnav__item {
   transform: translate3d(0, 0, 0);
@@ -539,7 +551,7 @@ Works
   z-index: -1;
   display: block;
   content: "";
-  background-color: rgba(180, 180, 180, 0.3);
+  background-color: rgba(180, 180, 180, 0.3019607843);
   transition: opacity 1.3s;
   opacity: 0;
 }
@@ -952,7 +964,7 @@ About
 .about__item {
   height: 100%;
   color: #fff;
-  background-color: rgba(180, 180, 180, 0.3);
+  background-color: rgba(180, 180, 180, 0.3019607843);
   width: calc(100vw - 40px);
   position: relative;
   padding: 1.5vh 8vw 0;

@@ -84,10 +84,10 @@ li {
   background-size: 300% 100%;
   background-image: linear-gradient(
     to right,
-    #6253e1,
-    #852d91,
-    #a3a1ff,
-    #f24645
+    $cMainPurple1,
+    $cMainPurple2,
+    $cMainPurple3,
+    $cMainPurple4
     );
   box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 
