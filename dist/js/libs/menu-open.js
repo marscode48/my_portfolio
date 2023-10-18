@@ -35,8 +35,8 @@ export class MenuOpen {
     const maxParticle = 100;
     let particles;
 
-    const sketch = function (p) {
-      p.setup = function () {
+    const sketch = (p) => {
+      p.setup = () => {
         p.createCanvas(gnavCanvas.clientWidth, gnavCanvas.clientHeight);
         p.noStroke();
         particles = [];
@@ -48,7 +48,7 @@ export class MenuOpen {
         p.draw();
       };
 
-      p.draw = function () {
+      p.draw = () => {
         p.clear();
         p.background(0, 0, 0, 0.5);
 
