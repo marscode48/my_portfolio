@@ -167,11 +167,11 @@
     height: 100px; // 円形の始点
     border-radius: 50%;
     background: linear-gradient(
-      to top right, 
+      to top right,
     $cMainPurple1,
     $cMainPurple2,
     $cMainPurple3,
-    $cMainPurple4,
+    $cMainPurple4
     );
     opacity: 0.8;
     transform: scale(0); // scaleで全体に拡大
@@ -440,9 +440,26 @@ Works
   }
   
   &__img-wrapper {
+    position: relative;
     width: 100%;
-    overflow: hidden; // 背景の透過を消す
-    background-color: $cBlack;
+    // overflow: hidden;
+    background-color: $cBlack; // 背景の透過を消す
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        $cMainPurple1 0 60%,
+        $cMainPurple4  40% 100%
+      );
+      filter: blur(50px);
+    }
     
     @include mq() {
       width: 60%;
@@ -467,7 +484,13 @@ Works
           width: 150px;
           top: 50%;
           left: -170px;
-          background: $cWhite;
+          background: linear-gradient(
+            to right,
+            $cMainPurple1,
+            $cMainPurple2,
+            $cMainPurple3,
+            $cMainPurple4
+          );
           transform: scaleX(0);
           transform-origin: right;
         }
@@ -488,10 +511,12 @@ Works
 
 @keyframes box-shadow {
   0% {
-    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0),
+    inset 0 0 0 0 rgba(0, 0, 0, 0);
   }
   100% {
-    box-shadow: inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 5px 0px $cBoxShadowPurple,
+    inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
   }
 }
 

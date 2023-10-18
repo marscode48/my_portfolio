@@ -16,13 +16,15 @@ export class AboutAnimation {
     const sections = Array.from(list.children);
 
     const scrollTween = gsap.to(list, {
-      // リスト最後尾をラッパー右端に合わせる（リスト – ラッパー）
-      x: () => -(list.clientWidth - wrapper.clientWidth),
+      // 横スクロール（左方向へ移動）なので、xプロパティにはマイナスを指定
+      // リスト最後尾をラッパー右端に合わせて、box-shadow分をマイナスして表示
+      // 例：-(3540px - 850px) - 10px = -2700px
+      x: () => -(list.clientWidth - wrapper.clientWidth) - 10,
       ease: 'none',
       scrollTrigger: {
         trigger: this.DOM.el,
         start: 'top 5%',
-        end: () => `+=${list.clientWidth - wrapper.clientWidth}`,
+        end: () => `+=${(list.clientWidth - wrapper.clientWidth) + 10}`,
         scrub: true,
         pin: true,
         anticipatePin: 1, // ページのガタつきを防ぐ

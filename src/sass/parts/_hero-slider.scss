@@ -49,7 +49,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.35);
+        background: linear-gradient(
+          to bottom right,
+          $cMainPurple1,
+          $cMainPurple2,
+          $cMainPurple3,
+          $cMainPurple4
+        );
+        opacity: 0.5;
+        box-shadow: inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
       }
     }
   
@@ -67,26 +75,44 @@
     }
 
     &__title {
-      @include f_around(28, false, 50, 28);
-
-      @include mq() {
-        @include f_around(60, false, false, false);
+      @include f_around(24, 700, 75, 24);
+    
+      @include mq(lg) {
+        @include f_around(32, false, 100, false);
       }
     }
 
     &__text {
-      @include f_around(12, false, false, 15.6);
+      @include f_around(12, false, 25, 15.6);
 
-      @include mq() {
-        @include f_around(18, false, false, false);
+      @include mq(lg) {
+        @include f_around(14, false, false, false);
       }
     }
 
     &__button {
-      @include f_around(12, 700, false, false);
-      display: block;
-      color: $cWorksBtn;
+      @include f_around(16, 700, 75, 16);
+      display: inline-block;
+      background: linear-gradient(
+        to right,
+        $cMainPurple1,
+        $cMainPurple2,
+        $cMainPurple3,
+        $cMainPurple4
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: opacity 0.5s;
 
+      @include mq(lg) {
+        @include f_around(20, false, false, false);
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    
       &::before {
         display: inline-block;
         width: 6rem;
@@ -94,7 +120,13 @@
         margin: -2px 1.6rem 0 0;
         content: "";
         vertical-align: middle;
-        background-color: currentColor;
+        background: linear-gradient(
+          to right,
+          $cMainPurple1,
+          $cMainPurple2,
+          $cMainPurple3,
+          $cMainPurple4
+        );
       }
     }  
   }
@@ -248,4 +280,3 @@
     opacity: 0;
   }
 }
-

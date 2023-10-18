@@ -13,13 +13,13 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
-  @include f_around(14, false, false, false);
-  color: $cWhite;
-  background-color: $cBlack;
+    @include f_around(14, false, false, false);
+    color: $cWhite;
+    background-color: $cBlack;
 
-  @include mq(lg) {
-    @include f_around(15, false, false, false);
-  }
+    @include mq(lg) {
+      @include f_around(15, false, false, false);
+    }
 }
 
 img {
