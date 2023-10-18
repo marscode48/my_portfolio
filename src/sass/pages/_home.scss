@@ -709,7 +709,13 @@ Skill
       left: 0;
       content: "";
       display: block;
-      background: $cWhite;
+      background-image: linear-gradient(
+        to right,
+        $cMainPurple1,
+        $cMainPurple2,
+        $cMainPurple3,
+        $cMainPurple4
+      );
       width: 100%;
       height: 100%;
       transform: translateX(-100%);
