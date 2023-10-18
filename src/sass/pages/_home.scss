@@ -568,6 +568,7 @@ Skill
 
     #skill-svg-pc, #skill-svg-sp {
       overflow: visible;
+      filter: drop-shadow(0 0 8px $cWhite);
     }
     
     #skill-pc-path, #skill-sp-path {
@@ -593,6 +594,7 @@ Skill
       width: 7vw;
       height: 7vw;
       fill-opacity: 0;
+      filter: drop-shadow(-0.8em -0.4em 3px $cMainPurple3);
 
       @include mq(md) {
         width: 3vw;
@@ -664,7 +666,7 @@ Skill
     height: auto;
     opacity: 0;
 
-    @include mq() {
+    @include mq(lg) {
       flex-basis: 60px;
 
       &:hover {
@@ -693,10 +695,10 @@ Skill
     position: relative;
     overflow: hidden;
     display: inline-block;
-    @include f_around(18, false, 50, 18);
+    @include f_around(18, 700, 50, 18);
 
-    @include mq() {
-      @include f_around(20, false, 70, 22);
+    @include mq(lg) {
+      @include f_around(20, false, 100, false);
     }
 
     @include mq(xl) {
