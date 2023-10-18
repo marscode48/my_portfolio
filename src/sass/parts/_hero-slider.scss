@@ -100,9 +100,10 @@
         $cMainPurple3,
         $cMainPurple4
       );
+      color: $cMainPurple1; // 文字グラデーション非対応のブラウザ
       background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+      -webkit-background-clip: text; // テキストを切り抜く
+      -webkit-text-fill-color: transparent; // 切り抜いた部分は背景を表示
       transition: opacity 0.5s;
 
       @include mq(lg) {
