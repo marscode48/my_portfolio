@@ -445,7 +445,7 @@ Works
     // overflow: hidden;
     background-color: $cBlack; // 背景の透過を消す
 
-    &::before {
+    &::after {
       content: "";
       position: absolute;
       z-index: -1;
@@ -454,11 +454,14 @@ Works
       width: 100%;
       height: 100%;
       background: linear-gradient(
-        to bottom,
-        $cMainPurple1 0 60%,
-        $cMainPurple4  40% 100%
+        to bottom right,
+        $cMainPurple1,
+        $cMainPurple2,
+        $cMainPurple3,
+        $cMainPurple4
       );
-      filter: blur(50px);
+      filter: blur(50px) opacity(0.5);
+      transform: translateY(10px) scale(1.1);
     }
     
     @include mq() {
