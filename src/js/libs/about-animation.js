@@ -97,7 +97,6 @@ export class AboutAnimation {
 
     // text-section
     sections.forEach((section) => {
-      const numberWrapper = section.querySelector('.about__item-content-number-wrapper');
       const number = section.querySelector('.about__item-content-number');
       const title = section.querySelector('.about__item-content-title');
       const texts = section.querySelectorAll('.about__item-content-text');
@@ -116,27 +115,26 @@ export class AboutAnimation {
         number,
         {
           opacity: 0,
+          scale: 0
         },
         {
           opacity: 1,
+          scale: 1,
           yPercent: -100,
-          duration: 0.2,
+          duration: 0.4,
           ease: 'power4.easeOut',
         },
       );
       aboutTl.to(
         number,
         {
-          xPercent: 150,
-          skewX: -20,
-          duration: 0.8,
+          xPercent: 280,
+          skewX: -30,
+          duration: 1.2,
           ease: 'power4.easeOut',
         },
         '>',
       );
-      aboutTl.add(() => {
-        numberWrapper.classList.toggle('content-number-wrapper-active');
-      }, '<');
       aboutTl.from(
         title,
         {
