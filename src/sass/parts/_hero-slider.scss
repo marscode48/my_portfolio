@@ -67,7 +67,7 @@
       max-width: 100%;
       object-fit: cover;
       transition: 5s linear;
-      transform: translateX(-0.5%) scale(1.1);
+      transform: translateX(-1.5%) scale(1.2);
     }
 
     &__title, &__text, &__link {
@@ -171,7 +171,7 @@
 
     & .slide__img {
       transition-delay: 0s;
-      transform: translateX(1.5%) scale(1);
+      transform: translateX(0%) scale(1);
     }
   }
 
