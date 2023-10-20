@@ -104,14 +104,17 @@
       background-clip: text;
       -webkit-background-clip: text; // テキストを切り抜く
       -webkit-text-fill-color: transparent; // 切り抜いた部分は背景を表示
-      transition: opacity 0.5s;
 
       @include mq(lg) {
         @include f_around(20, false, false, false);
 
         &:hover {
-          opacity: 0.5;
+          filter: brightness(1.15);
         }
+      }
+
+      &:active {
+        filter: brightness(0.85);
       }
     
       &::before {

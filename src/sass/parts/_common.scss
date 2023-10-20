@@ -114,11 +114,17 @@ li {
       text-decoration: none;
       transition: all 0.4s ease-in-out;
       background-position: 100% 0;
+      filter: brightness(1.15);
 
       &-icon {
         right: 3em;
       }
     }
+  }
+
+  &:active {
+    transition: unset;
+    filter: brightness(0.85);
   }
 
   &.gradietion-active {
