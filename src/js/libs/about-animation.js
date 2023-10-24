@@ -115,7 +115,7 @@ export class AboutAnimation {
         number,
         {
           opacity: 0,
-          scale: 0
+          scale: 0,
         },
         {
           opacity: 1,
