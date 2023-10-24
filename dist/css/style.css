@@ -917,21 +917,22 @@ About
 @media screen and (min-width: 600px) {
   .about__inner {
     gap: 5vh 0;
-    grid-template-rows: minmax(150px, 1fr) 3fr;
+    grid-template-rows: minmax(200px, 1fr) 3fr;
   }
 }
 @media screen and (min-width: 960px) {
   .about__inner {
-    grid-template-columns: 1fr 700px;
+    grid-template-columns: 1fr 670px;
     grid-template-rows: 1fr;
-    gap: 0 30px;
-    max-width: 900px;
+    gap: 0 20px;
+    max-width: 870px;
   }
 }
 @media screen and (min-width: 1280px) {
   .about__inner {
-    grid-template-columns: 1fr 850px;
-    max-width: 1150px;
+    grid-template-columns: 1fr 900px;
+    gap: 0 30px;
+    max-width: 1180px;
   }
 }
 .about__inner.about-inner-active {
@@ -947,23 +948,34 @@ About
   animation-fill-mode: forwards;
 }
 .about__img {
-  border-radius: 50%;
-}
-.about__img-wrapper {
   width: 150px;
-  margin: 0 auto;
+  height: 150px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: -1px -30px;
+     object-position: -1px -30px;
 }
 @media screen and (min-width: 600px) {
-  .about__img-wrapper {
-    width: auto;
-    max-width: 180px;
+  .about__img {
+    width: 200px;
+    height: 200px;
   }
 }
 @media screen and (min-width: 960px) {
-  .about__img-wrapper {
-    max-width: 300px;
+  .about__img {
+    width: 180px;
+    height: 180px;
   }
+}
+@media screen and (min-width: 1280px) {
+  .about__img {
+    width: 250px;
+    height: 250px;
+  }
+}
+.about__img-wrapper {
+  margin: 0 auto;
 }
 .about__list-wrapper {
   position: relative;
@@ -1007,12 +1019,12 @@ About
 }
 @media screen and (min-width: 960px) {
   .about__item {
-    width: 690px;
+    width: 660px;
   }
 }
 @media screen and (min-width: 1280px) {
   .about__item {
-    width: 840px;
+    width: 890px;
   }
 }
 .about__item.box-shadow-active {
@@ -1079,7 +1091,7 @@ About
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 2px;
+  height: 0.1em;
   transform: translateX(-50%);
   transition: all 0.3s;
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);

@@ -770,10 +770,6 @@ Skill
 /*--------------------------------
 About
 ---------------------------------*/
-$about-width-lg: 700px;
-$about-width-xl: 850px;
-$about-box-shadow: 10px;
-
 .about {
   position: relative;
   min-height: 100vh;
@@ -788,19 +784,20 @@ $about-box-shadow: 10px;
 
     @include mq(md) {
       gap: 5vh 0;
-      grid-template-rows: minmax(150px, 1fr) 3fr;
+      grid-template-rows: minmax(200px, 1fr) 3fr;
     }
 
     @include mq(lg) {
       grid-template-columns: 1fr $about-width-lg;
       grid-template-rows: 1fr;
-      gap: 0 30px;
-      max-width: 900px;
+      gap: 0 $about-gap-lg;
+      max-width: $about-max-width-lg;
     }
 
     @include mq(xl) {
       grid-template-columns: 1fr $about-width-xl;
-      max-width: 1150px;
+      gap: 0 $about-gap-xl;
+      max-width: $about-max-width-xl;
     }
 
     &.about-inner-active {
@@ -821,21 +818,29 @@ $about-box-shadow: 10px;
   }
 
   &__img {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: -1px -30px;
+
+    @include mq(md) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @include mq(lg) {
+      width: calc($about-max-width-lg - ($about-width-lg + $about-gap-lg));
+      height: calc($about-max-width-lg - ($about-width-lg + $about-gap-lg));
+    }
+
+    @include mq(xl) {
+      width: calc($about-max-width-xl - ($about-width-xl + $about-gap-xl));
+      height: calc($about-max-width-xl - ($about-width-xl + $about-gap-xl));
+    }
 
     &-wrapper {
-      width: 150px;
       margin: 0 auto;
-      border-radius: 50%;
-
-      @include mq(md) {
-        width: auto;
-        max-width: 180px;
-      }
-      
-      @include mq(lg) {
-        max-width: 300px;
-      }
     }
   }
 
