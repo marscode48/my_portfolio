@@ -784,7 +784,7 @@ About
 
     @include mq(md) {
       gap: 5vh 0;
-      grid-template-rows: minmax(200px, 1fr) 3fr;
+      grid-template-rows: minmax(200px, 1fr) 2fr;
     }
 
     @include mq(lg) {
@@ -859,7 +859,12 @@ About
     }
 
     @include mq(lg) {
-      height: 60vh;
+      height: 45vh;
+      max-height: 500px;
+    }
+
+    @include mq(xl) {
+      height: 55vh;
       max-height: 800px;
     }
   }
@@ -882,6 +887,14 @@ About
     padding: 1.5vh 8vw 0;
 
     @include mq(md) {
+      padding: min(4vh, 65px) min(15vw, 250px) 0;
+    }
+
+    @include mq(lg) {
+      padding: min(3vh, 45px) min(5vw, 65px) 0;
+    }
+
+    @include mq(xl) {
       padding: min(6vh, 75px) min(8vw, 115px) 0;
     }
 
@@ -920,6 +933,14 @@ About
       -webkit-text-fill-color: transparent; // 切り抜いた部分は背景を表示
 
       @include mq(md) {
+        font-size: clamp(70px, 9vw, 90px); // 最小値,中間値,最大値
+      }
+
+      @include mq(lg) {
+        font-size: clamp(50px, 6vw, 65px); // 最小値,中間値,最大値
+      }
+
+      @include mq(xl) {
         font-size: clamp(90px, 7.5vw, 110px); // 最小値,中間値,最大値
       }
 
@@ -953,6 +974,10 @@ About
         font-size: clamp(24px, 2vw, 30px); // 最小値,中間値,最大値
       }
 
+      @include mq(xl) {
+        font-size: clamp(28px, 2.3vw, 34px); // 最小値,中間値,最大値
+      }
+
       &::after {
         position: absolute;
         content: "";
@@ -977,25 +1002,38 @@ About
     }
 
     &-content-text {
-      margin-top: 25px;
-      @include f_around(10, false, false, 14);
+      margin-top: min(3vh, 30px);
+      @include f_around(12, false, false, 24);
 
       @include mq(md) {
-        margin-top: 30px;
-        @include f_around(14, false, false, 28);
+        margin-top: min(3vh, 40px);
+        @include f_around(14, false, false, false);
       }
 
       @include mq(lg) {
-        margin-top: 60px;
+        margin-top: min(5vh, 60px);
+        @include f_around(14, false, false, 17.5);
+      }
+
+      @include mq(xl) {
+        margin-top: min(6vh, 80px);
         @include f_around(16, false, false, 24);
       }
     }
 
     &-content-text + &-content-text {
-      margin-top: 10px;
+      margin-top: min(2vh, 20px);
 
       @include mq(md) {
-        margin-top: 20px;
+        margin-top: min(2vh, 30px);
+      }
+
+      @include mq(lg) {
+        margin-top: min(3vh, 40px);
+      }
+
+      @include mq(xl) {
+        margin-top: min(4vh, 70px);
       }
     }
   }
