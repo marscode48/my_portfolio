@@ -925,18 +925,17 @@ About
 
       &-wrapper {
         position: absolute;
-        top: 6.5rem;
-        left: 0rem;
+        top: 1rem;
+        right: 1rem;
+        transform: translate(-200%, 100%);
         z-index: -1;
 
         @include mq(md) {
-          top: 12rem;
-          left: 8rem;
+          transform: translate(-350%, 100%);
         }
 
         @include mq(lg) {
-          top: 15rem;
-          left: 5rem;
+          transform: translate(-300%, 100%);
         }
       }
     }

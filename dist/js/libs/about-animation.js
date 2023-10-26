@@ -115,7 +115,7 @@ export class AboutAnimation {
         number,
         {
           opacity: 0,
-          scale: 0
+          scale: 0,
         },
         {
           opacity: 1,
@@ -128,7 +128,7 @@ export class AboutAnimation {
       aboutTl.to(
         number,
         {
-          xPercent: 280,
+          xPercent: 200,
           skewX: -30,
           duration: 1.2,
           ease: 'power4.easeOut',

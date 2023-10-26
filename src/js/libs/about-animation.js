@@ -128,7 +128,7 @@ export class AboutAnimation {
       aboutTl.to(
         number,
         {
-          xPercent: 280,
+          xPercent: 200,
           skewX: -30,
           duration: 1.2,
           ease: 'power4.easeOut',
