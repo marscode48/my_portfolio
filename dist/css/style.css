@@ -629,6 +629,7 @@ Works
 .works__desc {
   flex: 1;
   text-align: center;
+  overflow: hidden;
 }
 @media screen and (min-width: 960px) {
   .works__desc .heading-primary {
@@ -640,11 +641,12 @@ Works
     position: absolute;
     content: "";
     height: 2px;
-    width: 150px;
+    width: 10vw;
+    max-width: 130px;
     top: 50%;
-    left: -170px;
+    right: 110%;
     background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
-    transform: scaleX(0);
+    transform: scaleX(0) translateY(-50%);
     transform-origin: right;
   }
 }
@@ -667,10 +669,10 @@ Works
 }
 @keyframes scaleX {
   0% {
-    transform: scaleX(0);
+    transform: scaleX(0) translateY(-50%);
   }
   100% {
-    transform: scaleX(1);
+    transform: scaleX(1) translateY(-50%);
   }
 }
 /*--------------------------------

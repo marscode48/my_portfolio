@@ -484,9 +484,11 @@ Works
           position: absolute;
           content: "";
           height: 2px;
-          width: 150px;
+          width: 10vw;
+          max-width: 130px;
           top: 50%;
-          left: -170px;
+          right: 110%;
+
           background: linear-gradient(
             to right,
             $cMainPurple1,
@@ -494,7 +496,7 @@ Works
             $cMainPurple3,
             $cMainPurple4
           );
-          transform: scaleX(0);
+          transform: scaleX(0) translateY(-50%);
           transform-origin: right;
         }
       }
@@ -525,10 +527,10 @@ Works
 
 @keyframes scaleX {
   0% {
-    transform: scaleX(0);
+    transform: scaleX(0) translateY(-50%);
   }
   100% {
-    transform: scaleX(1);
+    transform: scaleX(1) translateY(-50%);
   }
 }
 
