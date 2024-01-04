@@ -12,7 +12,7 @@ export class AboutAnimation {
     const list = this.DOM.el.querySelector('.about__list');
     const img = this.DOM.el.querySelector('.about__img');
     const line = this.DOM.el.querySelector('.about__line');
-    const lineIner = this.DOM.el.querySelector('.about__line-inner');
+    const lineInner = this.DOM.el.querySelector('.about__line-inner');
     const sections = Array.from(list.children);
 
     const scrollTween = gsap.to(list, {
@@ -75,23 +75,27 @@ export class AboutAnimation {
         onEnter: () => {
           // console.log('onEnter is called');
           line.classList.add('line-active');
+          img.classList.add('bg-active');
         },
         onEnterBack: () => {
           // console.log('onEnterBack is called');
           line.classList.add('line-active');
+          img.classList.add('bg-active');
         },
         onLeaveBack: () => {
           // console.log('onLeaveBack is called');
           line.classList.remove('line-active');
+          img.classList.remove('bg-active');
         },
         onLeave: () => {
           // console.log('onLeave is called');
           line.classList.remove('line-active');
+          img.classList.remove('bg-active');
         },
       },
     });
 
-    lineTl.fromTo(lineIner,
+    lineTl.fromTo(lineInner,
       { width: 0 },
       { width: '100%' });
 
