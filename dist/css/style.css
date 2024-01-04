@@ -957,6 +957,9 @@ About
      object-fit: cover;
   -o-object-position: -1px -30px;
      object-position: -1px -30px;
+  border: 1px solid #cf00ff;
+  transition: border-color 1.5s;
+  animation: bright-flash-finish 1.5s linear forwards;
 }
 @media screen and (min-width: 600px) {
   .about__img {
@@ -975,6 +978,11 @@ About
     width: 250px;
     height: 250px;
   }
+}
+.about__img.bg-active, .about__img:hover {
+  border: 1px solid #6253e1;
+  transition: border-color 0.2s;
+  animation: bright-flash-start 0.2s linear forwards;
 }
 .about__img-wrapper {
   margin: 0 auto;
@@ -1215,6 +1223,22 @@ About
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes bright-flash-finish {
+  0% {
+    filter: sepia(0%) drop-shadow(5px 5px 20px #6253e1);
+  }
+  100% {
+    filter: sepia(80%) drop-shadow(5px 5px 40px #cf00ff);
+  }
+}
+@keyframes bright-flash-start {
+  0% {
+    filter: brightness(2.5) contrast(150%) sepia(0%) drop-shadow(5px 5px 40px #f24645);
+  }
+  100% {
+    filter: brightness(1.25) contrast(100%) drop-shadow(5px 5px 20px #6253e1);
   }
 }
 /*--------------------------------

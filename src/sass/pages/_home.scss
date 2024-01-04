@@ -826,6 +826,9 @@ About
     border-radius: 50%;
     object-fit: cover;
     object-position: -1px -30px;
+    border: 1px solid $cBoxShadowPurple;
+    transition: border-color 1.5s;
+    animation: bright-flash-finish 1.5s linear forwards;
 
     @include mq(md) {
       width: 200px;
@@ -840,6 +843,12 @@ About
     @include mq(xl) {
       width: calc($about-max-width-xl - ($about-width-xl + $about-gap-xl));
       height: calc($about-max-width-xl - ($about-width-xl + $about-gap-xl));
+    }
+
+    &.bg-active, &:hover {
+      border: 1px solid $cMainPurple1;
+      transition: border-color 0.2s;
+      animation: bright-flash-start 0.2s linear forwards;
     }
 
     &-wrapper {
@@ -1092,6 +1101,24 @@ About
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bright-flash-finish {
+  0% {
+    filter: sepia(0%) drop-shadow(5px 5px 20px $cMainPurple1);
+  }
+  100% {
+    filter: sepia(80%) drop-shadow(5px 5px 40px $cBoxShadowPurple);
+  }
+}
+
+@keyframes bright-flash-start {
+  0% {
+    filter: brightness(2.5) contrast(150%) sepia(0%) drop-shadow(5px 5px 40px $cMainPurple4);
+  }
+  100% {
+    filter: brightness(1.25) contrast(100%) drop-shadow(5px 5px 20px $cMainPurple1);
   }
 }
 
