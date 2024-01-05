@@ -1187,16 +1187,42 @@ Contact
 ページトップ
 ---------------------------------*/
 .page-top {
-  font-weight: bold;
+  @include f_around(12, 700, false, 12);
   padding: 10px 0;
-  cursor: pointer;
   text-align: center;
+  color: $cWhite;
+  background-color: $cBgGray;
 
-  background-color: gray;
+  @include mq(lg) {
+    @include f_around(14, false, false, 14);
+    transition: background-color 1s linear;
+    cursor: pointer;
+  }
 
-  & .material-icons-outlined {
-    color: $cWhite;
-    vertical-align: bottom;
+  &-icon {
+    @include mq(lg) {
+      transition: all 1s ease-in-out;      
+    }
+  }
+
+  &:hover {
+    @include mq(lg) {
+      background-color: $cBgGrayHover;
+      transition: background-color 0.3s linear;
+    }
+
+    & .page-top-icon {
+      @include mq(lg) {
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-0.2em);
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &:active {
+    transition: unset;
+    filter: brightness(0.85);
   }
 }
 
