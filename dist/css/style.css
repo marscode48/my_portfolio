@@ -1375,7 +1375,7 @@ Contact
   letter-spacing: 0.1em;
   line-height: 1;
   color: #fff;
-  transition: 0.4s all cubic-bezier(0.37, 0, 0.63, 1);
+  transition: 1s all cubic-bezier(0.37, 0, 0.63, 1);
 }
 @media screen and (min-width: 960px) {
   .footer__item {
@@ -1387,6 +1387,7 @@ Contact
 .footer__item:hover {
   letter-spacing: 0.3em;
   opacity: 0.8;
+  transition: 0.3s all cubic-bezier(0.37, 0, 0.63, 1);
 }
 .footer__link {
   display: inline-block;
