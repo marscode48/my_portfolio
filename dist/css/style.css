@@ -79,7 +79,6 @@ li {
   letter-spacing: 0.1em;
   line-height: 1;
   padding: 18px 0;
-  transition: all 0.4s ease-in-out;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -94,6 +93,7 @@ li {
     width: 220px;
     font-size: 1.4rem;
     line-height: 1;
+    transition: all 1s ease-in-out;
   }
 }
 .btn-icon {
@@ -101,11 +101,11 @@ li {
   font-size: 1em;
   top: 50%;
   right: 3em;
-  transition: all 0.3s ease;
   transform: translateY(-50%);
 }
 @media screen and (min-width: 960px) {
   .btn-icon {
+    transition: all 1s ease;
     right: 4em;
   }
 }
@@ -116,8 +116,11 @@ li {
     background-position: 100% 0;
     filter: brightness(1.15);
   }
-  .btn:hover-icon {
-    right: 3em;
+}
+@media screen and (min-width: 960px) {
+  .btn:hover .btn-icon {
+    right: 3.5em;
+    transition: all 0.3s ease;
   }
 }
 .btn:active {
@@ -1304,15 +1307,43 @@ Contact
 ページトップ
 ---------------------------------*/
 .page-top {
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
   padding: 10px 0;
-  cursor: pointer;
   text-align: center;
-  background-color: gray;
-}
-.page-top .material-icons-outlined {
   color: #fff;
-  vertical-align: bottom;
+  background-color: rgba(125, 125, 125, 0.3);
+}
+@media screen and (min-width: 960px) {
+  .page-top {
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: background-color 1s linear;
+    cursor: pointer;
+  }
+}
+@media screen and (min-width: 960px) {
+  .page-top-icon {
+    transition: all 1s ease-in-out;
+  }
+}
+@media screen and (min-width: 960px) {
+  .page-top:hover {
+    background-color: rgba(125, 125, 125, 0.6);
+    transition: background-color 0.3s linear;
+  }
+}
+@media screen and (min-width: 960px) {
+  .page-top:hover .page-top-icon {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-0.2em);
+    opacity: 0.8;
+  }
+}
+.page-top:active {
+  transition: unset;
+  filter: brightness(0.85);
 }
 
 /*--------------------------------

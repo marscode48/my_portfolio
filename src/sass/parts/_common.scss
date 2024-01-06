@@ -75,7 +75,6 @@ li {
   width: 160px;
   @include f_around(12, 700, 100, 12);
   padding: 18px 0;
-  transition: all 0.4s ease-in-out;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -91,9 +90,10 @@ li {
     );
   box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 
-  @include mq() {
+  @include mq(lg) {
     width: 220px;
     @include f_around(14, false, false, 14);
+    transition: all 1s ease-in-out;
   }
     
   &-icon {
@@ -101,23 +101,26 @@ li {
     font-size: 1em;
     top: 50%;
     right: 3em;
-    transition: all 0.3s ease;
     transform: translateY(-50%);
-
+    
     @include mq() {
+      transition: all 1s ease;
       right: 4em;
     }
   }
 
   &:hover {
-    @include mq() {
+    @include mq(lg) {
       text-decoration: none;
       transition: all 0.4s ease-in-out;
       background-position: 100% 0;
       filter: brightness(1.15);
+    }
 
-      &-icon {
-        right: 3em;
+    & .btn-icon {
+      @include mq(lg) {
+        right: 3.5em;
+        transition: all 0.3s ease;
       }
     }
   }
