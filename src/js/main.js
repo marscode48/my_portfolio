@@ -28,6 +28,7 @@ class Main {
   #init() {
     new ThreeAnimation();
     new MenuOpen();
+    new SmoothScroll(0);
     this.#scrollInit();
   }
 

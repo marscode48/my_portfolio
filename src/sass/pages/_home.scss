@@ -1198,6 +1198,10 @@ Contact
     transition: background-color 1s linear;
     cursor: pointer;
   }
+  
+  & > a {
+    display: block;
+  }
 
   &-icon {
     @include mq(lg) {
