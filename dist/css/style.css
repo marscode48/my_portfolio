@@ -1323,6 +1323,9 @@ Contact
     cursor: pointer;
   }
 }
+.page-top > a {
+  display: block;
+}
 @media screen and (min-width: 960px) {
   .page-top-icon {
     transition: all 1s ease-in-out;

@@ -21,6 +21,7 @@ class Main {
   constructor() {
     this.header = document.querySelector('.header');
     this.hero = new HeroSlider('.works-hero.swiper', '4000');
+    this.about = document.querySelector('.about');
     this.contactCanvas = new ContactCanvas('.contact__canvas');
     this.#init();
   }
@@ -28,6 +29,7 @@ class Main {
   #init() {
     new ThreeAnimation();
     new MenuOpen();
+    new AboutAnimation(this.about); // 最初にpin-spacerを取得（SmoothScrollのズレ防止）
     new SmoothScroll(0);
     this.#scrollInit();
   }
@@ -40,7 +42,6 @@ class Main {
     new ScrollObserver('.mv', this.#mvAnimation);
     new ScrollObserver('.works', this.#worksAnimation);
     new ScrollObserver('.skill', this.#skillAnimation);
-    new ScrollObserver('.about', this.#aboutAnimation);
     new ScrollObserver('.contact', this.#toggleContactCanvas.bind(this), { once: false });
     new ScrollObserver('.contact', this.#contactAnimation);
   }
@@ -77,12 +78,6 @@ class Main {
   #skillAnimation(el, inview) {
     if (inview) {
       new SkillAnimation(el);
-    }
-  }
-
-  #aboutAnimation(el, inview) {
-    if (inview) {
-      new AboutAnimation(el);
     }
   }
 
