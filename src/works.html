@@ -59,42 +59,29 @@
 
   <body>
 
-    <div class="wrapper">
+    <div class="wrapper" id="top">
       <!-- header -->
+      <div class="nav-trigger"></div>
       <header class="header">
-        <h1 class="header__logo">
-          <a href=".">Masakazu Adachi</a>
-        </h1>
+        <div class="header__inner">
+          <h1 class="header__logo">
+            <a href=".">Masakazu Adachi</a>
+          </h1>
+          <button type="button" class="header__btn">
+            <span class="header__line"></span>
+          </button>
+        </div>
         <div class="header__nav">
           <nav class="gnav">
+            <div class="gnav__canvas"></div>
             <ul class="gnav__list">
-              <li class="gnav__item"><a class="gnav__link" href="works.html">WORKS</a></li>
-              <li class="gnav__item"><a class="gnav__link" href="#">SKILL</a></li>
-              <li class="gnav__item"><a class="gnav__link" href="#">ABOUT</a></li>
-              <li class="gnav__item"><a class="gnav__link" href="#">CONTACT</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#works">WORKS</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#skill">SKILL</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#about">ABOUT</a></li>
+              <li class="gnav__item"><a class="gnav__link" href="#contact">CONTACT</a></li>
             </ul>
           </nav>
-
-          <!-- mobile -->
-          <nav class="mobile-menu" id="js-mobile-menu">
-            <div class="logo">
-              <a href="index.html"><img src="images/logo.svg" alt=""></a>
-            </div>
-          
-            <ul class="mobile-menu__list">
-              <li class="mobile-menu__item"><a class="mobile-menu__link" href="works.html">WORKS</a></li>
-              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">SKILL</a></li>
-              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">ABOUT</a></li>
-              <li class="mobile-menu__item"><a class="mobile-menu__link" href="#">CONTACT</a></li>
-            </ul>
-          </nav>
-
-          <button type="button" id="js-btn-menu" class="mobile-menu__btn">
-            <span class="mobile-menu__line"></span>
-          </button>
-          
-          <div id="js-mask" class="mobile-menu__mask"></div>
-          <!-- /mobile -->
+          <div class="gnav__circle-bg"></div>
         </div>
       </header>
       <!-- /header -->
