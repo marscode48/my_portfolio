@@ -157,6 +157,15 @@ li {
   }
 }
 
+#mainCanvas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
 .section {
   padding: 60px 0;
 }
@@ -440,14 +449,6 @@ li {
   .mv {
     height: calc(100vh - 80px);
   }
-}
-.mv #mainCanvas {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -10;
 }
 .mv__inner {
   padding: 0 20px;
