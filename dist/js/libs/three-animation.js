@@ -5,7 +5,7 @@ let scene; let camera; let renderer; let earth; let mars;
 export class ThreeAnimation {
   constructor() {
     this.DOM = {};
-    this.DOM.target = document.querySelector('#mvCanvas');
+    this.DOM.target = document.querySelector('#mainCanvas');
     this.threeInit();
   }
 
