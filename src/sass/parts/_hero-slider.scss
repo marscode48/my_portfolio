@@ -66,7 +66,7 @@
       height: 100%;
       max-width: 100%;
       object-fit: cover;
-      transition: 5s linear;
+      transition: transform 5s linear;
       transform: translateX(-1.5%) scale(1.2);
     }
 
@@ -179,7 +179,15 @@
   & .swiper-slide.anm-started .slide__title,
   & .swiper-slide.anm-started .slide__text,
   & .swiper-slide.anm-started .slide__link {
-    animation: works-hero-fadeIn 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    @include animation(
+      $name: works-hero-fadeIn,
+      $duration: 0.8s,
+      $timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940),
+      $delay: 0s,
+      $iteration-count: 1,
+      $direction: normal,
+      $fill-mode: both
+    );
   }
 
   & .swiper-slide.anm-started .slide__text {
@@ -193,7 +201,15 @@
   & .swiper-slide.anm-finished .slide__title,
   & .swiper-slide.anm-finished .slide__text,
   & .swiper-slide.anm-finished .slide__link {
-    animation: works-hero-fadeOut 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    @include animation(
+      $name: works-hero-fadeOut,
+      $duration: 0.8s,
+      $timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940),
+      $delay: 0s,
+      $iteration-count: 1,
+      $direction: normal,
+      $fill-mode: both
+    );
   }
 
   & .swiper-slide.anm-finished .slide__text {
@@ -205,7 +221,15 @@
   }
 
   & .fraction__num.anm-started {
-    animation: works-hero-fraction 1s cubic-bezier(.2, 1, .2, 1);
+    @include animation(
+      $name: works-hero-fraction,
+      $duration: 1s,
+      $timing-function: cubic-bezier(0.2, 1, 0.2, 1),
+      $delay: 0s,
+      $iteration-count: 1,
+      $direction: normal,
+      $fill-mode: forwards
+    );
   }
   /* /.anm-startedクラス付与 */
 
@@ -221,7 +245,7 @@
       width: 1.6rem;
       height: 2px;
       cursor: pointer;
-      transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+      transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
       background-color: rgb(255 255 255 / 0.3);
   
       &:not(:first-child) {
