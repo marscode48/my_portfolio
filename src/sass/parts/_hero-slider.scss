@@ -56,7 +56,7 @@
           $cMainPurple3,
           $cMainPurple4
         );
-        opacity: 0.5;
+        opacity: 0.3;
         box-shadow: inset 0 0 50px 20px $cBlack;
       }
     }
@@ -72,6 +72,7 @@
 
     &__title, &__text, &__link {
       opacity: 0;
+      visibility: hidden;
     }
 
     &__title {
@@ -179,6 +180,7 @@
   & .swiper-slide.anm-started .slide__title,
   & .swiper-slide.anm-started .slide__text,
   & .swiper-slide.anm-started .slide__link {
+    visibility: visible;
     @include animation(
       $name: works-hero-fadeIn,
       $duration: 0.8s,
@@ -201,6 +203,7 @@
   & .swiper-slide.anm-finished .slide__title,
   & .swiper-slide.anm-finished .slide__text,
   & .swiper-slide.anm-finished .slide__link {
+    visibility: visible;
     @include animation(
       $name: works-hero-fadeOut,
       $duration: 0.8s,
