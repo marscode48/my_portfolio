@@ -17,9 +17,15 @@ $about-max-width-xl: 1180px;
 $about-width-lg: 670px;
 $about-width-xl: 900px;
 
+// height
+$works-page-img-sm: 66.67%;
+$works-page-img-lg: 56.25%;
+
 // gap
 $about-gap-lg: 20px;
 $about-gap-xl: 30px;
 
-//shadow
+// shadow
+$btn-shadow: 0 4px 15px 0 rgba(205, 95, 255, 0.75);
+$btn-shadow-hover: 0 4px 20px 0 rgba(245, 100, 255, 0.75);
 $about-box-shadow: 10px;
