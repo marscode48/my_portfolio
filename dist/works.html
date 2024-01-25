@@ -29,17 +29,11 @@
         "imports": {
           "three": "https://unpkg.com/three@0.142.0/build/three.module.js",
           "menu-open": "./js/libs/menu-open.js",
-          "main-visual": "./js/libs/mv-animation.js",
           "three-animation": "./js/libs/three-animation.js",
           "slider-swiper": "./js/libs/slider-swiper.js",
           "smooth-scroll": "./js/libs/smooth-scroll.js",
           "scroll-observer": "./js/libs/scroll-observer.js",
-          "works-animation": "./js/libs/works-animation.js",
-          "text-animation": "./js/libs/text-animation.js",
-          "skill-animation": "./js/libs/skill-animation.js",
-          "about-animation": "./js/libs/about-animation.js",
-          "contact-canvas": "./js/libs/contact-canvas.js",
-          "contact-animation": "./js/libs/contact-animation.js"
+          "text-animation": "./js/libs/text-animation.js"
         }
       }
     </script>
@@ -53,7 +47,7 @@
     <script src="js/vendors/p5.min.js" defer></script>
     <script src="js/vendors/scroll-polyfill.js" defer></script>
     <script src="js/libs/three-animation.js" type="module"></script>
-    <script src="js/main.js" type="module"></script>
+    <script src="js/main-works.js" type="module"></script>
   </head>
   
 
@@ -88,45 +82,148 @@
 
       <!-- content -->
       <main class="content">
+        <canvas id="mainCanvas"></canvas>
 
         <!-- works -->
         <section id="works" class="works-page section">
           <div class="container">
             <div class="section__heading">
-              <h2 class="heading-primary">WORKS</h2>
+              <h2 class="heading-primary tween-animate-title">WORKS</h2>
             </div>
-            <div class="section__body">
-              <div class="works-page__list">
-                <a class="works-page__item" href="article-01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works-page__item" href="article-01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works-page__item" href="article-01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works-page__item" href="article-01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works-page__item" href="article-01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
-                <a class="works-page__item" href="article01.html">
-                  <div class="works-page__img"><img src="images/works-sample-thumb.jpg" alt="" /></div>
-                  <p class="works-page__name">作品名が入る</p>
-                  <p class="works-page__info">Design / Coding(Responsive)</p>
-                </a>    
+            <div class="section__body appear up">
+              <div class="works-page__list item">
+                <!-- swiper-main -->
+                <div class="swiper swiper-main">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/120/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/109/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/248/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/1047/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/1023/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide">
+                        <div class="slide__img-wrapper"><img class="slide__img" src="https://picsum.photos/id/1060/800/500" alt="" /></div>
+                        <p class="slide__title">作品名が入る</p>
+                        <p class="slide__text">Design / Coding(Responsive)</p>
+                        <div class="slide__link">
+                          <a href="article-01.html" class="btn">more
+                            <i class="btn-icon fa-solid fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-controller">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                  </div>
+                </div>
+                <!-- /swiper-main -->
+                
+                <!-- swiper-thumb -->
+                <div class="swiper swiper-thumb">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/120/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/109/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/248/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/1047/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/1023/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="thumb">
+                        <div class="thumb__img-wrapper">
+                          <img class="thumb__img" src="https://picsum.photos/id/1060/800/500" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+                <!-- /swiper-thumb -->
               </div>
             </div>
           </div>

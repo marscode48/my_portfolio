@@ -103,3 +103,76 @@ export class HeroSlider {
     this.swiper.autoplay.stop();
   }
 }
+
+export class WorksSlider {
+  constructor(subEl, mainEl) {
+    this.subEl = subEl;
+    this.mainEl = mainEl;
+    this.swiperSub = this._initSwiperSub();
+    this.swiperMain = this._initSwiperMain();
+  }
+
+  _initSwiperSub() {
+    return new Swiper(this.subEl, {
+      slidesPerView: 3,
+      spaceBetween: 12,
+      grabCursor: true,
+      scrollbar: {
+        el: '.works-page .swiper-scrollbar',
+        draggable: true,
+      },
+      breakpoints: {
+        600: {
+          slidesPerView: 5,
+        },
+      },
+    });
+  }
+
+  _initSwiperMain() {
+    return new Swiper(this.mainEl, {
+      loop: true,
+      speed: 700,
+      grabCursor: true,
+      slidesPerView: 1,
+      centeredSlides: true,
+      effect: 'creative',
+      creativeEffect: {
+        limitProgress: 2,
+        prev: {
+          translate: ['-100%', 200, -1000],
+          rotate: [0, 0, 40],
+          shadow: true,
+        },
+        next: {
+          translate: ['100%', -200, -1000],
+          rotate: [0, 0, 40],
+          shadow: true,
+        },
+      },
+      navigation: {
+        nextEl: '.works-page .swiper-button-next',
+        prevEl: '.works-page .swiper-button-prev',
+      },
+      thumbs: {
+        swiper: this.swiperSub,
+      },
+    });
+  }
+
+  start(options = {}) {
+    options = {
+      delay: 4000,
+      disableOnInteraction: false,
+      ...options,
+    };
+
+
+    this.swiperMain.params.autoplay = options;
+    this.swiperMain.autoplay.start();
+  }
+
+  stop() {
+    this.swiperMain.autoplay.stop();
+  }
+}
