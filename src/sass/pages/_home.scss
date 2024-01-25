@@ -463,7 +463,6 @@ Works
   &__desc {
     flex: 1;
     text-align: center;
-    overflow: hidden;
 
     @include mq(lg) {
       & .heading-primary {
