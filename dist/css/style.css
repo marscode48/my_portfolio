@@ -1790,35 +1790,12 @@ Contact
 /*--------------------------------
 下層：個別Worksページ
 ---------------------------------*/
-.article-page {
-  padding: 50px 0;
-}
-@media screen and (min-width: 960px) {
-  .article-page {
-    padding: 80px 0;
-  }
-}
-.article-page__heading {
-  text-align: center;
-}
-.article-page__body {
+.article-page__wrapper {
   max-width: 720px;
   margin: 0 auto;
 }
-.article-page__img {
-  margin-top: 30px;
-}
-.article-page__desc {
-  font-size: 1.4rem;
-  line-height: 1.7;
-  margin-top: 20px;
-}
-@media screen and (min-width: 960px) {
-  .article-page__desc {
-    font-size: 1.5rem;
-    line-height: 1.8;
-    margin-top: 30px;
-  }
+.article-page__img-wrapper {
+  text-align: center;
 }
 .article-page__title {
   position: relative;
@@ -1862,7 +1839,7 @@ Contact
     margin-top: 30px;
   }
 }
-.article-page__home-link {
+.article-page__link {
   margin-top: 80px;
   text-align: center;
 }
