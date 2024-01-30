@@ -11,9 +11,56 @@
     margin: 0 auto;
   }
 
-  &__img-wrapper {
-    text-align: center;
+  // パララックス
+  & .parallax {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh; // 高さを低くすると動き（パララックス）は早くなる
+      width: 100%;
+      background: url("../../images/article-1.png") no-repeat top / cover;
+    }
+
+    &__title {
+      @include f_around(18, 700, 50, 18);
+      z-index: 1;
+
+      @include mq(md) {
+        @include f_around(24, false, 100, 24);
+      }
+
+      @include mq(lg) {
+        @include f_around(30, false, false, 30);
+      }
+    
+      & .char {
+        display: inline-block;
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.18);
+        background: linear-gradient(
+        to right,
+        $cMainPurple1,
+        $cMainPurple2,
+        $cMainPurple3,
+        $cMainPurple4
+        );
+        color: $cMainPurple1; // 文字グラデーション非対応のブラウザ
+        background-clip: text;
+        -webkit-background-clip: text; // テキストを切り抜く
+        -webkit-text-fill-color: transparent; // 切り抜いた部分は背景を表示
+      }
+    }
   }
+
+  // &__img-wrapper {
+  //   text-align: center;
+  // }
 
   &__title {
     position: relative;
