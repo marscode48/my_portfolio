@@ -58,53 +58,72 @@
     }
   }
 
-  // &__img-wrapper {
-  //   text-align: center;
-  // }
+  // 文字スライド
+  & .slide {
 
-  &__title {
-    position: relative;
-    @include f_around(16, false, false, false);
-    padding-left: 0.8em;
-    margin-top: 30px;
-
-    @include mq() {
-      @include f_around(18, false, false, false);
-      padding-left: 1em;
-      margin-top: 50px;
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      content: "";
-      border-radius: 3px;
-      background-color: $cWhite;
-    }
-  }
-
-  &__text {
-    @include f_around(14, false, false, 23.8);
-    margin-top: 5px;
-
-    @include mq() {
-      @include f_around(15, false, false, 27);
-    }
-  }
-
-  &__text + &__text {
-    margin-top: 20px;
-
-    @include mq() {
+    &__item {
       margin-top: 30px;
+  
+      @include mq(lg) {
+        margin-top: 50px;
+      }
     }
-  }
-
-  &__link {
-    margin-top: 80px;
-    text-align: center;
+  
+    &__title {
+      position: relative;
+      @include f_around(18, 700, 150, 18);
+      padding-left: 0.8em;
+      overflow: hidden;
+      display: inline-block;
+  
+      @include mq(md) {
+        @include f_around(20, false, false, false);
+        padding-left: 1em;
+      }
+  
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        content: "";
+        border-radius: 3px;
+        background: linear-gradient(
+          to bottom,
+          $cMainPurple1,
+          $cMainPurple2,
+          $cMainPurple3,
+          $cMainPurple4
+        );
+      }
+  
+      & .rect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        background: linear-gradient(
+          to right,
+          $cMainPurple1,
+          $cMainPurple2,
+          $cMainPurple3,
+          $cMainPurple4
+        );
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+      }
+    }
+  
+    &__text {
+      @include f_around(13, false, false, 22.1);
+      margin-top: 5px;
+  
+      @include mq(md) {
+        @include f_around(15, false, false, 27);
+      }
+    }  
   }
 }

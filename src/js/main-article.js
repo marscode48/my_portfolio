@@ -1,6 +1,7 @@
 import { MenuOpen } from 'menu-open';
 import { ThreeAnimation } from 'three-animation';
 import { ArticleParallaxAnimation } from 'article-animation';
+import { ArticleSlideAnimation } from 'article-animation';
 import { SmoothScroll } from 'smooth-scroll';
 import { ScrollObserver } from 'scroll-observer';
 import { TextAnimation, TweenTextAnimation } from 'text-animation';
@@ -27,6 +28,7 @@ class Main {
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
     new ScrollObserver('.article-page .parallax', this.#articleParallaxAnimation);
+    new ScrollObserver('.article-page .slide', this.#articleSlideAnimation);
   }
 
   #textAnimation(el, inview) {
@@ -53,6 +55,12 @@ class Main {
   #articleParallaxAnimation(el, inview) {
     if (inview) {
       new ArticleParallaxAnimation('.article-page .parallax__title', '.article-page .parallax__img');
+    }
+  }
+
+  #articleSlideAnimation(el, inview) {
+    if (inview) {
+      new ArticleSlideAnimation('.article-page .slide__item');
     }
   }
 }
