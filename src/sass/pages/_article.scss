@@ -6,6 +6,13 @@
 ---------------------------------*/
 .article-page {
 
+  // ロード時に一瞬全体が表示されるチラツキを防ぐ
+  & .appear.up.inview {
+    .article-page__wrapper.item:nth-child(1) {
+      transition-delay: 0.8s;
+    }
+  }
+
   &__wrapper {
     max-width: 720px;
     margin: 0 auto;
