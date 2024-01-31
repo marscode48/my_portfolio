@@ -1,7 +1,6 @@
 import { MenuOpen } from 'menu-open';
 import { ThreeAnimation } from 'three-animation';
-import { ArticleParallaxAnimation } from 'article-animation';
-import { ArticleSlideAnimation } from 'article-animation';
+import { ArticleParallaxAnimation, ArticleSlideAnimation } from 'article-animation';
 import { SmoothScroll } from 'smooth-scroll';
 import { ScrollObserver } from 'scroll-observer';
 import { TextAnimation, TweenTextAnimation } from 'text-animation';
