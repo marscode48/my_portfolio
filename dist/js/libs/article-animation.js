@@ -1,4 +1,4 @@
-export class ArticleAnimation {
+export class ArticleParallaxAnimation {
   constructor(ttl, img) {
     this.DOM = {};
     this.DOM.ttl = ttl instanceof HTMLElement ? ttl : document.querySelector(ttl);
@@ -17,22 +17,22 @@ export class ArticleAnimation {
   }
 
   animate() {
-    const topTl = gsap.timeline({
+    const palTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.parallax',
         start: 'top top',
         end: 'bottom top',
         scrub: 1.5,
-        markers: true,
         pin: true,
+        // markers: true,
       },
     });
 
-    topTl.addLabel('topLabel');
+    palTl.addLabel('topLabel');
 
-    // 文字アニメーション
+    // 文字フェードアニメーション
     this.DOM.chars.forEach((c, i) => {
-      topTl.fromTo(c, {
+      palTl.fromTo(c, {
         autoAlpha: 0,
         y: 50,
       },
@@ -44,13 +44,83 @@ export class ArticleAnimation {
     });
 
     // パララックス
-    topTl.fromTo(this.DOM.img, {
+    palTl.fromTo(this.DOM.img, {
       backgroundPositionY: 0,
     },
     {
       backgroundPositionY: 100,
       duration: 1,
     }, 'topLabel');
+  }
+}
+
+export class ArticleSlideAnimation {
+  constructor(items) {
+    this.DOM = {};
+    this.DOM.items = document.querySelectorAll(items);
+    this.animate();
+  }
+
+  animate() {
+    // 文字スライドアニメーション
+    const stagger = 0.05;
+
+    this.DOM.items.forEach((item) => {
+      const rect = item.querySelector('.slide__title .rect');
+      const label = item.querySelector('.slide__title .label');
+      const slideX = item.querySelector('.slide__text.slideX');
+
+      const slideTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          // markers: true,
+        },
+      });
+
+      slideTl.fromTo(
+        rect,
+        {
+          x: '-105%',
+        },
+        {
+          x: '105%',
+          duration: 1,
+          stagger,
+          ease: 'power3.inout',
+        },
+      );
+      slideTl.fromTo(
+        label,
+        {
+          alpha: 0,
+        },
+        {
+          alpha: 1,
+          duration: 0.3,
+          delay: 0.5,
+          stagger,
+        },
+        '<',
+      );
+      slideTl.fromTo(
+        slideX,
+        {
+          alpha: 0,
+          x: -32,
+        },
+        {
+          alpha: 1,
+          x: 0,
+          duration: 0.75,
+          delay: 0.2,
+          stagger,
+          ease: 'power3.out',
+        },
+        '<',
+      );
+    });
   }
 }
 

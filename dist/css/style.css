@@ -70,6 +70,11 @@ li {
 /*--------------------------------
 ボタン
 ---------------------------------*/
+.link {
+  margin-top: 80px;
+  text-align: center;
+}
+
 .btn {
   position: relative;
   display: inline-block;
@@ -1790,9 +1795,6 @@ Contact
 /*--------------------------------
 下層：個別Worksページ
 ---------------------------------*/
-.article-page .section__body {
-  margin-top: 0;
-}
 .article-page__wrapper {
   max-width: 720px;
   margin: 0 auto;
@@ -1806,17 +1808,11 @@ Contact
 }
 .article-page .parallax__img {
   position: absolute;
-  top: 60px;
+  top: 0;
   left: 0;
-  height: calc(100vh - 60px);
+  height: 100vh;
   width: 100%;
-  background: url("../../images/article-1.png") no-repeat top/cover;
-}
-@media screen and (min-width: 960px) {
-  .article-page .parallax__img {
-    top: 80px;
-    height: calc(100vh - 80px);
-  }
+  background: url("../../images/article-1.jpg") no-repeat top/cover;
 }
 .article-page .parallax__title {
   font-size: 1.8rem;
@@ -1847,23 +1843,31 @@ Contact
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.article-page__img-wrapper {
-  text-align: center;
-}
-.article-page__title {
-  position: relative;
-  font-size: 1.6rem;
-  padding-left: 0.8em;
+.article-page .slide__item {
   margin-top: 30px;
 }
 @media screen and (min-width: 960px) {
-  .article-page__title {
-    font-size: 1.8rem;
-    padding-left: 1em;
+  .article-page .slide__item {
     margin-top: 50px;
   }
 }
-.article-page__title::before {
+.article-page .slide__title {
+  position: relative;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  padding-left: 0.8em;
+  overflow: hidden;
+  display: inline-block;
+}
+@media screen and (min-width: 600px) {
+  .article-page .slide__title {
+    font-size: 2rem;
+    padding-left: 1em;
+  }
+}
+.article-page .slide__title::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1871,30 +1875,29 @@ Contact
   height: 100%;
   content: "";
   border-radius: 3px;
-  background-color: #fff;
+  background: linear-gradient(to bottom, #6253e1, #852d91, #a3a1ff, #f24645);
 }
-.article-page__text {
-  font-size: 1.4rem;
+.article-page .slide__title .rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+}
+.article-page .slide__text {
+  font-size: 1.3rem;
   line-height: 1.7;
   margin-top: 5px;
 }
-@media screen and (min-width: 960px) {
-  .article-page__text {
+@media screen and (min-width: 600px) {
+  .article-page .slide__text {
     font-size: 1.5rem;
     line-height: 1.8;
   }
-}
-.article-page__text + .article-page__text {
-  margin-top: 20px;
-}
-@media screen and (min-width: 960px) {
-  .article-page__text + .article-page__text {
-    margin-top: 30px;
-  }
-}
-.article-page__link {
-  margin-top: 80px;
-  text-align: center;
 }
 
 /*--------------------------------

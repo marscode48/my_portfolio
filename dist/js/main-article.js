@@ -1,8 +1,10 @@
 import { MenuOpen } from 'menu-open';
 import { ThreeAnimation } from 'three-animation';
+import { ArticleParallaxAnimation, ArticleSlideAnimation } from 'article-animation';
 import { SmoothScroll } from 'smooth-scroll';
 import { ScrollObserver } from 'scroll-observer';
 import { TextAnimation, TweenTextAnimation } from 'text-animation';
+import { BtnAnimation } from 'btn-animation';
 
 document.addEventListener('DOMContentLoaded', () => {
   const main = new Main();
@@ -25,6 +27,9 @@ class Main {
     new ScrollObserver('.nav-trigger', this.#navAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
+    new ScrollObserver('.article-page .parallax', this.#articleParallaxAnimation);
+    new ScrollObserver('.article-page .slide', this.#articleSlideAnimation);
+    new ScrollObserver('.article-page .link', this.#btnAnimation);
   }
 
   #textAnimation(el, inview) {
@@ -45,6 +50,24 @@ class Main {
   #inviewAnimation(el, inview) {
     if (inview) {
       el.classList.add('inview');
+    }
+  }
+
+  #articleParallaxAnimation(el, inview) {
+    if (inview) {
+      new ArticleParallaxAnimation('.article-page .parallax__title', '.article-page .parallax__img');
+    }
+  }
+
+  #articleSlideAnimation(el, inview) {
+    if (inview) {
+      new ArticleSlideAnimation('.article-page .slide__item');
+    }
+  }
+
+  #btnAnimation(el, inview) {
+    if (inview) {
+      new BtnAnimation(el);
     }
   }
 }
