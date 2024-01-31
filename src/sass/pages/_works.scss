@@ -202,7 +202,7 @@
 
     &__img-wrapper {
       position: relative;
-      border-radius: 4px;
+      border-radius: 8px;
       overflow: hidden; // 子要素のborder-radiusを丸にする
       padding-top: $works-page-img-sm;
       // アスペクト比（幅と高さの比、縦横比）を一定に固定してサイズを可変
@@ -219,6 +219,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: 8px;
         background: linear-gradient(
           to bottom right,
           $cMainPurple1,
@@ -289,7 +290,7 @@
 
     &__img-wrapper {
       position: relative;
-      border-radius: 4px;
+      border-radius: 8px;
       overflow: hidden; // 子要素のborder-radiusを丸にする、hoverのtranslateY(-10px)分を隠す
       padding-top: $works-page-img-sm; // swiperのwidthを基準としてアスペクト比を決定
       transition: all 0.25s ease-out;
@@ -315,6 +316,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        border-radius: 8px;
         background: linear-gradient(
           to bottom right,
           $cMainPurple1,
