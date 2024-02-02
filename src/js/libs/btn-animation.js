@@ -13,7 +13,7 @@ export class BtnAnimation {
     const btnTl = gsap.timeline({
       scrollTrigger: {
         trigger: link,
-        start: 'top 80%',
+        start: 'top 85%',
         // markers: true,
       },
     });
@@ -26,13 +26,13 @@ export class BtnAnimation {
       link,
       {
         autoAlpha: 0,
-        y: 50,
+        y: 25,
       },
       {
         autoAlpha: 1,
         y: 0,
         ease: 'power4.out',
-        duration: 0.75,
+        duration: 1,
       },
     );
   }
