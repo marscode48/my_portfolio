@@ -106,14 +106,15 @@ export class HeroSlider {
 
 export class WorksSlider {
   constructor(subEl, mainEl) {
-    this.subEl = subEl;
-    this.mainEl = mainEl;
+    this.DOM = {};
+    this.DOM.subEl = subEl;
+    this.DOM.mainEl = mainEl;
     this.swiperSub = this._initSwiperSub();
     this.swiperMain = this._initSwiperMain();
   }
 
   _initSwiperSub() {
-    return new Swiper(this.subEl, {
+    return new Swiper(this.DOM.subEl, {
       slidesPerView: 3,
       spaceBetween: 12,
       grabCursor: true,
@@ -130,7 +131,29 @@ export class WorksSlider {
   }
 
   _initSwiperMain() {
-    return new Swiper(this.mainEl, {
+    // スライド番号取得
+    const mainSlide = document.querySelector(this.DOM.mainEl);
+    const slideLength = mainSlide.querySelectorAll('.swiper-slide').length;
+    const total = (`00${slideLength}`).slice(-2);
+    const fractionNum = mainSlide.querySelector('.swiper-fraction-num');
+    const fractionTotal = mainSlide.querySelector('.swiper-fraction-total');
+    fractionTotal.textContent = total;
+
+    // スライド番号の切り替え
+    const updateFraction = (index) => {
+      const current = (`00${index + 1}`).slice(-2);
+      fractionNum.classList.add('fraction-started');
+      setTimeout(() => {
+        fractionNum.textContent = current;
+      }, 400);
+    };
+
+    // スライド番号の削除
+    const finishFraction = () => {
+      fractionNum.classList.remove('fraction-started');
+    };
+    
+    return new Swiper(this.DOM.mainEl, {
       loop: true,
       speed: 700,
       grabCursor: true,
@@ -157,6 +180,14 @@ export class WorksSlider {
       thumbs: {
         swiper: this.swiperSub,
       },
+      on: {
+        slideChange(swiper) {
+          updateFraction(swiper.realIndex);
+        },
+        slideChangeTransitionEnd() {
+          finishFraction();
+        },
+      },
     });
   }
 
@@ -166,7 +197,6 @@ export class WorksSlider {
       disableOnInteraction: false,
       ...options,
     };
-
 
     this.swiperMain.params.autoplay = options;
     this.swiperMain.autoplay.start();

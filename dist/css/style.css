@@ -1480,6 +1480,63 @@ Contact
     padding-top: 56.25%;
   }
 }
+.works-page .swiper-fraction {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  padding-top: 56.67%;
+  padding-right: 10%;
+  height: -moz-max-content;
+  height: max-content;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+@media screen and (min-width: 960px) {
+  .works-page .swiper-fraction {
+    padding-top: 46.25%;
+  }
+}
+.works-page .swiper-fraction-current {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  width: 2.5rem;
+}
+@media screen and (min-width: 600px) {
+  .works-page .swiper-fraction-current {
+    font-size: 1.8rem;
+  }
+}
+.works-page .swiper-fraction-num {
+  display: block;
+}
+.works-page .swiper-fraction-num.fraction-started {
+  animation-name: works-page-fraction;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1);
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.works-page .swiper-fraction-total {
+  font-size: 1rem;
+  line-height: 1;
+  vertical-align: baseline;
+}
+@media screen and (min-width: 600px) {
+  .works-page .swiper-fraction-total {
+    font-size: 1.2rem;
+  }
+}
+.works-page .swiper-fraction-total::before {
+  content: " / ";
+}
 .works-page .swiper-button-prev, .works-page .swiper-button-next {
   display: grid;
   place-content: center;
@@ -1795,6 +1852,20 @@ Contact
     transform: scale(1);
     opacity: 1;
     filter: blur(0);
+  }
+}
+@keyframes works-page-fraction {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-110%);
+    opacity: 1;
+  }
+  50.1% {
+    transform: translateY(110%);
+    opacity: 0;
   }
 }
 @keyframes works-page-btn-up {
