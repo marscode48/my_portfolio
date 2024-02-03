@@ -1,6 +1,7 @@
 export class HeroSlider {
   constructor(el, delay) {
-    this.el = el;
+    this.DOM = {};
+    this.DOM.el = el;
     this.delay = delay;
     this.timer = null;
     this.swiper = this._initSwiper();
@@ -33,7 +34,7 @@ export class HeroSlider {
       }
     };
 
-    return new Swiper(this.el, {
+    return new Swiper(this.DOM.el, {
       effect: 'fade',
       fadeEffect: {
         crossFade: true,
