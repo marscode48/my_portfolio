@@ -2145,36 +2145,6 @@ Contact
   vertical-align: middle;
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
 }
-.works .fraction {
-  position: absolute;
-  z-index: 2;
-  bottom: 5%;
-  right: 5%;
-  height: -moz-max-content;
-  height: max-content;
-  font-weight: bold;
-  color: #fff;
-  display: flex;
-  align-items: flex-end;
-}
-.works .fraction__current {
-  font-size: 1.8rem;
-  line-height: 1;
-  display: inline-block;
-  overflow: hidden;
-  width: 2.5rem;
-}
-.works .fraction__num {
-  display: block;
-}
-.works .fraction__total {
-  font-size: 1.2rem;
-  line-height: 1;
-  vertical-align: baseline;
-}
-.works .fraction__total::before {
-  content: " / ";
-}
 .works .swiper-slide[class*=-active] .slide__img {
   transition-delay: 0s;
   transform: translateX(0%) scale(1);
@@ -2210,15 +2180,6 @@ Contact
 }
 .works .swiper-slide.anm-finished .slide__link {
   animation-delay: 0.4s;
-}
-.works .fraction__num.anm-started {
-  animation-name: works-hero-fraction;
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1);
-  animation-delay: 0s;
-  animation-iteration-count: 1;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
 }
 .works .swiper-pagination {
   position: absolute;
@@ -2274,20 +2235,6 @@ Contact
   100% {
     letter-spacing: -0.5em;
     transform: translateZ(-500px) translateY(-300px);
-    opacity: 0;
-  }
-}
-@keyframes works-hero-fraction {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-110%);
-    opacity: 1;
-  }
-  50.1% {
-    transform: translateY(110%);
     opacity: 0;
   }
 }

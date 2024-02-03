@@ -7,28 +7,6 @@ export class HeroSlider {
   }
 
   _initSwiper() {
-    // スライド要素取得
-    const slideLength = document.querySelectorAll('.works-hero .swiper-slide').length;
-    const total = (`00${slideLength}`).slice(-2);
-    const fractionNum = document.querySelector('.works-hero .fraction__num');
-    const fractionTotal = document.querySelector('.works-hero .fraction__total');
-    fractionTotal.textContent = total;
-
-    // スライド番号の切り替え
-    const updateFraction = (index) => {
-      const current = (`00${index + 1}`).slice(-2);
-      fractionNum.classList.add('anm-started');
-      setTimeout(() => {
-        fractionNum.textContent = current;
-      }, 400);
-    };
-
-    // スライド番号の削除
-    const finishFraction = () => {
-      fractionNum.classList.remove('anm-started');
-    };
-
-
     // アニメーション切り替え
     const switchAnimation = () => {
       clearTimeout(this.timer);
@@ -71,14 +49,10 @@ export class HeroSlider {
       },
       on: {
         slideChange(swiper) {
-          updateFraction(swiper.realIndex);
           finishAnimation();
         },
         slideChangeTransitionStart() {
           switchAnimation();
-        },
-        slideChangeTransitionEnd() {
-          finishFraction();
         },
       },
     });

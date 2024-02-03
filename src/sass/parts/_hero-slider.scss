@@ -136,38 +136,6 @@
     }  
   }
 
-  & .fraction {
-    position: absolute;
-    z-index: 2;
-    bottom: 5%;
-    right: 5%;
-    height: max-content;
-    font-weight: bold;
-    color: $cWhite;
-    display: flex;
-    align-items: flex-end;
-
-    &__current {
-      @include f_around(18, false, false,18);
-      display: inline-block;
-      overflow: hidden;
-      width: 2.5rem;
-    }
-
-    &__num {
-      display: block;
-    }
-
-    &__total {
-      @include f_around(12, false, false, 12);
-      vertical-align: baseline;
-
-      &::before {
-        content: " / ";
-      }
-    }
-  }
-
   & .swiper-slide[class*=-active] {
 
     & .slide__img {
@@ -221,18 +189,6 @@
 
   & .swiper-slide.anm-finished .slide__link {
     animation-delay: 0.4s;
-  }
-
-  & .fraction__num.anm-started {
-    @include animation(
-      $name: works-hero-fraction,
-      $duration: 1s,
-      $timing-function: cubic-bezier(0.2, 1, 0.2, 1),
-      $delay: 0s,
-      $iteration-count: 1,
-      $direction: normal,
-      $fill-mode: forwards
-    );
   }
   /* /.anm-startedクラス付与 */
 
@@ -293,21 +249,6 @@
   100% {
     letter-spacing: -0.5em;
     transform: translateZ(-500px) translateY(-300px);
-    opacity: 0;
-  }
-}
-
-@keyframes works-hero-fraction {
-  0%, 100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-110%);
-    opacity: 1;
-  }
-  50.1% {
-    transform: translateY(110%);
     opacity: 0;
   }
 }
