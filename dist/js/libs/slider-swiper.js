@@ -80,12 +80,13 @@ export class HeroSlider {
 }
 
 export class WorksSlider {
-  constructor(subEl, mainEl) {
+  constructor(subEl, mainEl, delay) {
     this.DOM = {};
     this.DOM.subEl = subEl;
     this.DOM.mainEl = mainEl;
     this.swiperSub = this._initSwiperSub();
     this.swiperMain = this._initSwiperMain();
+    this.delay = delay;
   }
 
   _initSwiperSub() {
@@ -166,7 +167,7 @@ export class WorksSlider {
     });
   }
 
-  start(options = {}) {
+  start(options = {delay: this.delay,}) {
     options = {
       delay: 4000,
       disableOnInteraction: false,

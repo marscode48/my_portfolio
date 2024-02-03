@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 class Main {
   constructor() {
     this.header = document.querySelector('.header');
-    this.works = new WorksSlider('.works-page .swiper-thumb', '.works-page .swiper-main');
+    this.works = new WorksSlider('.works-page .swiper-thumb', '.works-page .swiper-main', '4000');
     this.#init();
   }
 
