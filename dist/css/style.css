@@ -620,6 +620,7 @@ Works
   position: relative;
   width: 100%;
   background-color: #000;
+  border-radius: 4px;
 }
 .works__img-wrapper::after {
   content: "";
@@ -2066,6 +2067,7 @@ Contact
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-radius: 4px;
 }
 .works .slide__img-wrapper::after {
   content: "";
@@ -2077,6 +2079,7 @@ Contact
   background: linear-gradient(to bottom right, #6253e1, #852d91, #a3a1ff, #f24645);
   opacity: 0.3;
   box-shadow: inset 0 0 50px 20px #000;
+  border-radius: 4px;
 }
 .works .slide__img {
   width: 100%;
