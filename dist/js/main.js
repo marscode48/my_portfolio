@@ -31,7 +31,7 @@ class Main {
     new MenuOpen();
     new AboutAnimation(this.about); // 最初にpin-spacerを取得（SmoothScrollのズレ防止）
     new SmoothScroll(0);
-    this.#scrollInit();
+    Pace.on('done', this.#scrollInit.bind(this));
   }
 
   #scrollInit() {
