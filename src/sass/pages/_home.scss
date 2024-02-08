@@ -370,6 +370,7 @@ Works
     align-items: center;
     z-index: 1;
     row-gap: 40px;
+    overflow: hidden;
     
     @include mq() {
       padding: 60px 0;
