@@ -2033,6 +2033,36 @@ Contact
 }
 
 /*--------------------------------
+マウスストーカー
+---------------------------------*/
+.mouse-stalker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate3d(50vw, 50vh, 0);
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.3s ease-out;
+  mix-blend-mode: difference;
+}
+.mouse-stalker__circle {
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #6253e1, #f24645);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.mouse-stalker.is-active .mouse-stalker__circle {
+  opacity: 0.8;
+}
+.mouse-stalker.is-hover .mouse-stalker__circle {
+  transform: scale(0.2);
+  background: #fff;
+}
+
+/*--------------------------------
 ワークスヒーロー
 ---------------------------------*/
 .works {
