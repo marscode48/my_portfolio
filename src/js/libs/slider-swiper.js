@@ -128,7 +128,7 @@ export class WorksSlider {
     const finishFraction = () => {
       fractionNum.classList.remove('fraction-started');
     };
-    
+
     return new Swiper(this.DOM.mainEl, {
       loop: true,
       speed: 700,
@@ -167,7 +167,7 @@ export class WorksSlider {
     });
   }
 
-  start(options = {delay: this.delay,}) {
+  start(options = { delay: this.delay }) {
     options = {
       delay: 4000,
       disableOnInteraction: false,
