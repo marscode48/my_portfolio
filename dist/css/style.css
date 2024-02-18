@@ -563,7 +563,6 @@ Works
   align-items: center;
   z-index: 1;
   row-gap: 40px;
-  overflow: hidden;
 }
 @media screen and (min-width: 960px) {
   .works__inner {
