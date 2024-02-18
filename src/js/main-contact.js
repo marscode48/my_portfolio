@@ -1,3 +1,4 @@
+import { MouseStalker } from 'mouse-stalker';
 import { MenuOpen } from 'menu-open';
 import { ThreeAnimation } from 'three-animation';
 import { SmoothScroll } from 'smooth-scroll';
@@ -23,10 +24,17 @@ class Main {
   }
 
   #scrollInit() {
+    new ScrollObserver('.mouse-stalker', this.#mouseAnimation.bind(this));
     new ScrollObserver('.nav-trigger', this.#navAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
     new ScrollObserver('.article-page .link', this.#btnAnimation);
+  }
+  
+  #mouseAnimation(el, inview) {
+    if (inview) {
+      new MouseStalker();
+    }
   }
 
   #textAnimation(el, inview) {

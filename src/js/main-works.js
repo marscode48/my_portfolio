@@ -1,3 +1,4 @@
+import { MouseStalker } from 'mouse-stalker';
 import { MenuOpen } from 'menu-open';
 import { ThreeAnimation } from 'three-animation';
 import { WorksSlider } from 'slider-swiper';
@@ -24,10 +25,17 @@ class Main {
   }
 
   #scrollInit() {
+    new ScrollObserver('.mouse-stalker', this.#mouseAnimation.bind(this));
     new ScrollObserver('.nav-trigger', this.#navAnimation.bind(this), { once: false });
     new ScrollObserver('.swiper-main', this.#toggleWorksAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
+  }
+
+  #mouseAnimation(el, inview) {
+    if (inview) {
+      new MouseStalker();
+    }
   }
 
   #textAnimation(el, inview) {
