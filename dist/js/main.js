@@ -1,3 +1,4 @@
+import { MouseStalker } from 'mouse-stalker';
 import { MenuOpen } from 'menu-open';
 import { MainViasual } from 'main-visual';
 import { ThreeAnimation } from 'three-animation';
@@ -35,6 +36,7 @@ class Main {
   }
 
   #scrollInit() {
+    new ScrollObserver('.mouse-stalker', this.#mouseAnimation.bind(this));
     new ScrollObserver('.nav-trigger', this.#navAnimation.bind(this), { once: false });
     new ScrollObserver('.works-hero', this.#toggleHeroAnimation.bind(this), { once: false });
     new ScrollObserver('.appear', this.#inviewAnimation);
@@ -44,6 +46,12 @@ class Main {
     new ScrollObserver('.skill', this.#skillAnimation);
     new ScrollObserver('.contact', this.#toggleContactCanvas.bind(this), { once: false });
     new ScrollObserver('.contact', this.#contactAnimation);
+  }
+
+  #mouseAnimation(el, inview) {
+    if (inview) {
+      new MouseStalker();
+    }
   }
 
   #textAnimation(el, inview) {
