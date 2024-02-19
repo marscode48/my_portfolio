@@ -28,7 +28,7 @@ export class ContactCanvas {
 
       // 背景グラデーション
       p.bgGradation = () => {
-        const bgPalette = ['hsl(0, 100%, 15%)', 'hsl(50, 100%, 15%)']; // 背景色
+        const bgPalette = ['hsl(0, 100%, 20%)', 'hsl(50, 100%, 20%)']; // 背景色
 
         for (let i = 0; i <= p.height; i += 1) {
           const bgColor = p.lerpColor(p.color(bgPalette[0]), p.color(bgPalette[1]), i / p.height);
@@ -53,7 +53,7 @@ export class ContactCanvas {
             const hsbDist = p.dist(translateX, translateY, p.width / 2, p.height / 2); // 円ごとに画面中央からの距離を計算
             const hsb = p.map(hsbDist, 0, p.dist(0, 0, p.width / 2, p.height / 2), 230, 300); // 端から中央までグラデーション
 
-            p.fill(hsb, 100, 50);
+            p.fill(hsb, 100, 75);
             p.circle(translateX, translateY, circleDiameter);
           }
         }
