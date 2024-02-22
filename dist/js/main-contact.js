@@ -30,7 +30,7 @@ class Main {
     new ScrollObserver('.tween-animate-title', this.#textAnimation, { rootMargin: '-50px 0px' });
     new ScrollObserver('.article-page .link', this.#btnAnimation);
   }
-  
+
   #mouseAnimation(el, inview) {
     if (inview) {
       new MouseStalker();

@@ -70,4 +70,5 @@ export class MouseStalker {
     }
   }
 }
+
 //# sourceMappingURL=mouse-stalker.js.map
