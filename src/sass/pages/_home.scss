@@ -511,7 +511,7 @@ Works
     inset 0 0 0 0 rgba(0, 0, 0, 0);
   }
   100% {
-    box-shadow: 5px 5px 5px 0px $cBoxShadowPurple,
+    box-shadow: 5px 5px 5px 0px $cShadowPurple,
     inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
   }
 }
@@ -817,7 +817,7 @@ About
     border-radius: 50%;
     object-fit: cover;
     object-position: -1px -30px;
-    border: 1px solid $cBoxShadowPurple;
+    border: 1px solid $cShadowPurple;
     transition: border-color 1.5s;
     animation: bright-flash-finish 1.5s linear forwards;
 
@@ -923,6 +923,7 @@ About
 
     &-content-number {
       font-size: 5rem;
+      text-shadow: 10px 5px 8px $cNumberShadow;
       background: linear-gradient(
         to right,
         $cMainPurple1,
@@ -965,9 +966,10 @@ About
     }
 
     &-content-title {
-      @include f_around(20, 700, 100, 30);
+      @include f_around(20, 700, 125, 30);
       display: inline-block;
       position: relative;
+      text-shadow: -1px -1px $cShadowPurple, -1px 1px $cShadowPurple, 1px -1px $cShadowPurple, 1px 1px $cShadowPurple;
 
       @include mq(md) {
         @include f_around(24, false, false, false);
@@ -1100,7 +1102,7 @@ About
     filter: sepia(0%) drop-shadow(5px 5px 20px $cMainPurple1);
   }
   100% {
-    filter: sepia(80%) drop-shadow(5px 5px 40px $cBoxShadowPurple);
+    filter: sepia(80%) drop-shadow(5px 5px 40px $cShadowPurple);
   }
 }
 

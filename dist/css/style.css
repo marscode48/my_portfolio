@@ -1076,6 +1076,7 @@ About
 }
 .about__item-content-number {
   font-size: 5rem;
+  text-shadow: 10px 5px 8px rgba(190, 0, 255, 0.5);
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
   color: #6253e1;
   background-clip: text;
@@ -1117,10 +1118,11 @@ About
 .about__item-content-title {
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.125em;
   line-height: 1.5;
   display: inline-block;
   position: relative;
+  text-shadow: -1px -1px #cf00ff, -1px 1px #cf00ff, 1px -1px #cf00ff, 1px 1px #cf00ff;
 }
 @media screen and (min-width: 600px) {
   .about__item-content-title {
