@@ -2132,7 +2132,7 @@ Contact
   transform: translateX(-1.5%) scale(1.2);
 }
 .works .slide__title, .works .slide__text {
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 10px #000;
 }
 .works .slide__title, .works .slide__text, .works .slide__link {
   opacity: 0;

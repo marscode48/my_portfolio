@@ -73,7 +73,7 @@
     }
 
     &__title, &__text {
-      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8)
+      text-shadow: 0 0 10px $cBlack;
     }
     
     &__title, &__text, &__link {
