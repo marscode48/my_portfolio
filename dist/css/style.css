@@ -2127,6 +2127,9 @@ Contact
   transition: transform 5s linear;
   transform: translateX(-1.5%) scale(1.2);
 }
+.works .slide__title, .works .slide__text {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
 .works .slide__title, .works .slide__text, .works .slide__link {
   opacity: 0;
   visibility: hidden;
@@ -2139,7 +2142,7 @@ Contact
 }
 @media screen and (min-width: 960px) {
   .works .slide__title {
-    font-size: 3.2rem;
+    font-size: 4.2rem;
     letter-spacing: 0.1em;
   }
 }
@@ -2150,7 +2153,7 @@ Contact
 }
 @media screen and (min-width: 960px) {
   .works .slide__text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 .works .slide__button {

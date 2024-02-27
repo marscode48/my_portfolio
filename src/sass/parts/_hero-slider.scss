@@ -72,6 +72,10 @@
       transform: translateX(-1.5%) scale(1.2);
     }
 
+    &__title, &__text {
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8)
+    }
+    
     &__title, &__text, &__link {
       opacity: 0;
       visibility: hidden;
@@ -81,7 +85,7 @@
       @include f_around(24, 700, 75, 24);
     
       @include mq(lg) {
-        @include f_around(32, false, 100, false);
+        @include f_around(42, false, 100, false);
       }
     }
 
@@ -89,7 +93,7 @@
       @include f_around(12, false, 25, 15.6);
 
       @include mq(lg) {
-        @include f_around(14, false, false, false);
+        @include f_around(16, false, false, false);
       }
     }
 
