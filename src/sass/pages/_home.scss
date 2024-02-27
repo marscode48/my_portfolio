@@ -1008,11 +1008,11 @@ About
 
     &-content-text {
       margin-top: min(3vh, 30px);
-      @include f_around(12, false, false, 24);
+      @include f_around(12, false, false, 16.8);
 
       @include mq(md) {
         margin-top: min(3vh, 40px);
-        @include f_around(14, false, false, false);
+        @include f_around(14, false, false, 28);
       }
 
       @include mq(lg) {

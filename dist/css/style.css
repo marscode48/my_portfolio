@@ -1156,12 +1156,13 @@ About
 .about__item-content-text {
   margin-top: min(3vh, 30px);
   font-size: 1.2rem;
-  line-height: 2;
+  line-height: 1.4;
 }
 @media screen and (min-width: 600px) {
   .about__item-content-text {
     margin-top: min(3vh, 40px);
     font-size: 1.4rem;
+    line-height: 2;
   }
 }
 @media screen and (min-width: 960px) {
