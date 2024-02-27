@@ -1301,6 +1301,7 @@ Contact
   font-size: 2.2rem;
   letter-spacing: 0.1em;
   color: #fff;
+  text-shadow: 3px 3px 5px #cf00ff;
   white-space: nowrap;
 }
 @media screen and (min-width: 960px) {

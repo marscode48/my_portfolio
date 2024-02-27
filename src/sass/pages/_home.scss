@@ -1162,6 +1162,7 @@ Contact
   &__left, &__right {
     @include f_around(22, false, 100, false);
     color: $cWhite;
+    text-shadow: 3px 3px 5px $cShadowPurple;
     white-space: nowrap;
 
     @include mq(lg) {
