@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 class Main {
   constructor() {
     this.header = document.querySelector('.header');
-    this.hero = new HeroSlider('.works-hero.swiper', '4000');
+    this.hero = new HeroSlider('.works-hero.swiper', '3000');
     this.about = document.querySelector('.about');
     this.contactCanvas = new ContactCanvas('.contact__canvas');
     this.#init();
