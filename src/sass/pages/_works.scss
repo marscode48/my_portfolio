@@ -329,23 +329,27 @@
   
     &__title {
       padding: 2rem 2rem 0;
-      @include f_around(16, 700, 50, 16);
+      @include f_around(20, 700, 50, 20);
   
       @include mq(lg) {
-        @include f_around(20, false, 100, false);
+        @include f_around(26, false, 100, false);
         padding: 2rem 6rem 0;
       }
+    }
+
+    &__title, &__text {
+      text-shadow: 0 0 10px $cBlack;
     }
   
     &__text {
       padding: 0 2rem;
       margin-top: 8px;
-      @include f_around(13, false, 50, 13);
+      @include f_around(12, false, 50, 12);
   
       @include mq(lg) {
         padding: 0 6rem;
         margin-top: 12px;
-        @include f_around(17, false, 100, 17);
+        @include f_around(16, false, 75, false);
       }
     }
   
