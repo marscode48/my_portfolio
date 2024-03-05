@@ -1941,7 +1941,7 @@ Contact
   height: 100%;
   border-radius: 8px;
   background: linear-gradient(to bottom right, #6253e1, #852d91, #a3a1ff, #f24645);
-  opacity: 0.3;
+  opacity: 0.2;
   box-shadow: inset 0 0 50px 20px #000;
 }
 .article-page .parallax__title {
