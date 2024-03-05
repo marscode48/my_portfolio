@@ -2029,6 +2029,33 @@ Contact
     line-height: 1.8;
   }
 }
+@media screen and (min-width: 960px) {
+  .article-page .slide__link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+}
+@media screen and (min-width: 960px) {
+  .article-page .slide__link::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    transform: translateX(-50%);
+    transition: all 0.3s;
+    background-color: #fff;
+  }
+  .article-page .slide__link:hover::after {
+    width: 100%;
+  }
+}
+.article-page .slide__link:active {
+  transition: unset;
+  filter: brightness(0.85);
+}
 
 /*--------------------------------
 下層：Contactページ
