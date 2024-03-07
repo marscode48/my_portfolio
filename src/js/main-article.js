@@ -8,6 +8,7 @@ import { TextAnimation, TweenTextAnimation } from 'text-animation';
 import { BtnAnimation } from 'btn-animation';
 
 document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
   const main = new Main();
 });
 
