@@ -585,6 +585,14 @@ Skill
       stroke-width: 3;
     }
 
+    .skill-gradient-stop1 {
+      stop-color: $cMainPurple1;
+    }
+    
+    .skill-gradient-stop2 {
+      stop-color: $cMainPurple4;
+    }
+
     #skill-polygon {
       fill: $cWhite;
       width: 7vw;
@@ -602,30 +610,6 @@ Skill
         height: clamp(32px, 3vw, 64px); // 最小値,中間値,最大値
       }
     }
-  }
-
-  #skill-gradient-stop1 {
-    @include animation(
-      $name: skill-animation-stop,
-      $duration: 1.5s,
-      $timing-function: ease-in-out,
-      $delay: 0s,
-      $iteration-count: infinite,
-      $direction: alternate,
-      $fill-mode: forwards
-    );
-  }
-  
-  #skill-gradient-stop2 {
-    @include animation(
-      $name: skill-animation-stop,
-      $duration: 1.5s,
-      $timing-function: ease-in-out,
-      $delay: 0s,
-      $iteration-count: infinite,
-      $direction: alternate-reverse,
-      $fill-mode: forwards
-    );
   }
 
   &__list {
@@ -728,15 +712,6 @@ Skill
       @include f_around(14, false, false, 25.2);
       margin-top: 10px;
     }
-  }
-}
-
-@keyframes skill-animation-stop {
-  0% {
-    stop-color: $cMainPurple1;
-  }
-  100% {
-    stop-color: $cMainPurple4;
   }
 }
 

@@ -742,6 +742,12 @@ Skill
   stroke: url(#skill-gradient-sp);
   stroke-width: 3;
 }
+.skill__motion-path .skill-gradient-stop1 {
+  stop-color: #6253e1;
+}
+.skill__motion-path .skill-gradient-stop2 {
+  stop-color: #f24645;
+}
 .skill__motion-path #skill-polygon {
   fill: #fff;
   width: 7vw;
@@ -760,24 +766,6 @@ Skill
     width: clamp(32px, 3vw, 64px);
     height: clamp(32px, 3vw, 64px);
   }
-}
-.skill #skill-gradient-stop1 {
-  animation-name: skill-animation-stop;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-fill-mode: forwards;
-}
-.skill #skill-gradient-stop2 {
-  animation-name: skill-animation-stop;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-  animation-fill-mode: forwards;
 }
 .skill__list {
   display: grid;
@@ -885,14 +873,6 @@ Skill
   }
 }
 
-@keyframes skill-animation-stop {
-  0% {
-    stop-color: #6253e1;
-  }
-  100% {
-    stop-color: #f24645;
-  }
-}
 @keyframes skill-img-hover-vibrate {
   0% {
     transform: translate(0);
