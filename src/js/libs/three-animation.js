@@ -19,7 +19,10 @@ export class ThreeAnimation {
       canvas: this.DOM.target,
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // デバイスピクセル比は上限を2として扱う（canvas要素の解像度を下げる）
+    const devicePixelRatio = Math.min(2, window.devicePixelRatio);
+    renderer.setPixelRatio(devicePixelRatio);
 
     // シーンを作成
     scene = new THREE.Scene();

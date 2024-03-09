@@ -19,7 +19,10 @@ export class ThreeAnimation {
       canvas: this.DOM.target,
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // デバイスピクセル比は上限を2として扱う（canvas要素の解像度を下げる）
+    const devicePixelRatio = Math.min(2, window.devicePixelRatio);
+    renderer.setPixelRatio(devicePixelRatio);
 
     // シーンを作成
     scene = new THREE.Scene();
@@ -99,6 +102,8 @@ export class ThreeAnimation {
       scene.add(stars);
     }
 
+    let frame = 0; // フレーム(fps)
+
     // 初回実行
     tick();
 
@@ -126,8 +131,17 @@ export class ThreeAnimation {
       mars.rotation.y += 0.01;
 
       // レンダリング
-      renderer.render(scene, camera);
       requestAnimationFrame(tick);
+
+      // フレーム数をインクリメント
+      frame += 1;
+
+      // フレーム数が2で割り切れなければ描画しない(60fps → 30fps)
+      if (frame % 2 === 0) {
+        return;
+      }
+
+      renderer.render(scene, camera);
     }
 
     // ウィンドウ変更時にサイズを維持する処理
