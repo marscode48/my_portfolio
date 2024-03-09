@@ -103,7 +103,7 @@ export class ThreeAnimation {
     tick();
 
     function tick() {
-      rot += 0.5; // 角度
+      rot += 0.25; // 角度
 
       const radian = (rot * Math.PI) / 180; // ラジアン変換
 
