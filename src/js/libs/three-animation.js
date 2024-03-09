@@ -68,10 +68,10 @@ export class ThreeAnimation {
 
     // 星屑作成
     function createStarField() {
-      const SIZE = 3000; // 形状サイズ
-      const LENGTH = 1000; // 配置する個数
+      const SIZE = 2500; // 形状サイズ
+      const LENGTH = 100; // 配置する個数
 
-      // x,y,z座標の値がランダムに入った配列を1000個作成
+      // x,y,z座標の値がランダムに入った配列を100個作成
       const vertices = [];
       for (let i = 0; i < LENGTH; i += 1) {
         const x = SIZE * (Math.random() - 0.5);
@@ -91,7 +91,7 @@ export class ThreeAnimation {
 
       // マテリアル作成
       const starMaterial = new THREE.PointsMaterial({
-        size: 5,
+        size: 10,
         color: 0xffffff,
       });
 
