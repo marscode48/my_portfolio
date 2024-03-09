@@ -99,6 +99,8 @@ export class ThreeAnimation {
       scene.add(stars);
     }
 
+    let frame = 0; // フレーム(fps)
+
     // 初回実行
     tick();
 
@@ -126,8 +128,17 @@ export class ThreeAnimation {
       mars.rotation.y += 0.01;
 
       // レンダリング
-      renderer.render(scene, camera);
       requestAnimationFrame(tick);
+
+      // フレーム数をインクリメント
+      frame += 1;
+
+      // フレーム数が2で割り切れなければ描画しない(60fps → 30fps)
+      if (frame % 2 === 0) {
+        return;
+      }
+
+      renderer.render(scene, camera);
     }
 
     // ウィンドウ変更時にサイズを維持する処理
