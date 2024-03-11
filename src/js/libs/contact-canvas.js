@@ -62,19 +62,19 @@ export class ContactCanvas {
 
       // オーロラ
       p.aurora = () => {
-        const lineNum = 15; // ラインの数
-        const segmentNum = 100; // 分割数
+        const lineNum = 10; // ラインの数
+        const segmentNum = 20; // 分割数
 
         let radian = 0; // ラジアン（角度）
         const centerHue = 235; // 基準色
         const hueRange = 60; // 色の幅
         const satuRange = 25; // 彩度の幅
         const lumiRange = 25; // 明度の幅
-        const speed = 0.1; // 時間経過
+        const speed = 0.2; // 時間経過
 
         for (let j = 0; j < lineNum; j += 1) {
           const time = Date.now() / 2500; // 媒介変数(時間)
-          const coefficient = 50 + j; // 係数
+          const coefficient = 30 + j; // 係数
 
           const h = centerHue + Math.round(Math.cos(radian) * hueRange); // 色相（hue）⁠
           const s = 75 + Math.round(Math.cos(radian) * satuRange); // 彩度（saturation）
@@ -88,7 +88,7 @@ export class ContactCanvas {
           for (let i = 0; i < segmentNum; i += 1) {
             const x = (i / (segmentNum - 1)) * p.width; // X座標
             const px = i / coefficient; // 横軸の入力値（水平方向の距離）
-            const py = (j / 50 + time); // 時間の入力値
+            const py = (j / 30 + time); // 時間の入力値
             // console.log(px, py);
             const randomValue = p.noise(px, py); // 乱数
             // console.log(randomValue);
