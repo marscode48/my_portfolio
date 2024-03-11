@@ -29,7 +29,7 @@ export class ContactCanvas {
 
       // 背景グラデーション
       p.bgGradation = () => {
-        const bgPalette = ['hsl(0, 100%, 20%)', 'hsl(50, 100%, 20%)']; // 背景色
+        const bgPalette = ['hsl(0, 100%, 10%)', 'hsl(50, 100%, 10%)']; // 背景色
 
         for (let i = 0; i <= p.height; i += 1) {
           const bgColor = p.lerpColor(p.color(bgPalette[0]), p.color(bgPalette[1]), i / p.height);
