@@ -40,8 +40,8 @@ export class ContactCanvas {
 
       // 円グラデーション
       p.circleGradation = () => {
-        const yNumber = 20; // y軸の円の数
-        const xNumber = 50; // x軸の円の数
+        const yNumber = 10; // y軸の円の数
+        const xNumber = 20; // x軸の円の数
 
         for (let j = 0; j < yNumber; j += 1) {
           for (let i = 0; i < xNumber; i += 1) {
@@ -49,7 +49,7 @@ export class ContactCanvas {
             const translateY = (p.height / (yNumber - 1)) * j; // 円の数から-1を引いて画面端の左右の隙間を埋める
 
             const mouseDist = p.dist(translateX, translateY, p.mouseX, p.mouseY); // 円ごとにマウスからの距離を計算
-            const circleDiameter = p.map(mouseDist, 0, p.dist(0, 0, p.width, p.height), 0, 60); // 距離の範囲を円のサイズの範囲に変換
+            const circleDiameter = p.map(mouseDist, 0, p.dist(0, 0, p.width, p.height), 0, 120); // 距離の範囲を円のサイズの範囲に変換
 
             const hsbDist = p.dist(translateX, translateY, p.width / 2, p.height / 2); // 円ごとに画面中央からの距離を計算
             const hsb = p.map(hsbDist, 0, p.dist(0, 0, p.width / 2, p.height / 2), 230, 300); // 端から中央までグラデーション
