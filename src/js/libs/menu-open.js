@@ -2,7 +2,6 @@ export class MenuOpen {
   constructor() {
     this.DOM = {};
     this.DOM.header = document.querySelector('.header');
-    this.DOM.navi = document.querySelector('.gnav');
     this.DOM.btn = document.querySelector('.header__btn');
     this.DOM.canvas = document.querySelector('.gnav__canvas');
     this.eventType = this._getEventType();
@@ -163,6 +162,5 @@ export class MenuOpen {
 
   _addEvent() {
     this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
-    this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
   }
 }
