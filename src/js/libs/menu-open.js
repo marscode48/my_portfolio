@@ -1,6 +1,7 @@
 export class MenuOpen {
   constructor() {
     this.DOM = {};
+    this.DOM.html = document.documentElement; // ルート要素<html>を返す
     this.DOM.header = document.querySelector('.header');
     this.DOM.btn = document.querySelector('.header__btn');
     this.DOM.canvas = document.querySelector('.gnav__canvas');
@@ -22,8 +23,10 @@ export class MenuOpen {
   _toggle() {
     this.DOM.header.classList.toggle('menu-open');
     if (this.DOM.header.classList.contains('menu-open')) {
+      this.DOM.html.classList.add('fixed');
       this._canvasStart();
     } else {
+      this.DOM.html.classList.remove('fixed');
       this._canvasStop();
     }
   }
