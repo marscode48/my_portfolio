@@ -1,8 +1,8 @@
 export class MenuOpen {
   constructor() {
     this.DOM = {};
+    this.DOM.html = document.documentElement; // ルート要素<html>を返す
     this.DOM.header = document.querySelector('.header');
-    this.DOM.navi = document.querySelector('.gnav');
     this.DOM.btn = document.querySelector('.header__btn');
     this.DOM.canvas = document.querySelector('.gnav__canvas');
     this.eventType = this._getEventType();
@@ -23,16 +23,16 @@ export class MenuOpen {
   _toggle() {
     this.DOM.header.classList.toggle('menu-open');
     if (this.DOM.header.classList.contains('menu-open')) {
+      this.DOM.html.classList.add('fixed');
       this._canvasStart();
     } else {
+      this.DOM.html.classList.remove('fixed');
       this._canvasStop();
     }
   }
 
   _initCanvas() {
     const gnavCanvas = this.DOM.canvas;
-    const interval = 3;
-    const maxParticle = 100;
     let particles;
 
     const sketch = (p) => {
@@ -50,8 +50,14 @@ export class MenuOpen {
 
       p.draw = () => {
         p.clear();
+        p.frameRate(24);
         p.background(0, 0, 0, 0.5);
+        genRadialGradient();
+        genParticle();
+      };
 
+      // 円形グラデーションを生成
+      function genRadialGradient() {
         // 影をつける
         p.drawingContext.shadowOffsetX = 5;
         p.drawingContext.shadowOffsetY = 5;
@@ -62,10 +68,10 @@ export class MenuOpen {
         const gradientFill = p.drawingContext.createRadialGradient(
           p.width / 2,
           p.height / 2,
-          p.constrain(p.mouseY * 0.2, 0, p.width * 0.2), // 開始円をマウスで操作し、終了円より大きくなるを防ぐ
+          p.constrain(p.mouseY * 0.1, 0, p.width * 0.1), // 開始円をマウスで操作し、終了円より大きくなるを防ぐ
           p.width / 2,
           p.height / 2,
-          p.width * 0.3,
+          p.width * 0.35,
         );
 
         // グラデーションの開始位置（offset）、追加するカラー
@@ -78,9 +84,46 @@ export class MenuOpen {
 
         // 中心の円形グラデーションを作成
         p.circle(p.width / 2, p.height / 2, p.width * 1.0);
+      }
+
+      // パーティクルを生成
+      function genParticle() {
+        const interval = 10;
+        const maxParticle = 20;
+        const generateParticle = {
+          // 位置、速度、半径
+          init(x, y, velocityX, velocityY, radius, lifespan, damage) {
+            return {
+              x, y, velocityX, velocityY, radius, lifespan, damage,
+            };
+          },
+  
+          update(ptl) {
+            ptl.x += ptl.velocityX; // ランダムな速度を位置に代入
+            ptl.y += ptl.velocityY; // ランダムな速度を位置に代入
+            ptl.lifespan -= ptl.damage; // 毎フレームlifespanからdamageを引く
+            ptl.lifespan = p.max(ptl.lifespan); // lifespanが0以下になったら配列から削除
+          },
+  
+          draw(ptl) {
+            p.fill(80, 0, 90, ptl.lifespan); //  lifespanの値を透明度に設定
+            p.circle(ptl.x, ptl.y, ptl.radius * 2);
+          },
+        };
+        
+        // パーティクルを配列に追加
+        function addParticle() {
+          const velocityX = p.random(-3, 3);
+          const velocityY = p.random(-3, 3);
+          const radius = p.random(15, 35);
+          const lifespan = 250;
+          const damage = p.random(1, 3);
+          const particle = generateParticle.init(p.mouseX, p.mouseY, velocityX, velocityY, radius, lifespan, damage);
+          particles.push(particle);
+        }
 
         // パーティクルの数を確認
-        // p.fill(240);
+        // p.fill(255);
         // p.text(`${particles.length} / ${maxParticle}`, p.width / 2, p.height / 2);
 
         // frameCountがintervalの倍数時にmaxParticleまでパーティクルを追加
@@ -97,39 +140,7 @@ export class MenuOpen {
 
         // filterでlifespanが0より大きい場合はparticlesにptlを追加（ループを維持させる）
         particles = particles.filter((ptl) => ptl.lifespan > 0);
-      };
-
-      // パーティクルを生成して配列に追加
-      function addParticle() {
-        const velocityX = p.random(-3, 3);
-        const velocityY = p.random(-3, 3);
-        const radius = p.random(5, 15);
-        const lifespan = 250;
-        const damage = p.random(1, 3);
-        const particle = generateParticle.init(p.mouseX, p.mouseY, velocityX, velocityY, radius, lifespan, damage);
-        particles.push(particle);
       }
-
-      const generateParticle = {
-        // 位置、速度、半径
-        init(x, y, velocityX, velocityY, radius, lifespan, damage) {
-          return {
-            x, y, velocityX, velocityY, radius, lifespan, damage,
-          };
-        },
-
-        update(ptl) {
-          ptl.x += ptl.velocityX; // ランダムな速度を位置に代入
-          ptl.y += ptl.velocityY; // ランダムな速度を位置に代入
-          ptl.lifespan -= ptl.damage; // 毎フレームlifespanからdamageを引く
-          ptl.lifespan = p.max(ptl.lifespan); // lifespanが0以下になったら配列から削除
-        },
-
-        draw(ptl) {
-          p.fill(80, 0, 90, ptl.lifespan); //  lifespanの値を透明度に設定
-          p.circle(ptl.x, ptl.y, ptl.radius * 2);
-        },
-      };
 
       // 画面更新時にリサイズ
       p.windowResized = () => {
@@ -163,7 +174,6 @@ export class MenuOpen {
 
   _addEvent() {
     this.DOM.btn.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
-    this.DOM.navi.addEventListener(this.eventType, this._toggle.bind(this), { passive: true });
   }
 }
 
