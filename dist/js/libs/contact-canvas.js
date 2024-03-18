@@ -64,7 +64,7 @@ export class ContactCanvas {
         } else if (window.matchMedia('(min-width:600px)').matches) {
           const yNumber = 6; // y軸の円の数
           const xNumber = 12; // x軸の円の数
-          
+
           for (let j = 0; j < yNumber; j += 1) {
             for (let i = 0; i < xNumber; i += 1) {
               const translateX = (p.width / (xNumber - 1)) * i; // 円の数から-1を引いて画面端の左右の隙間を埋める

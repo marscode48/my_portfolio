@@ -97,20 +97,20 @@ export class MenuOpen {
               x, y, velocityX, velocityY, radius, lifespan, damage,
             };
           },
-  
+
           update(ptl) {
             ptl.x += ptl.velocityX; // ランダムな速度を位置に代入
             ptl.y += ptl.velocityY; // ランダムな速度を位置に代入
             ptl.lifespan -= ptl.damage; // 毎フレームlifespanからdamageを引く
             ptl.lifespan = p.max(ptl.lifespan); // lifespanが0以下になったら配列から削除
           },
-  
+
           draw(ptl) {
             p.fill(80, 0, 90, ptl.lifespan); //  lifespanの値を透明度に設定
             p.circle(ptl.x, ptl.y, ptl.radius * 2);
           },
         };
-        
+
         // パーティクルを配列に追加
         function addParticle() {
           const velocityX = p.random(-3, 3);
