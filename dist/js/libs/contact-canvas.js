@@ -40,22 +40,45 @@ export class ContactCanvas {
 
       // 円グラデーション
       p.circleGradation = () => {
-        const yNumber = 7; // y軸の円の数
-        const xNumber = 14; // x軸の円の数
+        if (window.matchMedia('(max-width: 599px)').matches) {
+          const yNumber = 5; // y軸の円の数
+          const xNumber = 5; // x軸の円の数
 
-        for (let j = 0; j < yNumber; j += 1) {
-          for (let i = 0; i < xNumber; i += 1) {
-            const translateX = (p.width / (xNumber - 1)) * i; // 円の数から-1を引いて画面端の左右の隙間を埋める
-            const translateY = (p.height / (yNumber - 1)) * j; // 円の数から-1を引いて画面端の左右の隙間を埋める
+          console.log(xNumber);
 
-            const mouseDist = p.dist(translateX, translateY, p.mouseX, p.mouseY); // 円ごとにマウスからの距離を計算
-            const circleDiameter = p.map(mouseDist, 0, p.dist(0, 0, p.width, p.height), 0, 150); // 距離の範囲を円のサイズの範囲に変換
+          for (let j = 0; j < yNumber; j += 1) {
+            for (let i = 0; i < xNumber; i += 1) {
+              const translateX = (p.width / (xNumber - 1)) * i; // 円の数から-1を引いて画面端の左右の隙間を埋める
+              const translateY = (p.height / (yNumber - 1)) * j; // 円の数から-1を引いて画面端の左右の隙間を埋める
 
-            const hsbDist = p.dist(translateX, translateY, p.width / 2, p.height / 2); // 円ごとに画面中央からの距離を計算
-            const hsb = p.map(hsbDist, 0, p.dist(0, 0, p.width / 2, p.height / 2), 230, 300); // 端から中央までグラデーション
+              const mouseDist = p.dist(translateX, translateY, p.mouseX, p.mouseY); // 円ごとにマウスからの距離を計算
+              const circleDiameter = p.map(mouseDist, 0, p.dist(0, 0, p.width, p.height), 0, 100); // 距離の範囲を円のサイズの範囲に変換
 
-            p.fill(hsb, 100, 75);
-            p.circle(translateX, translateY, circleDiameter);
+              const hsbDist = p.dist(translateX, translateY, p.width / 2, p.height / 2); // 円ごとに画面中央からの距離を計算
+              const hsb = p.map(hsbDist, 0, p.dist(0, 0, p.width / 2, p.height / 2), 230, 300); // 端から中央までグラデーション
+
+              p.fill(hsb, 100, 75);
+              p.circle(translateX, translateY, circleDiameter);
+            }
+          }
+        } else if (window.matchMedia('(min-width:600px)').matches) {
+          const yNumber = 6; // y軸の円の数
+          const xNumber = 12; // x軸の円の数
+          
+          for (let j = 0; j < yNumber; j += 1) {
+            for (let i = 0; i < xNumber; i += 1) {
+              const translateX = (p.width / (xNumber - 1)) * i; // 円の数から-1を引いて画面端の左右の隙間を埋める
+              const translateY = (p.height / (yNumber - 1)) * j; // 円の数から-1を引いて画面端の左右の隙間を埋める
+
+              const mouseDist = p.dist(translateX, translateY, p.mouseX, p.mouseY); // 円ごとにマウスからの距離を計算
+              const circleDiameter = p.map(mouseDist, 0, p.dist(0, 0, p.width, p.height), 0, 180); // 距離の範囲を円のサイズの範囲に変換
+
+              const hsbDist = p.dist(translateX, translateY, p.width / 2, p.height / 2); // 円ごとに画面中央からの距離を計算
+              const hsb = p.map(hsbDist, 0, p.dist(0, 0, p.width / 2, p.height / 2), 230, 320); // 端から中央までグラデーション
+
+              p.fill(hsb, 100, 75);
+              p.circle(translateX, translateY, circleDiameter);
+            }
           }
         }
       };
