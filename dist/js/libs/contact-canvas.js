@@ -19,7 +19,7 @@ export class ContactCanvas {
       };
 
       p.draw = () => {
-        p.frameRate(10);
+        p.frameRate(12);
         p.colorMode(p.HSB);
         p.background(0, 0, 0);
         p.bgGradation();
