@@ -32,7 +32,6 @@
   content: attr(data-progress-text);
   display: inline-block;
   font-size: 1.5rem;
-  font-weight: 100;
   letter-spacing: 0.1em;
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
   color: #6253e1;
