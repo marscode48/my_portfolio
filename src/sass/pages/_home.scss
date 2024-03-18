@@ -941,7 +941,7 @@ About
     }
 
     &-content-title {
-      @include f_around(20, 700, 125, 30);
+      @include f_around(20, 100, 125, 30);
       display: inline-block;
       position: relative;
       text-shadow: -1px -1px $cShadowPurple, -1px 1px $cShadowPurple, 1px -1px $cShadowPurple, 1px 1px $cShadowPurple;
