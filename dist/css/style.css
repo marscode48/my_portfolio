@@ -1022,7 +1022,7 @@ About
   background-color: rgba(125, 125, 125, 0.3);
   width: calc(100vw - 40px - 10px);
   position: relative;
-  padding: 1.5vh 8vw 0;
+  padding: 2vh 8vw 0;
 }
 @media screen and (min-width: 600px) {
   .about__item {
@@ -1101,7 +1101,7 @@ About
 }
 .about__item-content-title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 100;
   letter-spacing: 0.125em;
   line-height: 1.5;
   display: inline-block;

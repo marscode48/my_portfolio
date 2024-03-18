@@ -862,7 +862,7 @@ About
     background-color: $cBgGray;
     width: calc(100vw - 40px - $about-box-shadow); // 画面横幅 - container - box-shadow
     position: relative;
-    padding: 1.5vh 8vw 0;
+    padding: 2vh 8vw 0;
 
     @include mq(md) {
       padding: min(4vh, 65px) min(15vw, 250px) 0;
