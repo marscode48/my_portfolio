@@ -32,7 +32,10 @@
     &::after {
       content: attr(data-progress-text);
       display: inline-block;
-      @include f_around(30, 100, 100, false);
+      @include f_around(15, 100, 100, false);
+      @include mq(lg) {
+        @include f_around(20, false, false, false);
+      }
       background: linear-gradient(
       to right,
       $cMainPurple1,
@@ -54,8 +57,13 @@
   // ローダー
   & .pace-progress-inner {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
+
+    @include mq(lg) {
+      width: 100px;
+      height: 100px;
+    }
   
     &::before, &::after {
       content: '';
@@ -79,8 +87,8 @@
         $cMainPurple3,
         $cMainPurple4
       );
-      filter: blur(5px);
-      scale: 1.1;
+      filter: blur(1px);
+      scale: 1.05;
       z-index: -1;
       @include animation(
         $name: loader-rotate,

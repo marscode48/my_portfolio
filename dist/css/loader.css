@@ -31,7 +31,7 @@
 .pace .pace-progress::after {
   content: attr(data-progress-text);
   display: inline-block;
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: 100;
   letter-spacing: 0.1em;
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
@@ -40,13 +40,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+@media screen and (min-width: 960px) {
+  .pace .pace-progress::after {
+    font-size: 2rem;
+  }
+}
 .pace.pace-inactive {
   display: none;
 }
 .pace .pace-progress-inner {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
+}
+@media screen and (min-width: 960px) {
+  .pace .pace-progress-inner {
+    width: 100px;
+    height: 100px;
+  }
 }
 .pace .pace-progress-inner::before, .pace .pace-progress-inner::after {
   content: "";
@@ -62,8 +73,8 @@
 }
 .pace .pace-progress-inner::after {
   background: linear-gradient(to right, #6253e1, #852d91, #a3a1ff, #f24645);
-  filter: blur(5px);
-  scale: 1.1;
+  filter: blur(1px);
+  scale: 1.05;
   z-index: -1;
   animation-name: loader-rotate;
   animation-duration: 0.8s;
