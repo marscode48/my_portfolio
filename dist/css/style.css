@@ -1886,6 +1886,7 @@ Contact
   margin: 0 auto;
 }
 .article-page .parallax {
+  position: relative;
   height: 100svh;
   width: 100%;
   display: flex;
