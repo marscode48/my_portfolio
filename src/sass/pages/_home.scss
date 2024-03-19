@@ -1221,7 +1221,7 @@ Contact
   }
 
   &__item {
-    @include f_around(12, false, 100, 12);
+    @include f_around(12, 100, 100, 12);
     color: $cWhite;
     transition: 1s all cubic-bezier(0.37, 0, 0.63, 1);
 
@@ -1263,7 +1263,7 @@ Contact
 
   &__copyright {
     margin-top: 40px;
-    @include f_around(10, false, 100, 10);
+    @include f_around(10, 100, 100, 10);
     text-align: center;
     color: $cWhite;
 
