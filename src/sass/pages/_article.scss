@@ -21,7 +21,7 @@
 
   // パララックス
   & .parallax {
-    height: 100vh;
+    height: 100svh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 100vh; // 高さを低くすると動き（パララックス）は早くなる
+      height: 100svh; // 高さを低くすると動き（パララックス）は早くなる
       width: 100%;
       border-radius: 8px;
       background: url("../../images/article-1.jpg") no-repeat top / cover;

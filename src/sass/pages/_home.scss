@@ -95,7 +95,7 @@
   left: 0;
   z-index: 30;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
@@ -245,11 +245,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: calc(100vh - 60px);
+  height: calc(100svh - 60px);
   position: relative;
 
   @include mq(lg) {
-    height: calc(100vh - 80px);
+    height: calc(100svh - 80px);
   }
 
   &__inner {
@@ -741,7 +741,7 @@ About
 ---------------------------------*/
 .about {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
 
   &__inner {
     display: grid;
