@@ -20,10 +20,9 @@ export class ArticleParallaxAnimation {
     const palTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.parallax',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.5,
-        pin: true,
+        start: 'top-=6 top', // appear-upの6px分を考慮
+        end: 'bottom-=6 25%', // appear-upの6px分を考慮
+        scrub: 1,
         // markers: true,
       },
     });
@@ -40,7 +39,7 @@ export class ArticleParallaxAnimation {
         autoAlpha: 1,
         y: 0,
         duration: 0.1,
-      }, `topLabel+=${i / 20}`);
+      }, `topLabel+=${i / 50}`);
     });
 
     // パララックス
