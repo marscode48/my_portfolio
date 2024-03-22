@@ -22,11 +22,15 @@
   // パララックス
   & .parallax {
     position: relative;
-    height: 100svh;
+    height: 80svh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include mq(lg) {
+      height: 100svh;
+    }
 
     &::after {
       content: "";
@@ -55,10 +59,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 100svh; // 高さを低くすると動き（パララックス）は早くなる
+      height: 80svh; // 高さを低くすると動き（パララックス）は早くなる
       width: 100%;
       border-radius: 8px;
-      background: url("../../images/article-1.jpg") no-repeat top / cover;
+      background: url("../../images/article-01.jpg") no-repeat top / cover;
+
+      @include mq(lg) {
+        height: 100svh; // 高さを低くすると動き（パララックス）は早くなる
+      }
 
       &::after {
         content: "";

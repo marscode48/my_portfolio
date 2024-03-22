@@ -1887,11 +1887,16 @@ Contact
 }
 .article-page .parallax {
   position: relative;
-  height: 100svh;
+  height: 80svh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (min-width: 960px) {
+  .article-page .parallax {
+    height: 100svh;
+  }
 }
 .article-page .parallax::after {
   content: "";
@@ -1914,10 +1919,15 @@ Contact
   position: absolute;
   top: 0;
   left: 0;
-  height: 100svh;
+  height: 80svh;
   width: 100%;
   border-radius: 8px;
-  background: url("../../images/article-1.jpg") no-repeat top/cover;
+  background: url("../../images/article-01.jpg") no-repeat top/cover;
+}
+@media screen and (min-width: 960px) {
+  .article-page .parallax__img {
+    height: 100svh;
+  }
 }
 .article-page .parallax__img::after {
   content: "";
