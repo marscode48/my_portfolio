@@ -166,14 +166,8 @@
     width: 100px; // 円形の始点
     height: 100px; // 円形の始点
     border-radius: 50%;
-    background: linear-gradient(
-      to top right,
-      $cMainPurple1,
-      $cMainPurple2,
-      $cMainPurple3,
-      $cMainPurple4
-    );
-    opacity: 0.8;
+    background: linear-gradient(-135deg, $cMainPurple1 53%, $cMainPurple2 55% 57%, $cMainPurple3 59% 61%,  $cMainPurple4 63%);
+    opacity: 0.6;
     transform: scale(0); // scaleで全体に拡大
     right: -50px;
     top: -50px;
