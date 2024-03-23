@@ -526,7 +526,7 @@ li {
   top: 0;
   transform: translateX(-50%);
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 0.05em;
 }
 .mv__scrolltext::after {
