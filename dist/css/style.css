@@ -1106,7 +1106,6 @@ About
 }
 .about__item-content-title {
   font-size: 2rem;
-  font-weight: 100;
   letter-spacing: 0.125em;
   line-height: 1.5;
   display: inline-block;
@@ -1377,7 +1376,6 @@ Contact
 }
 .footer__item {
   font-size: 1.2rem;
-  font-weight: 100;
   letter-spacing: 0.1em;
   line-height: 1;
   color: #fff;
@@ -1419,7 +1417,6 @@ Contact
 .footer__copyright {
   margin-top: 40px;
   font-size: 1rem;
-  font-weight: 100;
   letter-spacing: 0.1em;
   line-height: 1;
   text-align: center;
