@@ -214,18 +214,24 @@
     }
 
     &__circle-bg {
-      transform: scale(25);
+      transform: scale(35);
 
       @include mq(md) {
-        transform: scale(50);
+        transform: scale(60);
       }
 
-      @include mq(md) {
-        transform: scale(75);
+      @include mq(lg) {
+        transform: scale(70);
       }
 
-      @include mq(xl) {
+      // フルHD以上のブラウザ
+      @media screen and (min-width: 1920px) {
         transform: scale(100);
+      }
+
+      // 4K以上のブラウザ
+      @media screen and (min-width: 3840px) {
+        transform: scale(200);
       }
     }
   }

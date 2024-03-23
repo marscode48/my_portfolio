@@ -375,8 +375,8 @@ li {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(to top right, #6253e1, #852d91, #a3a1ff, #f24645);
-  opacity: 0.8;
+  background: linear-gradient(-135deg, #6253e1 53%, #852d91 55% 57%, #a3a1ff 59% 61%, #f24645 63%);
+  opacity: 0.6;
   transform: scale(0);
   right: -50px;
   top: -50px;
@@ -428,21 +428,26 @@ li {
   transition-delay: 0.49s;
 }
 .menu-open .gnav__circle-bg {
-  transform: scale(25);
+  transform: scale(35);
 }
 @media screen and (min-width: 600px) {
   .menu-open .gnav__circle-bg {
-    transform: scale(50);
+    transform: scale(60);
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
   .menu-open .gnav__circle-bg {
-    transform: scale(75);
+    transform: scale(70);
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1920px) {
   .menu-open .gnav__circle-bg {
     transform: scale(100);
+  }
+}
+@media screen and (min-width: 3840px) {
+  .menu-open .gnav__circle-bg {
+    transform: scale(200);
   }
 }
 
