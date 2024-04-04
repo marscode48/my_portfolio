@@ -2096,12 +2096,6 @@ Contact
 /*--------------------------------
 ワークスヒーロー
 ---------------------------------*/
-.works {
-  /* フェードモード時の共通調整 */
-  /* /フェードモード時の共通調整 */
-  /* .anm-startedクラス付与 */
-  /* /.anm-startedクラス付与 */
-}
 .works .swiper-fade .swiper-slide {
   transition-property: opacity, transform !important;
   pointer-events: none;

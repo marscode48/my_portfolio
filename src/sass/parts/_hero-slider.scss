@@ -5,7 +5,7 @@
 ---------------------------------*/
 .works {
 
-  /* フェードモード時の共通調整 */  
+  // フェードモード時の共通調整
   & .swiper-fade .swiper-slide {
     transition-property: opacity, transform !important;
     pointer-events: none;
@@ -14,7 +14,7 @@
   & .swiper-fade .swiper-slide-active {
     pointer-events: auto;
   }
-  /* /フェードモード時の共通調整 */
+  // フェードモード時の共通調整
 
   & .slide {
     display: grid;
@@ -150,7 +150,7 @@
     }
   }
 
-  /* .anm-startedクラス付与 */
+  // .anm-startedクラス付与
   & .swiper-slide.anm-started .slide__title,
   & .swiper-slide.anm-started .slide__text,
   & .swiper-slide.anm-started .slide__link {
@@ -196,7 +196,7 @@
   & .swiper-slide.anm-finished .slide__link {
     animation-delay: 0.4s;
   }
-  /* /.anm-startedクラス付与 */
+  // .anm-startedクラス付与
 
   & .swiper-pagination {
     position: absolute;
