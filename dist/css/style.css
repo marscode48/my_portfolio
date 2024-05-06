@@ -2059,10 +2059,120 @@ Contact
 /*--------------------------------
 下層：Contactページ
 ---------------------------------*/
-.contact-page .appear.up.inview .contact-page__list.item:nth-child(1) {
+.contact-page .appear.up.inview .contact-page__wrapper.item:nth-child(1) {
   transition-delay: 0.8s;
+  animation-name: form-shadow;
+  animation-duration: 1.8s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-delay: 0.8s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.contact-page__wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8%;
+  color: #fff;
+  border-radius: 20px;
+  background-color: rgba(125, 125, 125, 0.3);
+}
+@media screen and (min-width: 960px) {
+  .contact-page__wrapper {
+    padding: 50px;
+  }
 }
 
+.form__item + .form__item {
+  margin-top: 30px;
+}
+.form__title {
+  display: block;
+  font-weight: 700;
+}
+.form__title + .form__radio, .form__input, .form__textarea {
+  margin-top: 10px;
+}
+.form__note {
+  font-size: 1rem;
+  margin-left: 5px;
+}
+.form__require {
+  font-size: 1rem;
+  color: #a3a1ff;
+  margin-left: 10px;
+}
+.form__radio {
+  display: block;
+}
+@media screen and (min-width: 960px) {
+  .form__radio {
+    display: inline-block;
+  }
+}
+.form__radio + .form__radio {
+  margin-top: 5px;
+}
+@media screen and (min-width: 960px) {
+  .form__radio + .form__radio {
+    margin-top: 0px;
+    margin-left: 35px;
+  }
+}
+.form__input {
+  width: 100%;
+  color: #000;
+  padding: 8px;
+  border: solid 1px #7d7d7d;
+  border-radius: 5px;
+  background-color: #fff;
+}
+@media screen and (min-width: 960px) {
+  .form__input {
+    width: 300px;
+  }
+}
+.form input[type=radio] + label {
+  margin-left: 5px;
+}
+.form input[type=tel] {
+  width: 100%;
+}
+@media screen and (min-width: 960px) {
+  .form input[type=tel] {
+    width: 200px;
+  }
+}
+.form__textarea {
+  width: 100%;
+  min-height: 200px;
+  color: #000;
+  padding: 8px;
+  border: 1px solid #7d7d7d;
+  border-radius: 5px;
+  background-color: #fff;
+  resize: vertical;
+}
+@media screen and (min-width: 960px) {
+  .form__textarea {
+    min-width: 500px;
+  }
+}
+.form__link {
+  margin-top: 50px;
+}
+.form__btn {
+  border: 0;
+}
+
+@keyframes form-shadow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), inset 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0px 0px 5px 5px #cf00ff, inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
+  }
+}
 /*--------------------------------
 マウスストーカー
 ---------------------------------*/

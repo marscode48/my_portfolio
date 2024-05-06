@@ -7,8 +7,135 @@
 .contact-page {
 
   & .appear.up.inview {
-    .contact-page__list.item:nth-child(1) {
+    .contact-page__wrapper.item:nth-child(1) {
       transition-delay: 0.8s;
+
+      @include animation(
+        $name: form-shadow,
+        $duration: 1.8s,
+        $timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940),
+        $delay: 0.8s,
+        $iteration-count: 1,
+        $direction: normal,
+        $fill-mode: forwards
+      );
     }
+  }
+
+  &__wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 8%;
+    color: $cWhite;
+    border-radius: 20px;
+    background-color: $cBgGray;
+
+    @include mq(lg) {
+      padding: 50px;
+    }
+  }
+}
+
+// フォーム
+.form {
+
+  &__item + &__item {
+    margin-top: 30px;
+  }
+
+  &__title {
+    display: block;
+    font-weight: 700;
+  }
+
+  &__title + &__radio, &__input, &__textarea {
+    margin-top: 10px;
+  }
+  
+  &__note {
+    @include f_around(10, false, false, false);
+    margin-left: 5px;
+  }
+
+  &__require {
+    @include f_around(10, false, false, false);
+    color: $cMainPurple3;
+    margin-left: 10px;
+  }
+
+  &__radio {
+    display: block;
+
+    @include mq(lg) {
+      display: inline-block;
+    }
+  }
+
+  &__radio + &__radio {
+    margin-top: 5px;
+
+    @include mq(lg) {
+      margin-top: 0px;
+      margin-left: 35px;        
+    }
+  } 
+
+  &__input {
+    width: 100%;
+    color: $cBlack;
+    padding: 8px;
+    border: solid 1px $cBorderGray;
+    border-radius: 5px;
+    background-color: $cWhite;
+
+    @include mq(lg) {
+      width: 300px;
+    }
+  }
+  
+  & input[type="radio"] + label {
+    margin-left: 5px;
+  }
+
+  & input[type="tel"] {
+    width: 100%;
+
+    @include mq(lg) {
+      width: 200px;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 200px;
+    color: $cBlack;
+    padding: 8px;
+    border: 1px solid $cBorderGray;
+    border-radius: 5px;
+    background-color: $cWhite;
+    resize: vertical; // ユーザーによる縦方向のリサイズを許可
+
+    @include mq(lg) {
+      min-width: 500px;
+    }
+  }
+
+  &__link {
+    margin-top: 50px;  
+  }
+
+  &__btn {
+    border: 0;
+  }
+}
+
+@keyframes form-shadow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0),
+    inset 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0px 0px 5px 5px $cShadowPurple,
+    inset 0 0 18px 3px rgba(0, 0, 0, 0.7);
   }
 }
