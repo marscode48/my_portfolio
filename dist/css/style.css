@@ -1924,7 +1924,21 @@ Contact
   height: 80svh;
   width: 100%;
   border-radius: 8px;
-  background: url("../../images/article-01.jpg") no-repeat top/cover;
+}
+.article-page .parallax__img.bg-mars-design {
+  background: url("../../images/article-mars-design.jpg") no-repeat top/cover;
+}
+.article-page .parallax__img.bg-mars-cafe {
+  background: url("../../images/article-mars-cafe.jpg") no-repeat top/cover;
+}
+.article-page .parallax__img.bg-mars-code {
+  background: url("../../images/article-mars-code.jpg") no-repeat top/cover;
+}
+.article-page .parallax__img.bg-liberte {
+  background: url("../../images/article-liberte.jpg") no-repeat top/cover;
+}
+.article-page .parallax__img.bg-mars-vintage {
+  background: url("../../images/article-mars-vintage.jpg") no-repeat top/cover;
 }
 @media screen and (min-width: 960px) {
   .article-page .parallax__img {
