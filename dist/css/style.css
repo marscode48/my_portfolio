@@ -2241,6 +2241,7 @@ Contact
 }
 @media screen and (min-width: 600px) {
   .works .slide {
+    row-gap: 40px;
     height: 50vh;
   }
 }
@@ -2248,7 +2249,6 @@ Contact
   .works .slide {
     height: 500px;
     padding: 0 8rem;
-    row-gap: 40px;
   }
 }
 .works .slide__img-wrapper {
