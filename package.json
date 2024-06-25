@@ -40,7 +40,9 @@
     "imagemin-pngquant": "^9.0.2",
     "install": "^0.13.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.156.1"
+  },
   "gulp-config": {
     "sizes": [
       [
