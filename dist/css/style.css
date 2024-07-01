@@ -923,7 +923,7 @@ About
 ---------------------------------*/
 .about {
   position: relative;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
 .about__inner {
   display: grid;
